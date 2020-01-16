@@ -1,0 +1,52 @@
+0	       Iflag
+64,128         nux,nuz (must be odd)
+64,64          nqx,nqz (must be odd)
+64,64          nqx2,nqz2 (must be odd)
+1              nrz (must be odd)
+16.E0          Ulim
+2.0E-1         Ucrit
+1.E-4          Qxi
+0.6E0          Qxf
+1.E-4          Qzi
+0.6E0          Qzf
+"Auto  "       InitialLevel ("Choose" or "Auto  " or "Null  ")
+2.0E-4         Iw0   (For the case InitialLevel="Choose")
+0              AsympT (Asymptotic state for T waves, 1: Yes, 0: No)
+2.5            Kappae
+2.5            Kappai
+0.0E-3         RatioNf
+5.E0           Uf
+1.0E0          RTfTe
+0.0E-4         RatioNb
+-6.E0          Ub
+1.0E0          RTbTe
+1.0E0          RTeTi 
+5.0E-3         G (Plasma parameter)
+4.0E-3         Ve2C2
+"Yes"          Lemis ("Yes" or "No ")
+"No "          LdecayLS ("Yes" or "No ")
+"No "          LdecayLT ("Yes" or "No ")
+"No "          LdecayST ("Yes" or "No ")
+"No "          LdecayTT ("Yes" or "No ")q
+"No "          LscatLL ("Yes" or "No ")
+"No "          LscatLT ("Yes" or "No ")
+"Yes"          Semis ("Yes" or "No ")
+"No "          SdecayLL ("Yes" or "No ")
+"No "          SdecayLT ("Yes" or "No ")
+"No "          Sscat ("Yes" or "No ")
+"No "          TdecayLL ("Yes" or "No ")
+"No "          TdecayLS ("Yes" or "No ")
+"No "          TdecayTL ("Yes" or "No ")
+"No "          TscatLT ("Yes" or "No ")
+"Yes"          CollTerm ("Yes" or "No ")
+"Complete"     CollTermForm ("Complete" or "Expanded")
+"Yes"          Gcoll ("Yes" or "No")
+"Yes"          GcollEvol ("Yes" or "No ")
+"Yes"          Bremss ("Yes" or "No ")
+"Yes"          BremssEvol ("Yes" or "No ")
+"Yes"          NewEff_Init ("Yes" or "No ")
+"Yes"          SpontEmis ("Yes" or "No ")
+"Yes"          ScatElSpo ("Yes" or "No ")
+"Yes"          RenormFe ("Yes" or "No ")
+"No "          DerivLn ("Yes" or "No ")
+

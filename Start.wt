@@ -1,0 +1,9 @@
+1.0E-1       DTau
+1.0E+2       TauAdd     ! Final time: Tau2= Tau1+TauAdd
+"Yes"        TimeEvol ("Yes" or "No ")
+"No "        OneDfiles ("Yes" or "No ")
+"Yes"        TwoDfiles ("Yes" or "No ")
+"No "        Onecolumnfiles ("Yes" or "No ")
+"No "        ADcoefficients ("Yes" or "No ")
+
+
