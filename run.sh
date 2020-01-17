@@ -26,7 +26,7 @@
 ### ifort for serial code running at MSI laptop (i7-8750H Coffeelake) ###
 ifort -c -double-size 64 -xCOFFEELAKE -mtune=coffeelake -fma zetaFunc_m.f90
 ifort -c -double-size 64 -xCOFFEELAKE -mtune=coffeelake -fma Qsimp_m.f90
-ifort -double-size 64  -xCOFFEELAKE -mtune=coffeelake -fma wt_lst_cdbk.f90 -o tevol Qsimp_m.o zetaFunc_m.o
+ifort -double-size 64  -xCOFFEELAKE -mtune=coffeelake -fma wt_lst_cdbk_wp.f90 -o tevol Qsimp_m.o zetaFunc_m.o
 rm *.mod
 # time ./tevol & 
 # rm WARNING*
