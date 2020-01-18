@@ -713,7 +713,7 @@ contains
        end do
 
     case("Null  ")
-       Iw0= 0.E0
+       Iw0= 0.E0_wp
        ILp= Iw0
        ILm= Iw0
        ISp= Iw0
@@ -811,8 +811,8 @@ contains
 
     m= 1   ! Auxiliary quantity, for the spatial profile.
 
-    ! AA= SQRT(1.+3./RTeTi)/SQRT(RMiMe)/SQRT(2.)
-    ! Geff= G/(2.*SQRT(2.)*(4.*Pi)**2)
+    ! AA= SQRT(1._wp+3._wp/RTeTi)/SQRT(RMiMe)/SQRT(2._wp)
+    ! Geff= G/(2._wp*SQRT(2._wp)*(4._wp*Pi)**2)
 
     if (AuxInitialLevel==0._wp) then
        ILinit= Iw0
@@ -889,7 +889,7 @@ contains
           !      * SQRT(VRTeTs(m)/VRNeNs(m))*VRNeNs(m)*VRTeTs(m) &
           !      * ((1._wp+Zsq2/Q2/VRTeTs(m)/(Kappae-1.5_wp))**(-Kappae)/SQRT(VRTeTS(m)*Kappae) &
           !      * GAMMA(Kappae)/GAMMA(Kappae-0.5_wp) &
-          !      + (1+Zsq2/Q2/(Kappai-1.5_wp)*RMiMe/VRTiTs(m))**(-(Kappai)) &
+          !      + (1._wp+Zsq2/Q2/(Kappai-1.5_wp)*RMiMe/VRTiTs(m))**(-(Kappai)) &
           !      * GAMMA(Kappai)/GAMMA(Kappai-0.5_wp) &
           !      * SQRT(RMiMe/VRTiTs(m)/(Kappai-1.5_wp))) + BremS0) &
           !      / (2._wp*SQRT(Pi)*(AA/2._wp)*Zlq*Zsq &
@@ -897,7 +897,7 @@ contains
           !      * ((1._wp+Zsq2/Q2/VRTeTs(m)/(Kappae-1.5_wp))**(-(Kappae+1._wp)) &
           !      / SQRT(VRTeTs(m)**3*(Kappae-1.5_wp)**3) &
           !      * GAMMA(Kappae+1._wp)/GAMMA(Kappae-0.5_wp) &
-          !      + (1+Zsq2/Q2/(Kappai-1.5_wp)*RMiMe/VRTiTs(m))**(-(Kappai+1)) &
+          !      + (1._wp+Zsq2/Q2/(Kappai-1.5_wp)*RMiMe/VRTiTs(m))**(-(Kappai+1)) &
           !      * GAMMA(Kappai+1._wp)/GAMMA(Kappai-0.5_wp) &
           !      * SQRT(RMiMe/VRTiTs(m)/(Kappai-1.5_wp)**3)/VRTiTs(m)) - 2._wp*GcollS0)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1635,7 +1635,7 @@ contains
                          Aux2_Rcd(3)= S1
                          Aux2_Rcd(4)= S2
                          !      IF (Qz>Qx) THEN
-                         !      IF (Qz<0.) THEN
+                         !      IF (Qz<0._wp) THEN
                          !      ELSE
                          do kqzp= 1,nqz
                             Qzp= VQz(kqzp)
@@ -1695,7 +1695,7 @@ contains
                          Aux2_Rcd(3)= S1
                          Aux2_Rcd(4)= S2
                          !      IF (Qz>Qx) THEN
-                         !      IF (Qz<0.) THEN
+                         !      IF (Qz<0._wp) THEN
                          !      ELSE
                          do kqzp= 1,nqz
                             Qzp= VQz(kqzp)
@@ -1755,7 +1755,7 @@ contains
                          Aux2_Rcd(3)= S1
                          Aux2_Rcd(4)= S2
                          !      IF (Qz>Qx) THEN
-                         !      IF (Qz<0.) THEN
+                         !      IF (Qz<0._wp) THEN
                          !      ELSE
                          do kqzp= 1,nqz
                             Qzp= VQz(kqzp)
@@ -1815,7 +1815,7 @@ contains
                          Aux2_Rcd(3)= S1
                          Aux2_Rcd(4)= S2
                          !      IF (Qz>Qx) THEN
-                         !      IF (Qz<0.) THEN
+                         !      IF (Qz<0._wp) THEN
                          !      ELSE
                          do kqzp= 1,nqz
                             Qzp= VQz(kqzp)
@@ -1933,7 +1933,7 @@ contains
                          Aux2_Rcd(3)= S1
                          Aux2_Rcd(4)= S2
                          !      IF (Qz>Qx) THEN
-                         !      IF (Qz<0.) THEN
+                         !      IF (Qz<0._wp) THEN
                          !      ELSE
                          do kqzp= 1,nqz
                             Qzp= VQz(kqzp)
@@ -1993,7 +1993,7 @@ contains
                          Aux2_Rcd(3)= S1
                          Aux2_Rcd(4)= S2
                          !      IF (Qz>Qx) THEN
-                         !      IF (Qz<0.) THEN
+                         !      IF (Qz<0._wp) THEN
                          !      ELSE
                          do kqzp= 1,nqz
                             Qzp= VQz(kqzp)
@@ -2053,7 +2053,7 @@ contains
                          Aux2_Rcd(3)= S1
                          Aux2_Rcd(4)= S2
                          !      IF (Qz>Qx) THEN
-                         !      IF (Qz<0.) THEN
+                         !      IF (Qz<0._wp) THEN
                          !      ELSE
                          do kqzp= 1,nqz2
                             Qzp= VQz2(kqzp)
@@ -2113,7 +2113,7 @@ contains
                          Aux2_Rcd(3)= S1
                          Aux2_Rcd(4)= S2
                          !      IF (Qz>Qx) THEN
-                         !      IF (Qz<0.) THEN
+                         !      IF (Qz<0._wp) THEN
                          !      ELSE
                          do kqzp= 1,nqz2
                             Qzp= VQz2(kqzp)
@@ -2173,7 +2173,7 @@ contains
                          Aux2_Rcd(3)= S1
                          Aux2_Rcd(4)= S2
                          !      IF (Qz>Qx) THEN
-                         !      IF (Qz<0.) THEN
+                         !      IF (Qz<0._wp) THEN
                          !      ELSE
                          do kqzp= 1,nqz2
                             Qzp= VQz2(kqzp)
@@ -2314,46 +2314,47 @@ contains
   end subroutine Coef_A
 
   subroutine Coef_D !! restart from here
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     use Phys_Constants
     implicit none
-    real :: Ux,Uz,Qx,Qx2,Qz,Qz2
-    real :: AbsUz,AbsUx
-    real :: EsLq1,EsLq2
-    real :: Q1,Q12
-    real :: Q2,Q22
-    real :: Auxxx,Auxxz,Auxzz
-    real, dimension(nqx,nqz) :: Iwave
-    real, dimension(nqz) :: Vxq
-    real, dimension(nqx) :: Vzq
-    real, dimension(nqx) :: VxDxx,VxDxz,VxDzz
-    real, dimension(nqz) :: VzDxx,VzDxz,VzDzz
+    real(wp) :: Ux,Uz,Qx,Qx2,Qz,Qz2
+    real(wp) :: AbsUz,AbsUx
+    real(wp) :: EsLq1,EsLq2
+    real(wp) :: Q1,Q12
+    real(wp) :: Q2,Q22
+    real(wp) :: Auxxx,Auxxz,Auxzz
+    real(wp), dimension(nqx,nqz) :: Iwave
+    real(wp), dimension(nqz) :: Vxq
+    real(wp), dimension(nqx) :: Vzq
+    real(wp), dimension(nqx) :: VxDxx,VxDxz,VxDzz
+    real(wp), dimension(nqz) :: VzDxx,VzDxz,VzDzz
     integer :: i,l,m,sigma
     integer :: ires1,ires2
     integer :: j
 
     j= 1   ! Auxiliary quantity, for the spatial profile.
     !   Initialization of the Dij:
-    Dxx= 0.
-    Dxz= 0.
-    Dzx= 0.
-    Dzz= 0.
+    Dxx= 0._wp
+    Dxz= 0._wp
+    Dzx= 0._wp
+    Dzz= 0._wp
 
     do m= 1,nuz
        Uz= VUz(m)
-       if (Uz==0.) Uz= sign(1._wp,Uz)*EpsMin
+       if (Uz==0._wp) Uz= sign(1._wp,Uz)*EpsMin
        AbsUz= abs(Uz)
        do l= 1,nux
           Ux= VUx(l)
-          if (Ux==0.) Ux= EpsMin
+          if (Ux==0._wp) Ux= EpsMin
           AbsUx= abs(Ux)
           if (AbsUz>=Ux) then
              do sigma= -1,1,2
-                VxDxx= 0.
-                VxDxz= 0.
-                VxDzz= 0.
+                VxDxx= 0._wp
+                VxDxz= 0._wp
+                VxDzz= 0._wp
                 if (sigma==1) then
                    Iwave= ILp
                 else
@@ -2363,7 +2364,7 @@ contains
                    Qx= VQx(i)
                    Qx2= Qx**2
                    Q1= Qzr1D(l,m,i,sigma)
-                   if (Q1>0.) then
+                   if (Q1>0._wp) then
                       ires1= IQzr1D(l,m,i,sigma)
                       Q12= Q1**2
                       Vxq(:)= Iwave(i,:)
@@ -2372,12 +2373,12 @@ contains
                       VxDxz(i)= VxDxz(i)+Qx*Q1/(Qx2+Q12) * EsLq1
                       VxDzz(i)= VxDzz(i)+Q12/(Qx2+Q12) * EsLq1
                    else
-                      VxDxx(i)= VxDxx(i)+0.
-                      VxDxz(i)= VxDxz(i)+0.
-                      VxDzz(i)= VxDzz(i)+0.
+                      VxDxx(i)= VxDxx(i)+0._wp
+                      VxDxz(i)= VxDxz(i)+0._wp
+                      VxDzz(i)= VxDzz(i)+0._wp
                    end if
                    Q2= Qzr2D(l,m,i,sigma)
-                   if (Q2>0.) then
+                   if (Q2>0._wp) then
                       ires2= IQzr2D(l,m,i,sigma)
                       Q22= Q2**2
                       Vxq(:)= Iwave(i,:)
@@ -2386,24 +2387,24 @@ contains
                       VxDxz(i)= VxDxz(i)+(-Qx*Q2)/(Qx2+Q22) * EsLq2
                       VxDzz(i)= VxDzz(i)+Q22/(Qx2+Q22) * EsLq2
                    else
-                      VxDxx(i)= VxDxx(i)+0.
-                      VxDxz(i)= VxDxz(i)+0.
-                      VxDzz(i)= VxDzz(i)+0.
+                      VxDxx(i)= VxDxx(i)+0._wp
+                      VxDxz(i)= VxDxz(i)+0._wp
+                      VxDzz(i)= VxDzz(i)+0._wp
                    end if
                 end do
                 call Simpson(VQx,VxDxx,nqx,Auxxx)
                 call Simpson(VQx,VxDxz,nqx,Auxxz)
                 call Simpson(VQx,VxDzz,nqx,Auxzz)
-                Dxx(l,m)= Dxx(l,m)+(2./AbsUz)*Auxxx
-                Dxz(l,m)= Dxz(l,m)+(2./AbsUz)*Auxxz
-                Dzx(l,m)= Dzx(l,m)+(2./AbsUz)*Auxxz
-                Dzz(l,m)= Dzz(l,m)+(2./AbsUz)*Auxzz
+                Dxx(l,m)= Dxx(l,m)+(2._wp/AbsUz)*Auxxx
+                Dxz(l,m)= Dxz(l,m)+(2._wp/AbsUz)*Auxxz
+                Dzx(l,m)= Dzx(l,m)+(2._wp/AbsUz)*Auxxz
+                Dzz(l,m)= Dzz(l,m)+(2._wp/AbsUz)*Auxzz
              end do
           else
              do sigma= -1,1,2
-                VzDxx= 0.
-                VzDxz= 0.
-                VzDzz= 0.
+                VzDxx= 0._wp
+                VzDxz= 0._wp
+                VzDzz= 0._wp
                 if (sigma==1) then
                    Iwave= ILp
                 else
@@ -2413,7 +2414,7 @@ contains
                    Qz= VQz(i)
                    Qz2= Qz**2
                    Q1= Qxr1D(l,m,i,sigma)
-                   if (Q1>0.) then
+                   if (Q1>0._wp) then
                       ires1= IQxr1D(l,m,i,sigma)
                       Q12= Q1**2
                       Vzq(:)= Iwave(:,i)
@@ -2422,12 +2423,12 @@ contains
                       VzDxz(i)= VzDxz(i)+Q1*Qz/(Q12+Qz2) * EsLq1
                       VzDzz(i)= VzDzz(i)+Qz2/(Q12+Qz2) * EsLq1
                    else
-                      VzDxx(i)= VzDxx(i)+0.
-                      VzDxz(i)= VzDxz(i)+0.
-                      VzDzz(i)= VzDzz(i)+0.
+                      VzDxx(i)= VzDxx(i)+0._wp
+                      VzDxz(i)= VzDxz(i)+0._wp
+                      VzDzz(i)= VzDzz(i)+0._wp
                    end if
                    Q2= Qxr2D(l,m,i,sigma)
-                   if (Q2>0.) then
+                   if (Q2>0._wp) then
                       ires2= IQxr2D(l,m,i,sigma)
                       Q22= Q2**2
                       Vzq(:)= Iwave(:,i)
@@ -2436,18 +2437,18 @@ contains
                       VzDxz(i)= VzDxz(i)+(-Q2*Qz)/(Q22+Qz2) * EsLq2
                       VzDzz(i)= VzDzz(i)+Qz2/(Q22+Qz2) * EsLq2
                    else
-                      VzDxx(i)= VzDxx(i)+0.
-                      VzDxz(i)= VzDxz(i)+0.
-                      VzDzz(i)= VzDzz(i)+0.
+                      VzDxx(i)= VzDxx(i)+0._wp
+                      VzDxz(i)= VzDxz(i)+0._wp
+                      VzDzz(i)= VzDzz(i)+0._wp
                    end if
                 end do
                 call Simpson(VQz,VzDxx,nqz,Auxxx)
                 call Simpson(VQz,VzDxz,nqz,Auxxz)
                 call Simpson(VQz,VzDzz,nqz,Auxzz)
-                Dxx(l,m)= Dxx(l,m)+(2./AbsUx)*Auxxx
-                Dxz(l,m)= Dxz(l,m)+(2./AbsUx)*Auxxz
-                Dzx(l,m)= Dzx(l,m)+(2./AbsUx)*Auxxz
-                Dzz(l,m)= Dzz(l,m)+(2./AbsUx)*Auxzz
+                Dxx(l,m)= Dxx(l,m)+(2._wp/AbsUx)*Auxxx
+                Dxz(l,m)= Dxz(l,m)+(2._wp/AbsUx)*Auxxz
+                Dzx(l,m)= Dzx(l,m)+(2._wp/AbsUx)*Auxxz
+                Dzz(l,m)= Dzz(l,m)+(2._wp/AbsUx)*Auxzz
              end do
           end if
        end do
@@ -2457,50 +2458,51 @@ contains
   end subroutine Coef_D
 
   subroutine Coef_Lwave(sigma,Dfdux,Dfduz,CoefA,CoefB)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     use Phys_Constants
     implicit none
-    real :: Ux,Qx,Qz
-    real :: Qx2,Qz2,Q2,Q,Uresp,Uresm
-    real :: Zlq,Zlqp,Zlqdif
-    real :: Ztqp,Ztqdif
-    real :: Aux,AuxSE,Aux1,D1,AuxCoef
-    real :: AuxScatElSpo
-    !REAL :: AuxScatElInd
-    real :: CoefEA,CoefLLSdA,CoefLLTdA,CoefLSTdA,CoefLTTdA,CoefLLLsA,CoefLLTsA
-    real :: CoefEB,CoefLLSdB,CoefLLTdB,CoefLSTdB,CoefLTTdB,CoefLLLsB,CoefLLTsB
-    real :: BremLA,GcollLB
-    real :: Qxp,Qzp,Qxp2,Qzp2
-    real :: Qxdif,Qzdif
-    real :: Iqp,Iqdif,Iqpp,Iqpm
-    real :: Fesum,Femax,Fef,Feb
-    ! real :: Fekappa
-    real :: Uz
-    real :: Auxe,Aux0
-    real :: ILinit,ISinit,ITinit
-    real :: Phip,Phi,Sphip,Cphip
-    real :: Aalpha,AuxNum
-    real :: Qstar,Qs
-    real :: Beta
-    real :: Qp,Qp2
-    real :: BremL0,BremS0,GcollL0,GcollS0
-    real, dimension(nux) :: VintuxA,VauxuxA
-    real, dimension(nux) :: VintuxB,VauxuxB
-    real, dimension(nuz) :: VauxuzA,VintuzA
-    real, dimension(nuz) :: VauxuzB,VintuzB
-    real, dimension(nux,nuz) :: Dfdux,Dfduz
-    real, dimension(nqz) :: VauxqzA,VauxqzB
-    real, dimension(nqx,nqz) :: CoefA,CoefB
-    !REAL, DIMENSION(nqx,nqz) :: BremssL
-    real, dimension(nqx,nqz,-1:1) :: EcalL
-    real, dimension(nqx,nqz,-1:1) :: EcalS
-    real, dimension(nqx,nqz,-1:1) :: EcalT
-    real, dimension(nqx) :: Vauxqxp,Vauxqxdif
-    real, dimension(nqx) :: VintqxA,VintqxB
-    real, dimension(nqz) :: VintqzA,VintqzB
-    real, dimension(nph) :: VintPhipA,VintPhipB
+    real(wp) :: Ux,Qx,Qz
+    real(wp) :: Qx2,Qz2,Q2,Q,Uresp,Uresm
+    real(wp) :: Zlq,Zlqp,Zlqdif
+    real(wp) :: Ztqp,Ztqdif
+    real(wp) :: Aux,AuxSE,Aux1,D1,AuxCoef
+    real(wp) :: AuxScatElSpo
+    !REAL(WP) :: AuxScatElInd
+    real(wp) :: CoefEA,CoefLLSdA,CoefLLTdA,CoefLSTdA,CoefLTTdA,CoefLLLsA,CoefLLTsA
+    real(wp) :: CoefEB,CoefLLSdB,CoefLLTdB,CoefLSTdB,CoefLTTdB,CoefLLLsB,CoefLLTsB
+    real(wp) :: BremLA,GcollLB
+    real(wp) :: Qxp,Qzp,Qxp2,Qzp2
+    real(wp) :: Qxdif,Qzdif
+    real(wp) :: Iqp,Iqdif,Iqpp,Iqpm
+    real(wp) :: Fesum,Femax,Fef,Feb
+    ! real(wp) :: Fekappa
+    real(wp) :: Uz
+    real(wp) :: Auxe,Aux0
+    real(wp) :: ILinit,ISinit,ITinit
+    real(wp) :: Phip,Phi,Sphip,Cphip
+    real(wp) :: Aalpha,AuxNum
+    real(wp) :: Qstar,Qs
+    real(wp) :: Beta
+    real(wp) :: Qp,Qp2
+    real(wp) :: BremL0,BremS0,GcollL0,GcollS0
+    real(wp), dimension(nux) :: VintuxA,VauxuxA
+    real(wp), dimension(nux) :: VintuxB,VauxuxB
+    real(wp), dimension(nuz) :: VauxuzA,VintuzA
+    real(wp), dimension(nuz) :: VauxuzB,VintuzB
+    real(wp), dimension(nux,nuz) :: Dfdux,Dfduz
+    real(wp), dimension(nqz) :: VauxqzA,VauxqzB
+    real(wp), dimension(nqx,nqz) :: CoefA,CoefB
+    !REAL(WP), DIMENSION(nqx,nqz) :: BremssL
+    real(wp), dimension(nqx,nqz,-1:1) :: EcalL
+    real(wp), dimension(nqx,nqz,-1:1) :: EcalS
+    real(wp), dimension(nqx,nqz,-1:1) :: EcalT
+    real(wp), dimension(nqx) :: Vauxqxp,Vauxqxdif
+    real(wp), dimension(nqx) :: VintqxA,VintqxB
+    real(wp), dimension(nqz) :: VintqzA,VintqzB
+    real(wp), dimension(nph) :: VintPhipA,VintPhipB
     integer :: i,k,l,sigma
     integer :: m
     integer :: sigmap,sigmapp
@@ -2524,9 +2526,9 @@ contains
        AuxScatElSpo= 0.E0_wp
     end if
     !IF(ScatElInd=="Yes") THEN
-    ! AuxScatElInd= 1.E0
+    ! AuxScatElInd= 1.E0_wp
     !ELSE
-    ! AuxScatElInd= 0.E0
+    ! AuxScatElInd= 0.E0_wp
     !END IF
     BremLA= 0._wp
     GcollLB= 0._wp
@@ -2556,27 +2558,27 @@ contains
                       call Fe_Init(Ux,Uz,Fesum,Femax,Fef,Feb)
                       VintuxA(l)= AuxSE * VRNeNs(m)*Geff*Fesum
                       ! VintuxB(l)= -(sigma*Zlq) &
-                      !      * ( -Qx*2.*Ux*Femax/VRTeTs(m) & 
-                      !      - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                      !      * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
+                      !      * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) & 
+                      !      - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                      !      * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
                       !      / (Kappae-1._wp))**(-1._wp)*Fef &
-                      !      - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                      !      * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
+                      !      - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                      !      * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
                       !      / (Kappae-1._wp))**(-1._wp)*Feb &
-                      !      + Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                      !      + Qz*2.*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                      !      * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
+                      !      + Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                      !      + Qz*2._wp*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                      !      * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
                       !      / (Kappae-1._wp))**(-1._wp)*Fef &
-                      !      + Qz*2.*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                      !      * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
+                      !      + Qz*2._wp*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                      !      * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
                       !      / (Kappae-1._wp))**(-1._wp)*Feb )
                       VintuxB(l)= -(sigma*Zlq) &
-                           * ( -Qx*2.*Ux*Femax/VRTeTs(m) &
-                           - Qx*2.*Ux*Fef/VRTfTs(m) &
-                           - Qx*2.*Ux*Feb/VRTbTs(m) &
-                           + Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                           + Qz*2.*(Uz-Uf)*Fef/VRTfTs(m) &
-                           + Qz*2.*(Uz-Ub)*Feb/VRTbTs(m) )
+                           * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) &
+                           - Qx*2._wp*Ux*Fef/VRTfTs(m) &
+                           - Qx*2._wp*Ux*Feb/VRTbTs(m) &
+                           + Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                           + Qz*2._wp*(Uz-Uf)*Fef/VRTfTs(m) &
+                           + Qz*2._wp*(Uz-Ub)*Feb/VRTbTs(m) )
                    else
                       VauxuzA(:)= AuxSE * VRNeNs(m)*Geff*Fe(l,:)
                       VauxuzB(:)= (sigma*Zlq)*(-Qx*Dfdux(l,:) &
@@ -2591,27 +2593,27 @@ contains
                       call Fe_Init(Ux,Uz,Fesum,Femax,Fef,Feb)
                       VintuxA(l)= VintuxA(l) + AuxSE*VRNeNs(m)*Geff*Fesum
                       ! VintuxB(l)= VintuxB(l)+ (sigma*Zlq) &
-                      !      * ( -Qx*2.*Ux*Femax/VRTeTs(m) & 
-                      !      - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                      !      * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
+                      !      * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) & 
+                      !      - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                      !      * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
                       !      / (Kappae-1._wp))**(-1._wp)*Fef &
-                      !      - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                      !      * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
+                      !      - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                      !      * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
                       !      / (Kappae-1._wp))**(-1._wp)*Feb &
-                      !      - Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                      !      - Qz*2.*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                      !      * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
+                      !      - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                      !      - Qz*2._wp*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                      !      * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
                       !      / (Kappae-1._wp))**(-1._wp)*Fef &
-                      !      - Qz*2.*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                      !      * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
+                      !      - Qz*2._wp*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                      !      * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
                       !      / (Kappae-1._wp))**(-1._wp)*Feb )
                       VintuxB(l)= VintuxB(l)+ (sigma*Zlq) &
-                           * ( -Qx*2.*Ux*Femax/VRTeTs(m)-Qx*2. &
+                           * ( -Qx*2._wp*Ux*Femax/VRTeTs(m)-Qx*2. &
                            * Ux*Fef/VRTfTs(m) &
-                           - Qx*2.*Ux*Feb/VRTbTs(m) &
-                           - Qz*2.*(Uz-U0)*Femax/VRTeTs(m)-Qz*2. &
+                           - Qx*2._wp*Ux*Feb/VRTbTs(m) &
+                           - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m)-Qz*2. &
                            * (Uz-Uf)*Fef/VRTfTs(m) &
-                           - Qz*2.*(Uz-Ub)*Feb/VRTbTs(m) )
+                           - Qz*2._wp*(Uz-Ub)*Feb/VRTbTs(m) )
                    else
                       VauxuzA(:)= AuxSE * VRNeNs(m)*Geff*Fe(l,:)
                       VauxuzB(:)= (sigma*Zlq)*(Qx*Dfdux(l,:) &
@@ -2639,30 +2641,30 @@ contains
                          call Fe_Init(Ux,Uz,Fesum,Femax,Fef,Feb)
                          VintuzA(l)= AuxSE * VRNeNs(m)*Geff*Fesum
                          ! VintuzB(l)= -(sigma*Zlq) &
-                         !      * ( -Qx*2.*Ux*Femax/VRTeTs(m) & 
-                         !      - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                         !      * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
+                         !      * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) & 
+                         !      - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                         !      * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
                          !      / (Kappae-1._wp))**(-1._wp)*Fef &
-                         !      - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                         !      * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
+                         !      - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                         !      * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
                          !      / (Kappae-1._wp))**(-1._wp)*Feb &
-                         !      + Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                         !      + Qz*2.*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                         !      * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
+                         !      + Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                         !      + Qz*2._wp*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                         !      * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
                          !      / (Kappae-1._wp))**(-1._wp)*Fef &
-                         !      + Qz*2.*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                         !      * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
+                         !      + Qz*2._wp*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                         !      * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
                          !      / (Kappae-1._wp))**(-1._wp)*Feb )
                          VintuzB(l)= -(sigma*Zlq) &
-                              * ( -Qx*2.*Ux*Femax/VRTeTs(m) &
-                              - Qx*2.*Ux*Fef/VRTfTs(m) &
-                              - Qx*2.*Ux*Feb/VRTbTs(m) &
-                              + Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                              + Qz*2.*(Uz-Uf)*Fef/VRTfTs(m) &
-                              + Qz*2.*(Uz-Ub)*Feb/VRTbTs(m) )
+                              * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) &
+                              - Qx*2._wp*Ux*Fef/VRTfTs(m) &
+                              - Qx*2._wp*Ux*Feb/VRTbTs(m) &
+                              + Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                              + Qz*2._wp*(Uz-Uf)*Fef/VRTfTs(m) &
+                              + Qz*2._wp*(Uz-Ub)*Feb/VRTbTs(m) )
                       else
-                         VintuzA(l)= 0.0
-                         VintuzB(l)= 0.0
+                         VintuzA(l)= 0._wp
+                         VintuzB(l)= 0._wp
                       end if
                    else
                       VauxuxA(:)= AuxSE * VRNeNs(m)*Geff*Fe(:,l)
@@ -2679,30 +2681,30 @@ contains
                          call Fe_Init(Ux,Uz,Fesum,Femax,Fef,Feb)
                          VintuzA(l)= VintuzA(l) + AuxSE * VRNeNs(m)*Geff*Fesum
                          ! VintuzB(l)= VintuzB(l)+ (sigma*Zlq) &
-                         !      * ( -Qx*2.*Ux*Femax/VRTeTs(m) & 
-                         !      - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                         !      * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
+                         !      * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) & 
+                         !      - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                         !      * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
                          !      / (Kappae-1._wp))**(-1._wp)*Fef &
-                         !      - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                         !      * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
+                         !      - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                         !      * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
                          !      / (Kappae-1._wp))**(-1._wp)*Feb &
-                         !      - Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                         !      - Qz*2.*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                         !      * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
+                         !      - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                         !      - Qz*2._wp*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                         !      * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m) &
                          !      / (Kappae-1._wp))**(-1._wp)*Fef &
-                         !      - Qz*2.*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                         !      * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
+                         !      - Qz*2._wp*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                         !      * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m) &
                          !      / (Kappae-1._wp))**(-1._wp)*Feb )
                          VintuzB(l)= VintuzB(l) + (sigma*Zlq) &
-                              * ( -Qx*2.*Ux*Femax/VRTeTs(m) &
-                              - Qx*2.*Ux*Fef/VRTfTs(m) &
-                              - Qx*2.*Ux*Feb/VRTbTs(m) &
-                              - Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                              - Qz*2.*(Uz-Uf)*Fef/VRTfTs(m) &
-                              - Qz*2.*(Uz-Ub)*Feb/VRTbTs(m) )
+                              * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) &
+                              - Qx*2._wp*Ux*Fef/VRTfTs(m) &
+                              - Qx*2._wp*Ux*Feb/VRTbTs(m) &
+                              - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                              - Qz*2._wp*(Uz-Uf)*Fef/VRTfTs(m) &
+                              - Qz*2._wp*(Uz-Ub)*Feb/VRTbTs(m) )
                       else
-                         VintuzA(l)= VintuzA(l)+ 0.0
-                         VintuzB(l)= VintuzB(l)+ 0.0
+                         VintuzA(l)= VintuzA(l)+ 0._wp
+                         VintuzB(l)= VintuzB(l)+ 0._wp
                       end if
                    else
                       VauxuxA(:)= AuxSE * VRNeNs(m)*Geff*Fe(:,l)
@@ -2720,8 +2722,8 @@ contains
                 CoefEB= (Pi/Q2/(abs(Qx))) * VRNeNs(m)*Aux
              end if
           else
-             CoefEA= 0.
-             CoefEB= 0.
+             CoefEA= 0._wp
+             CoefEB= 0._wp
           end if
 
           if(LdecayLS=="Yes") then
@@ -2731,10 +2733,10 @@ contains
              EcalS(:,:,-1)= ISm(:,:)
              EcalS(:,:,+1)= ISp(:,:)
              !   IF (Qz>Qx) THEN
-             !   IF (Qz<0.) THEN
+             !   IF (Qz<0._wp) THEN
              !   ELSE
-             VauxqzA= 0.   ! Initializes the integrand of the Qzp integrals
-             VauxqzB= 0.
+             VauxqzA= 0._wp   ! Initializes the integrand of the Qzp integrals
+             VauxqzB= 0._wp
              do kqzp= 1,nqz
                 Qzp= VQz(kqzp)
                 Qzp2= Qzp**2
@@ -2758,7 +2760,7 @@ contains
                                  /sqrt(1._wp+1.5_wp*Beta*(Qxp2+Qzp2))) &
                                  + S1*S3*sigmapp*AA*sqrt(VRTeTs(m))*Qxdif &
                                  /sqrt(Qxdif**2+Qzdif**2+EpsMin) &
-                                 /(1._wp+Beta*(Qxdif**2+Qzdif**2)/2.)**(1.5_wp)
+                                 /(1._wp+Beta*(Qxdif**2+Qzdif**2)/2._wp)**(1.5_wp)
                             AuxCoef= sqrt((Qxdif)**2+(Qzdif)**2) &
                                  * (S1*Qx*Qxp+S2*Qz*Qzp)**2 &
                                  /(Qxp2+Qzp2+EpsMin)/(abs(D1)+EpsMin)
@@ -2789,8 +2791,8 @@ contains
              CoefLLSdB= AA/VRNeNs(m)/sqrt(VRNeNs(m)*VRTeTs(m)) &
                   * (sigma*Zlq/Q2) * CoefLLSdB
           else
-             CoefLLSdA= 0.
-             CoefLLSdB= 0.
+             CoefLLSdA= 0._wp
+             CoefLLSdB= 0._wp
           end if
 
           if(LdecayLT=="Yes") then
@@ -2800,10 +2802,10 @@ contains
              EcalT(:,:,-1)= ITm(:,:)
              EcalT(:,:,+1)= ITp(:,:)
              !   IF (Qz>Qx) THEN
-             !   IF (Qz<0.) THEN
+             !   IF (Qz<0._wp) THEN
              !   ELSE
-             VauxqzA= 0.   ! Initializes the integrand of the Qzp integrals
-             VauxqzB= 0.
+             VauxqzA= 0._wp   ! Initializes the integrand of the Qzp integrals
+             VauxqzB= 0._wp
              do kqzp= 1,nqz
                 Qzp= VQz(kqzp)
                 Qzp2= Qzp**2
@@ -2841,7 +2843,7 @@ contains
                                  * Zlq*Iqp*Iqdif
                             VauxqzB(kqzp)= VauxqzB(kqzp)-AuxCoef &
                                  * (S2*sigmap*Zlqp*Iqdif &
-                                 +S3*sigmapp*2.*Ztqdif*Iqp)
+                                 +S3*sigmapp*2._wp*Ztqdif*Iqp)
                          end do
                       end do
                    end do
@@ -2852,11 +2854,11 @@ contains
              call Simpson(VQz,VauxqzB,nqz,Aux)
              CoefLLTdB= Aux
              !   END IF
-             CoefLLTdA= (1._wp/16.) * (sigma*Zlq/Q2) * CoefLLTdA
-             CoefLLTdB= (1._wp/16.) * (sigma*Zlq/Q2) * CoefLLTdB
+             CoefLLTdA= (1._wp/16._wp) * (sigma*Zlq/Q2) * CoefLLTdA
+             CoefLLTdB= (1._wp/16._wp) * (sigma*Zlq/Q2) * CoefLLTdB
           else
-             CoefLLTdA= 0.
-             CoefLLTdB= 0.
+             CoefLLTdA= 0._wp
+             CoefLLTdB= 0._wp
           end if
 
           if(LdecayST=="Yes") then
@@ -2866,10 +2868,10 @@ contains
              EcalT(:,:,-1)= ITm(:,:)
              EcalT(:,:,+1)= ITp(:,:)
              !   IF (Qz>Qx) THEN
-             !   IF (Qz<0.) THEN
+             !   IF (Qz<0._wp) THEN
              !   ELSE
-             VauxqzA= 0.   ! Initializes the integrand of the Qzp integrals
-             VauxqzB= 0.
+             VauxqzA= 0._wp   ! Initializes the integrand of the Qzp integrals
+             VauxqzB= 0._wp
              do kqzp= 1,nqz
                 Qzp= VQz(kqzp)
                 Qzp2= Qzp**2
@@ -2890,7 +2892,7 @@ contains
                             Zlqp= ZL(Qxp,Qzp)
                             Ztqdif= ZT(Qxdif,abs(Qzdif))
                             D1= -S2*sigmap*AA*Qxp/sqrt(Qxp2+Qzp2+EpsMin) &
-                                 / (1._wp+(Qxp2+Qzp2)/2.)**(1.5_wp) &
+                                 / (1._wp+(Qxp2+Qzp2)/2._wp)**(1.5_wp) &
                                  + S1*S3*sigmapp*Qxdif/Ve2C2 &
                                  / sqrt(1._wp+(Qxdif**2+Qzdif**2)/Ve2C2)
                             AuxCoef= sqrt(Qxp2+Qzp2)*(Q2*(Qxp2+Qzp2) &
@@ -2907,7 +2909,7 @@ contains
                                  + AuxCoef*sigma*Zlq*Iqp*Iqdif
                             VauxqzB(kqzp)= VauxqzB(kqzp) &
                                  -AuxCoef*(S2*sigmap*Zlqp*Iqdif &
-                                 +S3*sigmapp*2.*Ztqdif*Iqp)
+                                 +S3*sigmapp*2._wp*Ztqdif*Iqp)
                          end do
                       end do
                    end do
@@ -2918,11 +2920,11 @@ contains
              call Simpson(VQz,VauxqzB,nqz,Aux)
              CoefLSTdB= Aux
              !   END IF
-             CoefLSTdA= (AA/2.) * (sigma*Zlq/Q2) * CoefLSTdA
-             CoefLSTdB= (AA/2.) * (sigma*Zlq/Q2) * CoefLSTdB
+             CoefLSTdA= (AA/2._wp) * (sigma*Zlq/Q2) * CoefLSTdA
+             CoefLSTdB= (AA/2._wp) * (sigma*Zlq/Q2) * CoefLSTdB
           else
-             CoefLSTdA= 0.
-             CoefLSTdB= 0.
+             CoefLSTdA= 0._wp
+             CoefLSTdB= 0._wp
           end if
 
           if(LdecayTT=="Yes") then
@@ -2930,10 +2932,10 @@ contains
              EcalT(:,:,-1)= ITm(:,:)
              EcalT(:,:,+1)= ITp(:,:)
              !   IF (Qz>Qx) THEN
-             !   IF (Qz<0.) THEN
+             !   IF (Qz<0._wp) THEN
              !   ELSE
-             VauxqzA= 0.   ! Initializes the integrand of the Qzp integrals
-             VauxqzB= 0.
+             VauxqzA= 0._wp   ! Initializes the integrand of the Qzp integrals
+             VauxqzB= 0._wp
              do kqzp= 1,nqz
                 Qzp= VQz(kqzp)
                 Qzp2= Qzp**2
@@ -2969,8 +2971,8 @@ contains
                             VauxqzA(kqzp)= VauxqzA(kqzp) &
                                  + AuxCoef*sigma*Zlq*Iqp*Iqdif
                             VauxqzB(kqzp)= VauxqzB(kqzp) &
-                                 - AuxCoef*(S2*sigmap*2.*Ztqp*Iqdif &
-                                 +S3*sigmapp*2.*Ztqdif*Iqp)
+                                 - AuxCoef*(S2*sigmap*2._wp*Ztqp*Iqdif &
+                                 +S3*sigmapp*2._wp*Ztqdif*Iqp)
                          end do
                       end do
                    end do
@@ -2981,11 +2983,11 @@ contains
              call Simpson(VQz,VauxqzB,nqz,Aux)
              CoefLTTdB= Aux
              !   END IF
-             CoefLTTdA= (sigma*Zlq/16.) * CoefLTTdA
-             CoefLTTdB= (sigma*Zlq/16.) * CoefLTTdB
+             CoefLTTdA= (sigma*Zlq/16._wp) * CoefLTTdA
+             CoefLTTdB= (sigma*Zlq/16._wp) * CoefLTTdB
           else
-             CoefLTTdA= 0.
-             CoefLTTdB= 0.
+             CoefLTTdA= 0._wp
+             CoefLTTdB= 0._wp
           end if
 
           if(LscatLL=="Yes") then
@@ -2993,12 +2995,12 @@ contains
              EcalL(:,:,-1)= ILm(:,:)
              EcalL(:,:,+1)= ILp(:,:)
              ! Electron contribution:
-             VintqxA= 0.
-             VintqxB= 0.
+             VintqxA= 0._wp
+             VintqxB= 0._wp
              do i= 1,nqx
                 Qxp= VQx(i)
-                VintqzA= 0.
-                VintqzB= 0.
+                VintqzA= 0._wp
+                VintqzB= 0._wp
                 do k= 1,nqz
                    Qzp= VQz(k)
                    Zlqp= ZL(Qxp,Qzp)
@@ -3007,8 +3009,8 @@ contains
                          Qxdif= Qx-S1*Qxp
                          S2= sigma*sigmap !The other value of S2 gives negligible contribution.
                          Qzdif= Qz-S2*Qzp
-                         if((Qxdif**2+Qzdif**2)<=1.E-6) then
-                            Auxe= 0.
+                         if((Qxdif**2+Qzdif**2)<=1.e-6_wp) then
+                            Auxe= 0._wp
                          else
                             Aux0= (S1*Qx*Qxp+S2*Qz*Qzp)**2 &
                                  /(Qxp**2+Qzp**2+EpsMin) &
@@ -3036,8 +3038,8 @@ contains
              CoefLLLsB= 1._wp/sqrt(Pi)/VRNeNs(m) * (sigma*Zlq/Q2) * Aux
              ! Ion contribution, spontaneous scattering:
              Qstar= Q
-             VintPhipA= 0.
-             VintPhipB= 0.
+             VintPhipA= 0._wp
+             VintPhipB= 0._wp
              do i= 1,nph
                 Phip= VPhip(i)
                 Qxp= Qstar*sin(Phip)
@@ -3046,7 +3048,7 @@ contains
                      (Qzp>=VQz(nqz) .or. Qzp<=VQz(1)) ) then
                    Qp2= Qxp**2+Qzp**2
                    Qp= sqrt(Qp2)
-                   if(Qp<=5.E-3) Qp=5.E-3
+                   if(Qp<=5.e-3_wp) Qp=5.e-3_wp
                    call Locate(VQQ,nqcd,Qp,ires)
                    call Aitp1d2(nqcd,VQQ,BremL1D,Qp,Aux,ires)
                    BremL0= Aux
@@ -3077,36 +3079,36 @@ contains
                 end do
              end do
              call Simpson(VPhip,VintPhipA,nph,Aux)
-             CoefLLLsA= CoefLLLsA + (2./3.)/VRNeNs(m)*(Zlq)**3*AuxSE*Geff*Aux
+             CoefLLLsA= CoefLLLsA + (2._wp/3._wp)/VRNeNs(m)*(Zlq)**3*AuxSE*Geff*Aux
              call Simpson(VPhip,VintPhipB,nph,Aux)
-             CoefLLLsB= CoefLLLsB + (2./3.)/VRNeNs(m)*(Zlq)**3*AuxSE*Geff*Aux
+             CoefLLLsB= CoefLLLsB + (2._wp/3._wp)/VRNeNs(m)*(Zlq)**3*AuxSE*Geff*Aux
              ! Induced scattering due to the ions:
-             VintPhipB= 0.
+             VintPhipB= 0._wp
              do i= 1,nph
                 Phip= VPhip(i)
                 Sphip= sin(Phip)
                 Cphip= cos(Phip)
                 do sigmap= -1,1,2
                    do S1= -1,1,2
-                      Aux1= (Q2+Qstar**2-2.*S1*Q*Qstar &
+                      Aux1= (Q2+Qstar**2-2._wp*S1*Q*Qstar &
                            * cos(Phi-S1*sigma*sigmap*Phip))
-                      if (Aux1<1.E-6) then
-                         AuxNum= sqrt(1.E-6)
-                         Aalpha= RMiMe/VRTiTs(m)*(9./4.)*(Qstar/Zlq)**2/1.E-6 
+                      if (Aux1<1.e-6_wp) then
+                         AuxNum= sqrt(1.e-6_wp)
+                         Aalpha= RMiMe/VRTiTs(m)*(9._wp/4._wp)*(Qstar/Zlq)**2/1.e-6_wp 
                       else
                          AuxNum= sqrt(Aux1)
-                         Aalpha= RMiMe/VRTiTs(m)*(9./4.)*(Qstar/Zlq)**2/Aux1 
+                         Aalpha= RMiMe/VRTiTs(m)*(9._wp/4._wp)*(Qstar/Zlq)**2/Aux1 
                       end if
                       Aux= (cos(Phi-S1*sigma*sigmap*Phip))**2*AuxNum
                       do SS= -1,1,2
-                         Qs= Qstar+SS/sqrt(2.*Aalpha)
+                         Qs= Qstar+SS/sqrt(2._wp*Aalpha)
                          Qxp= Qs*Sphip
                          Qzp= Qs*Cphip
                          if( (Qxp>=VQx(nqx) .or. Qxp<=VQx(1)) .or. &
                               (Qzp>=VQz(nqz) .or. Qzp<=VQz(1)) ) then
                             Qp2= Qxp**2+Qzp**2
                             Qp= sqrt(Qp2)
-                            if(Qp<=5.E-3) Qp=5.E-3
+                            if(Qp<=5.E-3_wp) Qp=5.E-3_wp
                             call Locate(VQQ,nqcd,Qp,ires)
                             call Aitp1d2(nqcd,VQQ,BremL1D,Qp,Aux,ires)
                             BremL0= Aux
@@ -3134,11 +3136,11 @@ contains
                 end do !sigmap
              end do
              call Simpson(VPhip,VintPhipB,nph,Aux)
-             CoefLLLsB= CoefLLLsB + (4./3.)/VRNeNs(m)/sqrt(VRTiTs(m)*RMiMe) &
-                  * exp(-0.5_wp)/sqrt(2.) * (Zlq)**2 * Aux
+             CoefLLLsB= CoefLLLsB + (4._wp/3._wp)/VRNeNs(m)/sqrt(VRTiTs(m)*RMiMe) &
+                  * exp(-0.5_wp)/sqrt(2._wp) * (Zlq)**2 * Aux
           else
-             CoefLLLsA= 0.
-             CoefLLLsB= 0.
+             CoefLLLsA= 0._wp
+             CoefLLLsB= 0._wp
           end if
 
           if(LscatLT=="Yes") then
@@ -3147,9 +3149,9 @@ contains
              EcalT(:,:,-1)= ITm(:,:)
              EcalT(:,:,+1)= ITp(:,:)
              ! Electron and ion contributions:
-             Qstar= sqrt(3./2.*Ve2C2)*Q
-             VintPhipA= 0.
-             VintPhipB= 0.
+             Qstar= sqrt(3._wp/2._wp*Ve2C2)*Q
+             VintPhipA= 0._wp
+             VintPhipB= 0._wp
              do i= 1,nph
                 Phip= VPhip(i)
                 Qxp= Qstar*sin(Phip)
@@ -3158,7 +3160,7 @@ contains
                      (Qzp>=VQz(nqz) .or. Qzp<=VQz(1)) ) then
                    Qp2= Qxp**2+Qzp**2
                    Qp= sqrt(Qp2)
-                   if(Qp<=5.E-3) Qp=5.E-3
+                   if(Qp<=5.e-3_wp) Qp=5.e-3_wp
                    call Locate(VQQ,nqcd,Qp,ires)
                    call Aitp1d2(nqcd,VQQ,BremL1D,Qp,Aux,ires)
                    BremL0= Aux
@@ -3180,34 +3182,34 @@ contains
                 do S1= -1,1,2
                    sigmap= 1._wp
                    Aux= (sin(Phi-S1*sigma*sigmap*Phip))**2
-                   VintPhipA(i)= VintPhipA(i)+Aux*Iqpp/2.
+                   VintPhipA(i)= VintPhipA(i)+Aux*Iqpp/2._wp
                    VintPhipB(i)= VintPhipB(i)-Aux
                    sigmap= -1._wp
                    Aux= (sin(Phi-S1*sigma*sigmap*Phip))**2
-                   VintPhipA(i)= VintPhipA(i)+Aux*Iqpm/2.
+                   VintPhipA(i)= VintPhipA(i)+Aux*Iqpm/2._wp
                    VintPhipB(i)= VintPhipB(i)-Aux
                 end do
              end do
              call Simpson(VPhip,VintPhipA,nph,Aux)
-             CoefLLTsA= 2.*Ve2C2/VRNeNs(m) * (Zlq)**3 * AuxSE*Geff*Aux &
-                  + 2.*Ve2C2/VRNeNs(m) * (Zlq)**3 * AuxSE*AuxScatElSpo*Geff*Aux
+             CoefLLTsA= 2._wp*Ve2C2/VRNeNs(m) * (Zlq)**3 * AuxSE*Geff*Aux &
+                  + 2._wp*Ve2C2/VRNeNs(m) * (Zlq)**3 * AuxSE*AuxScatElSpo*Geff*Aux
              call Simpson(VPhip,VintPhipB,nph,Aux)
-             CoefLLTsB= 2.*Ve2C2/VRNeNs(m) * (Zlq)**3 * AuxSE*Geff*Aux &
-                  + 2.*Ve2C2/VRNeNs(m) * (Zlq)**3 * AuxSE*AuxScatElSpo*Geff*Aux
+             CoefLLTsB= 2._wp*Ve2C2/VRNeNs(m) * (Zlq)**3 * AuxSE*Geff*Aux &
+                  + 2._wp*Ve2C2/VRNeNs(m) * (Zlq)**3 * AuxSE*AuxScatElSpo*Geff*Aux
              ! Induced scattering due to the ions:
-             VintPhipB= 0.
+             VintPhipB= 0._wp
              do i= 1,nph
                 Phip= VPhip(i)
                 Sphip= sin(Phip)
                 Cphip= cos(Phip)
                 do sigmap= -1,1,2
                    do S1= -1,1,2
-                      Aux1= (Q2+Qstar**2-2.*S1*Q*Qstar &
+                      Aux1= (Q2+Qstar**2-2._wp*S1*Q*Qstar &
                            * cos(Phi-S1*sigma*sigmap*Phip))
-                      if (Aux1<1.E-6) then
-                         AuxNum= sqrt(1.E-6)
+                      if (Aux1<1.e-6_wp) then
+                         AuxNum= sqrt(1.e-6_wp)
                          Aalpha= RMiMe/VRTiTs(m)*(1._wp/Ve2C2**2) &
-                              * (Qstar/Zlq)**2/1.E-6
+                              * (Qstar/Zlq)**2/1.e-6_wp
                       else
                          AuxNum= sqrt(Aux1)
                          Aalpha= RMiMe/VRTiTs(m)*(1._wp/Ve2C2**2) &
@@ -3215,14 +3217,14 @@ contains
                       end if
                       Aux= (sin(Phi-S1*sigma*sigmap*Phip))**2*sqrt(AuxNum)
                       do SS= -1,1,2
-                         Qs= Qstar+SS/sqrt(2.*Aalpha)
+                         Qs= Qstar+SS/sqrt(2._wp*Aalpha)
                          Qxp= Qs*Sphip
                          Qzp= Qs*Cphip
                          if( (Qxp>=VQx(nqx) .or. Qxp<=VQx(1)) .or. &
                               (Qzp>=VQz(nqz) .or. Qzp<=VQz(1)) ) then
                             Qp2= Qxp**2+Qzp**2
                             Qp= sqrt(Qp2)
-                            if(Qp<=5.E-3) Qp=5.E-3
+                            if(Qp<=5.e-3_wp) Qp=5.e-3_wp
                             call Locate(VQQ,nqcd,Qp,ires)
                             call Aitp1d2(nqcd,VQQ,BremL1D,Qp,Aux,ires)
                             BremL0= Aux
@@ -3244,23 +3246,23 @@ contains
                                call Aitp2d2(nqx,nqz,VQx,VQz,ITm,Qxp,Qzp,Iqp,ires,kres)
                             end if
                          end if
-                         VintPhipB(i)= VintPhipB(i)+Aux*Iqp/2. * SS*Qs/Qstar
+                         VintPhipB(i)= VintPhipB(i)+Aux*Iqp/2._wp * SS*Qs/Qstar
                       end do !SS
                    end do !S1
                 end do !sigmap
              end do
              call Simpson(VPhip,VintPhipB,nph,Aux)
-             CoefLLTsB= CoefLLTsB + 2.*Ve2C2/VRNeNs(m)/sqrt(VRTiTs(m)*RMiMe) &
-                  * exp(-0.5_wp)/sqrt(2.) * (Zlq)**2 * Aux
+             CoefLLTsB= CoefLLTsB + 2._wp*Ve2C2/VRNeNs(m)/sqrt(VRTiTs(m)*RMiMe) &
+                  * exp(-0.5_wp)/sqrt(2._wp) * (Zlq)**2 * Aux
           else
-             CoefLLTsA= 0.
-             CoefLLTsB= 0.
+             CoefLLTsA= 0._wp
+             CoefLLTsB= 0._wp
           end if
 
           if(GcollEvol== "Yes")then
              GcollLB=GcollLp(iqx,kqz)!-GcollLm(iqx,kqz)
           else
-             GcollLB=0.
+             GcollLB=0._wp
           end if
 
           !Brem aqui
@@ -3268,13 +3270,13 @@ contains
           if(BremssEvol== "Yes")then
              BremLA= BremLp(iqx,kqz)
           else
-             BremLA= 0.
+             BremLA= 0._wp
           end if
 
           CoefA(iqx,kqz)= CoefEA+CoefLLSdA+CoefLLTdA+CoefLSTdA+CoefLTTdA &
                +CoefLLLsA+CoefLLTsA+BremLA
           CoefB(iqx,kqz)= CoefEB+CoefLLSdB+CoefLLTdB+CoefLSTdB+CoefLTTdB &
-               +CoefLLLsB+CoefLLTsB+2.*GcollLB
+               +CoefLLLsB+CoefLLTsB+2._wp*GcollLB
        end do
     end do
 
@@ -3284,37 +3286,38 @@ contains
   end subroutine Coef_Lwave
 
   subroutine Coef_Swave(sigma,Dfdux,Dfduz,CoefA,CoefB)
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     use Phys_Constants
     implicit none
-    real :: Ux,Qx,Qz,Qx2,Qz2,Q,Q2
-    real :: Zlq,Zsq,Zsoq,Uresp,Uresm
-    real :: Aux,AuxSE,D1,AuxCoef
-    real :: CoefEA,CoefSLLdA,CoefSLTdA
-    real :: CoefEB,CoefSLLdB,CoefSLTdB
-    real :: BremSA,GcollSB
-    real :: Zlqp,Zlqdif,Ztqdif
-    real :: Muq
-    real :: Qxp,Qzp
-    real :: Qxp2,Qzp2
-    real :: Qxdif,Qzdif
-    real :: Iqp,Iqdif
-    real :: Fesum,Femax,Fef,Feb
-    ! real :: Fekappa
-    real :: Uz
-    real :: Beta
-    real, dimension(nux) :: VintuxA,VauxuxA
-    real, dimension(nux) :: VintuxB,VauxuxB
-    real, dimension(nuz) :: VauxuzA,VintuzA
-    real, dimension(nuz) :: VauxuzB,VintuzB
-    real, dimension(nux,nuz) :: Dfdux,Dfduz
-    real, dimension(nqz) :: VauxqzA,VauxqzB
-    real, dimension(nqx) :: Vauxqxp,Vauxqxdif
-    real, dimension(nqx,nqz) :: CoefA,CoefB
-    real, dimension(nqx,nqz,-1:1) :: EcalL
-    real, dimension(nqx,nqz,-1:1) :: EcalT
+    real(wp) :: Ux,Qx,Qz,Qx2,Qz2,Q,Q2
+    real(wp) :: Zlq,Zsq,Zsoq,Uresp,Uresm
+    real(wp) :: Aux,AuxSE,D1,AuxCoef
+    real(wp) :: CoefEA,CoefSLLdA,CoefSLTdA
+    real(wp) :: CoefEB,CoefSLLdB,CoefSLTdB
+    real(wp) :: BremSA,GcollSB
+    real(wp) :: Zlqp,Zlqdif,Ztqdif
+    real(wp) :: Muq
+    real(wp) :: Qxp,Qzp
+    real(wp) :: Qxp2,Qzp2
+    real(wp) :: Qxdif,Qzdif
+    real(wp) :: Iqp,Iqdif
+    real(wp) :: Fesum,Femax,Fef,Feb
+    ! real(wp) :: Fekappa
+    real(wp) :: Uz
+    real(wp) :: Beta
+    real(wp), dimension(nux) :: VintuxA,VauxuxA
+    real(wp), dimension(nux) :: VintuxB,VauxuxB
+    real(wp), dimension(nuz) :: VauxuzA,VintuzA
+    real(wp), dimension(nuz) :: VauxuzB,VintuzB
+    real(wp), dimension(nux,nuz) :: Dfdux,Dfduz
+    real(wp), dimension(nqz) :: VauxqzA,VauxqzB
+    real(wp), dimension(nqx) :: Vauxqxp,Vauxqxdif
+    real(wp), dimension(nqx,nqz) :: CoefA,CoefB
+    real(wp), dimension(nqx,nqz,-1:1) :: EcalL
+    real(wp), dimension(nqx,nqz,-1:1) :: EcalT
     integer :: l,sigma,sigmap,sigmapp
     integer :: iqx,kqz,kqzp
     integer :: iresp,iresm
@@ -3327,15 +3330,15 @@ contains
     Beta= VRTeTs(m)/VRNeNs(m)
 
     if(SpontEmis=="Yes") then
-       AuxSE= 1.E0
+       AuxSE= 1.E0_wp
     else
-       AuxSE= 0.E0
+       AuxSE= 0.E0_wp
     end if
 
-    BremSA= 0.
-    GcollSB= 0.
-    CoefA= 0.
-    CoefB= 0.
+    BremSA= 0._wp
+    GcollSB= 0._wp
+    CoefA= 0._wp
+    CoefB= 0._wp
     do iqx= 1,nqx
        Qx= VQx(iqx)
        do kqz= 1,nqz
@@ -3344,10 +3347,10 @@ contains
           Qz2= Qz**2
           Q2= Qx2+Qz2
           Q= sqrt(Q2)
-          Muq= Q**3*AA/2.
+          Muq= Q**3*AA/2._wp
           Zlq= ZL(Qx,Qz)
           Zsq= ZS(Qx,Qz)
-          Zsoq= AA*sqrt(VRTeTs(m))/sqrt(1._wp+Q2/2.*VRTeTs(m)/VRNeNs(m))
+          Zsoq= AA*sqrt(VRTeTs(m))/sqrt(1._wp+Q2/2._wp*VRTeTs(m)/VRNeNs(m))
 
           if(Semis=="Yes") then
              ! Contribution due to spontaneous and induced emission:
@@ -3363,21 +3366,21 @@ contains
                       call Fe_Init(Ux,Uz,Fesum,Femax,Fef,Feb)
                       VintuxA(l)= AuxSE * VRNeNs(m)*Geff*Fesum
                       ! VintuxB(l)= -(sigma*Zlq) &
-                      ! * ( -Qx*2.*Ux*Femax/VRTeTs(m) & 
-                      ! - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                      ! * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
-                      ! - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                      ! * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb &
-                      ! + Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                      ! + Qz*2.*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                      ! * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
-                      ! + Qz*2.*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                      ! * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb )
+                      ! * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) & 
+                      ! - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                      ! * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
+                      ! - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                      ! * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb &
+                      ! + Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                      ! + Qz*2._wp*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                      ! * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
+                      ! + Qz*2._wp*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                      ! * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb )
                       VintuxB(l)= (sigma*Zlq) &
-                           * ( Qx*2.*Ux*Femax/VRTeTs(m)+Qx*2.*Ux*Fef/VRTfTs(m) &
-                           + Qx*2.*Ux*Feb/VRTbTs(m) &
-                           - Qz*2.*(Uz-U0)*Femax/VRTeTs(m)-Qz*2.*(Uz-Uf)*Fef/VRTfTs(m) &
-                           - Qz*2.*(Uz-Ub)*Feb/VRTbTs(m) )
+                           * ( Qx*2._wp*Ux*Femax/VRTeTs(m)+Qx*2._wp*Ux*Fef/VRTfTs(m) &
+                           + Qx*2._wp*Ux*Feb/VRTbTs(m) &
+                           - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m)-Qz*2._wp*(Uz-Uf)*Fef/VRTfTs(m) &
+                           - Qz*2._wp*(Uz-Ub)*Feb/VRTbTs(m) )
                    else
                       VauxuzA(:)= AuxSE * VRNeNs(m)*Geff*Fe(l,:)
                       VauxuzB(:)= (sigma*Zlq)*(-Qx*Dfdux(l,:) &
@@ -3392,21 +3395,21 @@ contains
                       call Fe_Init(Ux,Uz,Fesum,Femax,Fef,Feb)
                       VintuxA(l)= VintuxA(l) + AuxSE*VRNeNs(m)*Geff*Fesum
                       ! VintuxB(l)= -VintuxB(l)+ (sigma*Zlq) &
-                      !  * ( -Qx*2.*Ux*Femax/VRTeTs(m) & 
-                      !  - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                      !  * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
-                      !  - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                      !  * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb &
-                      !  - Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                      !  - Qz*2.*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                      !  * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
-                      !  - Qz*2.*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                      !  * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb )
+                      !  * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) & 
+                      !  - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                      !  * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
+                      !  - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                      !  * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb &
+                      !  - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                      !  - Qz*2._wp*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                      !  * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
+                      !  - Qz*2._wp*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                      !  * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb )
                       VintuxB(l)= VintuxB(l) + (sigma*Zlq) &
-                           * ( -Qx*2.*Ux*Femax/VRTeTs(m)-Qx*2.*Ux*Fef/VRTfTs(m) &
-                           - Qx*2.*Ux*Feb/VRTbTs(m) &
-                           - Qz*2.*(Uz-U0)*Femax/VRTeTs(m)-Qz*2.*(Uz-Uf)*Fef/VRTfTs(m) &
-                           - Qz*2.*(Uz-Ub)*Feb/VRTbTs(m) )
+                           * ( -Qx*2._wp*Ux*Femax/VRTeTs(m)-Qx*2._wp*Ux*Fef/VRTfTs(m) &
+                           - Qx*2._wp*Ux*Feb/VRTbTs(m) &
+                           - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m)-Qz*2._wp*(Uz-Uf)*Fef/VRTfTs(m) &
+                           - Qz*2._wp*(Uz-Ub)*Feb/VRTbTs(m) )
                    else
                       VauxuzA(:)= AuxSE * VRNeNs(m)*Geff*Fe(l,:)
                       VauxuzB(:)= (sigma*Zlq)*(Qx*Dfdux(l,:) &
@@ -3434,24 +3437,24 @@ contains
                          call Fe_Init(Ux,Uz,Fesum,Femax,Fef,Feb)
                          VintuzA(l)= AuxSE * VRNeNs(m)*Geff*Fesum
                          ! VintuzB(l)= -(sigma*Zlq) &
-                         !  * ( -Qx*2.*Ux*Femax/VRTeTs(m) & 
-                         !  - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                         !  * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
-                         !  - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                         !  * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb &
-                         !  + Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                         !  + Qz*2.*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                         !  * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
-                         !  + Qz*2.*(Uz-Ub)*(Kappae)/(Kappae-1._wp5_wp)/VRTbTs(m) &
-                         !  * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb )
+                         !  * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) & 
+                         !  - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                         !  * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
+                         !  - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                         !  * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb &
+                         !  + Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                         !  + Qz*2._wp*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                         !  * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
+                         !  + Qz*2._wp*(Uz-Ub)*(Kappae)/(Kappae-1._wp5_wp)/VRTbTs(m) &
+                         !  * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb )
                          VintuzB(l)= (sigma*Zlq) &
-                              * ( Qx*2.*Ux*Femax/VRTeTs(m)+Qx*2.*Ux*Fef/VRTfTs(m) &
-                              + Qx*2.*Ux*Feb/VRTbTs(m) &
-                              - Qz*2.*(Uz-U0)*Femax/VRTeTs(m)-Qz*2.*(Uz-Uf)*Fef/VRTfTs(m) &
-                              - Qz*2.*(Uz-Ub)*Feb/VRTbTs(m) )
+                              * ( Qx*2._wp*Ux*Femax/VRTeTs(m)+Qx*2._wp*Ux*Fef/VRTfTs(m) &
+                              + Qx*2._wp*Ux*Feb/VRTbTs(m) &
+                              - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m)-Qz*2._wp*(Uz-Uf)*Fef/VRTfTs(m) &
+                              - Qz*2._wp*(Uz-Ub)*Feb/VRTbTs(m) )
                       else
-                         VintuzA(l)= 0.0
-                         VintuzB(l)= 0.0
+                         VintuzA(l)= 0.0_wp
+                         VintuzB(l)= 0.0_wp
                       end if
                    else
                       VauxuxA(:)= AuxSE * VRNeNs(m)*Geff*Fe(:,l)
@@ -3468,24 +3471,24 @@ contains
                          call Fe_Init(Ux,Uz,Fesum,Femax,Fef,Feb)
                          VintuzA(l)= VintuzA(l) + AuxSE * VRNeNs(m)*Geff*Fesum
                          ! VintuzB(l)= VintuzB(l)+ (sigma*Zlq) &
-                         !  * ( -Qx*2.*Ux*Femax/VRTeTs(m) & 
-                         !  - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                         !  * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
-                         !  - Qx*2.*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                         !  * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb &
-                         !  - Qz*2.*(Uz-U0)*Femax/VRTeTs(m) &
-                         !  - Qz*2.*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
-                         !  * (1+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
-                         !  - Qz*2.*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
-                         !  * (1+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb )
+                         !  * ( -Qx*2._wp*Ux*Femax/VRTeTs(m) & 
+                         !  - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                         !  * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
+                         !  - Qx*2._wp*Ux*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                         !  * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb &
+                         !  - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m) &
+                         !  - Qz*2._wp*(Uz-Uf)*(Kappae)/(Kappae-1._wp)/VRTfTs(m) &
+                         !  * (1._wp+(Ux**2+(Uz-Uf)**2)/VRTfTs(m)/(Kappae-1._wp))**(-1._wp)*Fef &
+                         !  - Qz*2._wp*(Uz-Ub)*(Kappae)/(Kappae-1._wp)/VRTbTs(m) &
+                         !  * (1._wp+(Ux**2+(Uz-Ub)**2)/VRTbTs(m)/(Kappae-1._wp))**(-1._wp)*Feb )
                          VintuzB(l)= VintuzB(l) + (sigma*Zlq) &
-                              * ( -Qx*2.*Ux*Femax/VRTeTs(m)-Qx*2.*Ux*Fef/VRTfTs(m) &
-                              - Qx*2.*Ux*Feb/VRTbTs(m) &
-                              - Qz*2.*(Uz-U0)*Femax/VRTeTs(m)-Qz*2.*(Uz-Uf)*Fef/VRTfTs(m) &
-                              - Qz*2.*(Uz-Ub)*Feb/VRTbTs(m) )
+                              * ( -Qx*2._wp*Ux*Femax/VRTeTs(m)-Qx*2._wp*Ux*Fef/VRTfTs(m) &
+                              - Qx*2._wp*Ux*Feb/VRTbTs(m) &
+                              - Qz*2._wp*(Uz-U0)*Femax/VRTeTs(m)-Qz*2._wp*(Uz-Uf)*Fef/VRTfTs(m) &
+                              - Qz*2._wp*(Uz-Ub)*Feb/VRTbTs(m) )
                       else
-                         VintuzA(l)= VintuzA(l)+ 0.0
-                         VintuzB(l)= VintuzB(l)+ 0.0
+                         VintuzA(l)= VintuzA(l)+ 0.0_wp
+                         VintuzB(l)= VintuzB(l)+ 0.0_wp
                       end if
                    else
                       VauxuxA(:)= AuxSE * VRNeNs(m)*Geff*Fe(:,l)
@@ -3502,17 +3505,17 @@ contains
                 CoefEA= CoefEA/(abs(Qx))
                 CoefEB= CoefEB/(abs(Qx))
              end if
-             CoefEA= Pi * Q*AA/2. &
+             CoefEA= Pi * Q*AA/2._wp &
                   * (VRTeTs(m))**2/sqrt(VRTeTs(m)*VRNeNs(m)) * CoefEA
-             CoefEB= Pi * Q*AA/2. &
+             CoefEB= Pi * Q*AA/2._wp &
                   * (VRTeTs(m))**2/sqrt(VRTeTs(m)*VRNeNs(m)) * CoefEB
-             Aux= sqrt(Pi)*AA/2. * VRTeTs(m)/sqrt(VRNeNs(m)) &
+             Aux= sqrt(Pi)*AA/2._wp * VRTeTs(m)/sqrt(VRNeNs(m)) &
                   * sqrt(RMiMe*RTeTi)*exp(-RMiMe/VRTiTs(m)*(Zsoq)**2)
              CoefEA= CoefEA + Aux*(AuxSE * VRNeNs(m)*Geff)
-             CoefEB= CoefEB + Aux*(- 2./VRTiTs(m)*Zlq*Zsq)
+             CoefEB= CoefEB + Aux*(- 2._wp/VRTiTs(m)*Zlq*Zsq)
           else
-             CoefEA= 0.
-             CoefEB= 0.
+             CoefEA= 0._wp
+             CoefEB= 0._wp
           end if
 
           if(SdecayLL=="Yes") then
@@ -3520,10 +3523,10 @@ contains
              EcalL(:,:,-1)= ILm(:,:)
              EcalL(:,:,+1)= ILp(:,:)
              !   IF (Qz>Qx) THEN
-             !   IF (Qz<0.) THEN
+             !   IF (Qz<0._wp) THEN
              !   ELSE
-             VauxqzA= 0.   ! Initializes the integrand of the Qzp integrals
-             VauxqzB= 0.
+             VauxqzA= 0._wp   ! Initializes the integrand of the Qzp integrals
+             VauxqzB= 0._wp
              do kqzp= 1,nqz
                 Qzp= VQz(kqzp)
                 Qzp2= Qzp**2
@@ -3567,13 +3570,13 @@ contains
              call Simpson(VQz,VauxqzB,nqz,Aux)
              CoefSLLdB= Aux
              !   END IF
-             CoefSLLdA= (AA/2.)*(sigma*Zlq)*Q &
+             CoefSLLdA= (AA/2._wp)*(sigma*Zlq)*Q &
                   /VRNeNs(m)/sqrt(VRNeNs(m)*VRTeTs(m)) * CoefSLLdA
-             CoefSLLdB= (AA/2.)*(sigma*Zlq)*Q &
+             CoefSLLdB= (AA/2._wp)*(sigma*Zlq)*Q &
                   /VRNeNs(m)/sqrt(VRNeNs(m)*VRTeTs(m)) * CoefSLLdB
           else
-             CoefSLLdA= 0.
-             CoefSLLdB= 0.
+             CoefSLLdA= 0._wp
+             CoefSLLdB= 0._wp
           end if
 
           if(SdecayLT=="Yes") then
@@ -3583,10 +3586,10 @@ contains
              EcalT(:,:,-1)= ITm(:,:)
              EcalT(:,:,+1)= ITp(:,:)
              !   IF (Qz>Qx) THEN
-             !   IF (Qz<0.) THEN
+             !   IF (Qz<0._wp) THEN
              !   ELSE
-             VauxqzA= 0.   ! Initializes the integrand of the Qzp integrals
-             VauxqzB= 0.
+             VauxqzA= 0._wp   ! Initializes the integrand of the Qzp integrals
+             VauxqzB= 0._wp
              do kqzp= 1,nqz
                 Qzp= VQz(kqzp)
                 Qzp2= Qzp**2
@@ -3617,7 +3620,7 @@ contains
                                  Iqp,Iqdif,nqcd,VQQ,BremL1D,BremS1D,GcollL1D,GcollS1D)
                             VauxqzA(kqzp)= VauxqzA(kqzp)+AuxCoef*sigma*Zlq*Iqp*Iqdif
                             VauxqzB(kqzp)= VauxqzB(kqzp)-AuxCoef*(S2*sigmap*Zlqp*Iqdif &
-                                 +S3*sigmapp*2.*Ztqdif*Iqp)
+                                 +S3*sigmapp*2._wp*Ztqdif*Iqp)
                          end do
                       end do
                    end do
@@ -3628,29 +3631,29 @@ contains
              call Simpson(VQz,VauxqzB,nqz,Aux)
              CoefSLTdB= Aux
              !   END IF
-             CoefSLTdA= (AA/2.)/VRNeNs(m)/sqrt(VRNeNs(m)*VRTeTs(m)) &
+             CoefSLTdA= (AA/2._wp)/VRNeNs(m)/sqrt(VRNeNs(m)*VRTeTs(m)) &
                   *Q*(sigma*Zlq) * CoefSLTdA
-             CoefSLTdB= (AA/2.)/VRNeNs(m)/sqrt(VRNeNs(m)*VRTeTs(m)) &
+             CoefSLTdB= (AA/2._wp)/VRNeNs(m)/sqrt(VRNeNs(m)*VRTeTs(m)) &
                   *Q*(sigma*Zlq) * CoefSLTdB
           else
-             CoefSLTdA= 0.
-             CoefSLTdB= 0.
+             CoefSLTdA= 0._wp
+             CoefSLTdB= 0._wp
           end if
 
           if(GcollEvol== "Yes")then
              GcollSB=GcollSp(iqx,kqz)
           else
-             GcollSB=0.
+             GcollSB=0._wp
           end if
 
           if(BremssEvol== "Yes")then
              BremSA= BremSp(iqx,kqz)
           else
-             BremSA= 0.
+             BremSA= 0._wp
           end if
 
           CoefA(iqx,kqz)= CoefEA+CoefSLLdA+CoefSLTdA+BremSA
-          CoefB(iqx,kqz)= CoefEB+CoefSLLdB+CoefSLTdB+2.*GcollSB
+          CoefB(iqx,kqz)= CoefEB+CoefSLLdB+CoefSLTdB+2._wp*GcollSB
        end do
     end do
 
@@ -3661,43 +3664,44 @@ contains
   end subroutine Coef_Swave
 
   subroutine Coef_Twave(sigma,CoefA,CoefB)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     use Phys_Constants
     implicit none
-    real :: Qx,Qz
-    real :: Qx2,Qz2,Q2,Q
-    real :: Zlq,Ztq,Zlqp,Zlqdif,Ztqp
-    real :: Aux,AuxSE,AuxCoef,Aux1
-    !REAL :: Aux0,Auxe,Auxi
-    real :: AuxScatElSpo
-    !REAL :: AuxScatElInd
-    real :: CoefTLLdA,CoefTLSdA,CoefTTLdA,CoefTLTsA
-    real :: CoefTLLdB,CoefTLSdB,CoefTTLdB,CoefTLTsB
-    real :: Qxp,Qzp,Qxp2,Qzp2
-    real :: Qxdif,Qzdif
-    real :: Qp,Qp2
-    real :: Iqp,Iqdif,Iqpp,Iqpm
-    real :: D1
-    real :: ILinit,ISinit,ITinit
-    real :: Phip,Phi,Sphip,Cphip
-    real :: Aalpha,AuxNum
-    real :: Qstar,Qs
-    real :: BremL0,BremS0,GcollL0,GcollS0
-    !REAL, DIMENSION(nqx) :: VintqxA,VintqxB
-    !REAL, DIMENSION(nqz) :: VintqzA,VintqzB
-    !REAL, DIMENSION(nqz) :: VauxqzA,VauxqzB
-    !REAL, DIMENSION(nqx) :: VauxqxA,VauxqxB
-    real, dimension(nqx,nqz) :: CoefA,CoefB
-    real, dimension(nqx2,nqz2,-1:1) :: EcalL2
-    real, dimension(nqx2,nqz2,-1:1) :: EcalS2
-    real, dimension(nqx2,nqz2,-1:1) :: EcalT2
-    real, dimension(nqz2) :: VauxqzA,VauxqzB
-    real, dimension(nqx2) :: Vauxqxp,Vauxqxdif
-    !REAL, DIMENSION(nqz) :: Vauxqzp,Vauxqzdif
-    real, dimension(nqx2,nqz2) :: CoefAaux,CoefBaux
-    real, dimension(nph) :: VintPhipA,VintPhipB
+    real(wp) :: Qx,Qz
+    real(wp) :: Qx2,Qz2,Q2,Q
+    real(wp) :: Zlq,Ztq,Zlqp,Zlqdif,Ztqp
+    real(wp) :: Aux,AuxSE,AuxCoef,Aux1
+    !REAL(WP) :: Aux0,Auxe,Auxi
+    real(wp) :: AuxScatElSpo
+    !REAL(WP) :: AuxScatElInd
+    real(wp) :: CoefTLLdA,CoefTLSdA,CoefTTLdA,CoefTLTsA
+    real(wp) :: CoefTLLdB,CoefTLSdB,CoefTTLdB,CoefTLTsB
+    real(wp) :: Qxp,Qzp,Qxp2,Qzp2
+    real(wp) :: Qxdif,Qzdif
+    real(wp) :: Qp,Qp2
+    real(wp) :: Iqp,Iqdif,Iqpp,Iqpm
+    real(wp) :: D1
+    real(wp) :: ILinit,ISinit,ITinit
+    real(wp) :: Phip,Phi,Sphip,Cphip
+    real(wp) :: Aalpha,AuxNum
+    real(wp) :: Qstar,Qs
+    real(wp) :: BremL0,BremS0,GcollL0,GcollS0
+    !REAL(WP), DIMENSION(nqx) :: VintqxA,VintqxB
+    !REAL(WP), DIMENSION(nqz) :: VintqzA,VintqzB
+    !REAL(WP), DIMENSION(nqz) :: VauxqzA,VauxqzB
+    !REAL(WP), DIMENSION(nqx) :: VauxqxA,VauxqxB
+    real(wp), dimension(nqx,nqz) :: CoefA,CoefB
+    real(wp), dimension(nqx2,nqz2,-1:1) :: EcalL2
+    real(wp), dimension(nqx2,nqz2,-1:1) :: EcalS2
+    real(wp), dimension(nqx2,nqz2,-1:1) :: EcalT2
+    real(wp), dimension(nqz2) :: VauxqzA,VauxqzB
+    real(wp), dimension(nqx2) :: Vauxqxp,Vauxqxdif
+    !REAL(WP), DIMENSION(nqz) :: Vauxqzp,Vauxqzdif
+    real(wp), dimension(nqx2,nqz2) :: CoefAaux,CoefBaux
+    real(wp), dimension(nph) :: VintPhipA,VintPhipB
     integer :: i,sigma
     integer :: m
     integer :: sigmap,sigmapp
@@ -3709,19 +3713,19 @@ contains
 
     m= 1   ! Auxiliary to the space profiles (just one point, for the moment)
     if(SpontEmis=="Yes") then
-       AuxSE= 1.E0
+       AuxSE= 1.e0_wp
     else
-       AuxSE= 0.E0
+       AuxSE= 0.e0_wp
     end if
     if(ScatElSpo=="Yes") then
-       AuxScatElSpo= 1.E0
+       AuxScatElSpo= 1.e0_wp
     else
-       AuxScatElSpo= 0.E0
+       AuxScatElSpo= 0.e0_wp
     end if
     !IF(ScatElInd=="Yes") THEN
-    ! AuxScatElInd= 1.E0
+    ! AuxScatElInd= 1.e0_wp
     !ELSE
-    ! AuxScatElInd= 0.E0
+    ! AuxScatElInd= 0.e0_wp
     !END IF
 
     do iqx= 1,nqx2
@@ -3747,8 +3751,8 @@ contains
 
     ! Evaluation of the decay and scattering terms using the (nqx2,nqz2) grid, for 
     ! interpolation over the (nqx,nqz) grid:
-    CoefAaux= 0.
-    CoefBaux= 0.
+    CoefAaux= 0._wp
+    CoefBaux= 0._wp
     do iqx= 1,nqx2
        Qx= VQx2(iqx)
        do kqz= 1,nqz2
@@ -3764,10 +3768,10 @@ contains
           if(TdecayLL=="Yes") then
              ! Contribution due to spontaneous and induced decay involving L waves:
              !   IF (Qz>Qx) THEN
-             !   IF (Qz<0.) THEN
+             !   IF (Qz<0._wp) THEN
              !   ELSE
-             VauxqzA= 0.   ! Initializes the integrand of the Qzp integrals
-             VauxqzB= 0.
+             VauxqzA= 0._wp   ! Initializes the integrand of the Qzp integrals
+             VauxqzB= 0._wp
              do kqzp= 1,nqz2
                 Qzp= VQz2(kqzp)
                 Qzp2= Qzp**2
@@ -3798,7 +3802,7 @@ contains
                             call Aux_Coef_Decay_z(nqx2,nqz2,ires,iresdif,&
                                  Qxp,Qzp,Qxdif,Qzdif,"L","L",VQx2,VQz2,Vauxqxp,Vauxqxdif,&
                                  Iqp,Iqdif,nqcd,VQQ,BremL1D,BremS1D,GcollL1D,GcollS1D)
-                            VauxqzA(kqzp)= VauxqzA(kqzp)+AuxCoef*sigma*2.*Ztq*Iqp*Iqdif
+                            VauxqzA(kqzp)= VauxqzA(kqzp)+AuxCoef*sigma*2._wp*Ztq*Iqp*Iqdif
                             VauxqzB(kqzp)= VauxqzB(kqzp)-AuxCoef*(S2*sigmap*Zlqp*Iqdif &
                                  +S3*sigmapp*Zlqdif*Iqp)
                          end do
@@ -3811,20 +3815,20 @@ contains
              call Simpson(VQz2,VauxqzB,nqz2,Aux)
              CoefTLLdB= Aux
              !   END IF
-             CoefTLLdA= (1._wp/32.) * (sigma*Ztq/Q2) * CoefTLLdA
-             CoefTLLdB= (1._wp/32.) * (sigma*Ztq/Q2) * CoefTLLdB
+             CoefTLLdA= (1._wp/32._wp) * (sigma*Ztq/Q2) * CoefTLLdA
+             CoefTLLdB= (1._wp/32._wp) * (sigma*Ztq/Q2) * CoefTLLdB
           else
-             CoefTLLdA= 0.
-             CoefTLLdB= 0.
+             CoefTLLdA= 0._wp
+             CoefTLLdB= 0._wp
           end if
 
           if(TdecayLS=="Yes") then
              ! Contribution due to spontaneous and induced decay involving L and S waves:
              !   IF (Qz>Qx) THEN
-             !   IF (Qz<0.) THEN
+             !   IF (Qz<0._wp) THEN
              !   ELSE
-             VauxqzA= 0.   ! Initializes the integrand of the Qzp integrals
-             VauxqzB= 0.
+             VauxqzA= 0._wp   ! Initializes the integrand of the Qzp integrals
+             VauxqzB= 0._wp
              do kqzp= 1,nqz2
                 Qzp= VQz2(kqzp)
                 Qzp2= Qzp**2
@@ -3846,7 +3850,7 @@ contains
                             Zlqdif= ZL(Qxdif,abs(Qzdif))
                             D1= -S2*sigmap*(1.5_wp*Qxp/sqrt(1._wp+1.5_wp*(Qxp2+Qzp2))) &
                                  + S1*S3*sigmapp*AA*Qxdif/sqrt(Qxdif**2+Qzdif**2+EpsMin) &
-                                 /(1._wp+(Qxdif**2+Qzdif**2)/2.)**(1.5_wp)
+                                 /(1._wp+(Qxdif**2+Qzdif**2)/2._wp)**(1.5_wp)
                             AuxCoef= sqrt((Qxdif)**2+(Qzdif)**2) &
                                  *(Q2*(Qxp2+Qzp2)-(S1*Qx*Qxp+S2*Qz*Qzp)**2) &
                                  /(Qxp2+Qzp2+EpsMin)/(abs(D1)+EpsMin)
@@ -3855,7 +3859,7 @@ contains
                             call Aux_Coef_Decay_z(nqx2,nqz2,ires,iresdif,&
                                  Qxp,Qzp,Qxdif,Qzdif,"L","S",VQx2,VQz2,Vauxqxp,Vauxqxdif,&
                                  Iqp,Iqdif,nqcd,VQQ,BremL1D,BremS1D,GcollL1D,GcollS1D)
-                            VauxqzA(kqzp)= VauxqzA(kqzp)+AuxCoef*sigma*2.*Ztq*Iqp*Iqdif
+                            VauxqzA(kqzp)= VauxqzA(kqzp)+AuxCoef*sigma*2._wp*Ztq*Iqp*Iqdif
                             VauxqzB(kqzp)= VauxqzB(kqzp)-AuxCoef*(S2*sigmap*Zlqp*Iqdif &
                                  +S3*sigmapp*Zlqdif*Iqp)
                          end do
@@ -3868,20 +3872,20 @@ contains
              call Simpson(VQz2,VauxqzB,nqz2,Aux)
              CoefTLSdB= Aux
              !   END IF
-             CoefTLSdA= (AA/2.) * (sigma*Ztq/Q2) * CoefTLSdA
-             CoefTLSdB= (AA/2.) * (sigma*Ztq/Q2) * CoefTLSdB
+             CoefTLSdA= (AA/2._wp) * (sigma*Ztq/Q2) * CoefTLSdA
+             CoefTLSdB= (AA/2._wp) * (sigma*Ztq/Q2) * CoefTLSdB
           else
-             CoefTLSdA= 0.
-             CoefTLSdB= 0.
+             CoefTLSdA= 0._wp
+             CoefTLSdB= 0._wp
           end if
 
           if(TdecayTL=="Yes") then
              ! Contribution due to spontaneous and induced decay involving L and S waves:
              !   IF (Qz>Qx) THEN
-             !   IF (Qz<0.) THEN
+             !   IF (Qz<0._wp) THEN
              !   ELSE
-             VauxqzA= 0.   ! Initializes the integrand of the Qzp integrals
-             VauxqzB= 0.
+             VauxqzA= 0._wp   ! Initializes the integrand of the Qzp integrals
+             VauxqzB= 0._wp
              do kqzp= 1,nqz2
                 Qzp= VQz2(kqzp)
                 Qzp2= Qzp**2
@@ -3910,8 +3914,8 @@ contains
                             call Aux_Coef_Decay_z(nqx2,nqz2,ires,iresdif,&
                                  Qxp,Qzp,Qxdif,Qzdif,"T","L",VQx2,VQz2,Vauxqxp,Vauxqxdif,&
                                  Iqp,Iqdif,nqcd,VQQ,BremL1D,BremS1D,GcollL1D,GcollS1D)
-                            VauxqzA(kqzp)= VauxqzA(kqzp)+AuxCoef*sigma*2.*Ztq*Iqp*Iqdif
-                            VauxqzB(kqzp)= VauxqzB(kqzp)-AuxCoef*(S2*sigmap*2.*Ztqp*Iqdif &
+                            VauxqzA(kqzp)= VauxqzA(kqzp)+AuxCoef*sigma*2._wp*Ztq*Iqp*Iqdif
+                            VauxqzB(kqzp)= VauxqzB(kqzp)-AuxCoef*(S2*sigmap*2._wp*Ztqp*Iqdif &
                                  +S3*sigmapp*Zlqdif*Iqp)
                          end do
                       end do
@@ -3923,20 +3927,20 @@ contains
              call Simpson(VQz2,VauxqzB,nqz2,Aux)
              CoefTTLdB= Aux
              !   END IF
-             CoefTTLdA= (sigma*Ztq/Ztq**2/8./Q2) * CoefTTLdA
-             CoefTTLdB= (sigma*Ztq/Ztq**2/8./Q2) * CoefTTLdB
+             CoefTTLdA= (sigma*Ztq/Ztq**2/8._wp/Q2) * CoefTTLdA
+             CoefTTLdB= (sigma*Ztq/Ztq**2/8._wp/Q2) * CoefTTLdB
           else
-             CoefTTLdA= 0.
-             CoefTTLdB= 0.
+             CoefTTLdA= 0._wp
+             CoefTTLdB= 0._wp
           end if
 
           if(TscatLT=="Yes") then
              ! Contribution due to spontaneous and induced scattering involving L and T
              ! waves:
              ! Electron and Ion contributions:
-             Qstar= sqrt(2./3./Ve2C2)*Q
-             VintPhipA= 0.
-             VintPhipB= 0.
+             Qstar= sqrt(2._wp/3._wp/Ve2C2)*Q
+             VintPhipA= 0._wp
+             VintPhipB= 0._wp
              do i= 1,nph
                 Phip= VPhip(i)
                 Qxp= Qstar*sin(Phip)
@@ -3945,7 +3949,7 @@ contains
                      (Qzp>=VQz(nqz) .or. Qzp<=VQz(1)) ) then
                    Qp2= Qxp**2+Qzp**2
                    Qp= sqrt(Qp2)
-                   if(Qp<=5.E-3) Qp=5.E-3
+                   if(Qp<=5.e-3_wp) Qp=5.e-3_wp
                    call Locate(VQQ,nqcd,Qp,ires)
                    call Aitp1d2(nqcd,VQQ,BremL1D,Qp,Aux,ires)
                    BremL0= Aux
@@ -3968,45 +3972,45 @@ contains
                    sigmap= 1._wp
                    Aux= (sin(Phi-S1*sigma*sigmap*Phip))**2
                    VintPhipA(i)= VintPhipA(i)+Aux*Iqpp
-                   VintPhipB(i)= VintPhipB(i)-Aux/2.
+                   VintPhipB(i)= VintPhipB(i)-Aux/2._wp
                    sigmap= -1._wp
                    Aux= (sin(Phi-S1*sigma*sigmap*Phip))**2
                    VintPhipA(i)= VintPhipA(i)+Aux*Iqpm
-                   VintPhipB(i)= VintPhipB(i)-Aux/2.
+                   VintPhipB(i)= VintPhipB(i)-Aux/2._wp
                 end do
              end do
              call Simpson(VPhip,VintPhipA,nph,Aux)
-             CoefTLTsA= (2./3.)/VRNeNs(m) * (Ztq)**3 * AuxSE*Geff*Aux &
-                  + (2./3.)/VRNeNs(m) * (Ztq)**3 * AuxSE*AuxScatElSpo*Geff*Aux 
+             CoefTLTsA= (2._wp/3._wp)/VRNeNs(m) * (Ztq)**3 * AuxSE*Geff*Aux &
+                  + (2._wp/3._wp)/VRNeNs(m) * (Ztq)**3 * AuxSE*AuxScatElSpo*Geff*Aux 
              call Simpson(VPhip,VintPhipB,nph,Aux)
-             CoefTLTsB= (2./3.)/VRNeNs(m) * (Ztq)**3 * AuxSE*Geff*Aux &
-                  + (2./3.)/VRNeNs(m) * (Ztq)**3 * AuxSE*AuxScatElSpo*Geff*Aux 
+             CoefTLTsB= (2._wp/3._wp)/VRNeNs(m) * (Ztq)**3 * AuxSE*Geff*Aux &
+                  + (2._wp/3._wp)/VRNeNs(m) * (Ztq)**3 * AuxSE*AuxScatElSpo*Geff*Aux 
              ! Induced scattering due to the ions:
-             VintPhipB= 0.
+             VintPhipB= 0._wp
              do i= 1,nph
                 Phip= VPhip(i)
                 Sphip= sin(Phip)
                 Cphip= cos(Phip)
                 do sigmap= -1,1,2
                    do S1= -1,1,2
-                      Aux1= (Q2+Qstar**2-2.*S1*Q*Qstar*cos(Phi-S1*sigma*sigmap*Phip))
-                      if (Aux1<1.E-6) then
-                         AuxNum= sqrt(1.E-6)
-                         Aalpha= RMiMe/VRTiTs(m)*(9./4.)*(Qstar/Ztq)**2/1.E-6
+                      Aux1= (Q2+Qstar**2-2._wp*S1*Q*Qstar*cos(Phi-S1*sigma*sigmap*Phip))
+                      if (Aux1<1.e-6_wp) then
+                         AuxNum= sqrt(1.e-6_wp)
+                         Aalpha= RMiMe/VRTiTs(m)*(9._wp/4._wp)*(Qstar/Ztq)**2/1.e-6_wp
                       else
                          AuxNum= sqrt(Aux1)
-                         Aalpha= RMiMe/VRTiTs(m)*(9./4)*(Qstar/Ztq)**2/Aux1 
+                         Aalpha= RMiMe/VRTiTs(m)*(9._wp/4._wp)*(Qstar/Ztq)**2/Aux1 
                       end if
                       Aux= (sin(Phi-S1*sigma*sigmap*Phip))**2*sqrt(AuxNum)
                       do SS= -1,1,2
-                         Qs= Qstar+SS/sqrt(2.*Aalpha)
+                         Qs= Qstar+SS/sqrt(2._wp*Aalpha)
                          Qxp= Qs*Sphip
                          Qzp= Qs*Cphip
                          if( (Qxp>=VQx(nqx) .or. Qxp<=VQx(1)) .or. &
                               (Qzp>=VQz(nqz) .or. Qzp<=VQz(1)) ) then
                             Qp2= Qxp**2+Qzp**2
                             Qp= sqrt(Qp2)
-                            if(Qp<=5.E-3) Qp=5.E-3
+                            if(Qp<=5.e-3_wp) Qp=5.e-3_wp
                             call Locate(VQQ,nqcd,Qp,ires)
                             call Aitp1d2(nqcd,VQQ,BremL1D,Qp,Aux,ires)
                             BremL0= Aux
@@ -4034,11 +4038,11 @@ contains
                 end do !sigmap
              end do
              call Simpson(VPhip,VintPhipB,nph,Aux)
-             CoefTLTsB= CoefTLTsB + (4./3.)/VRNeNs(m)/sqrt(VRTiTs(m)*RMiMe) &
-                  * exp(-0.5_wp)/sqrt(2.) * (Ztq)**2 * Aux/2.
+             CoefTLTsB= CoefTLTsB + (4._wp/3._wp)/VRNeNs(m)/sqrt(VRTiTs(m)*RMiMe) &
+                  * exp(-0.5_wp)/sqrt(2._wp) * (Ztq)**2 * Aux/2._wp
           else
-             CoefTLTsA= 0.
-             CoefTLTsB= 0.
+             CoefTLTsA= 0._wp
+             CoefTLTsB= 0._wp
           end if
 
           CoefAaux(iqx,kqz)= CoefTLLdA+CoefTLSdA+CoefTTLdA+CoefTLTsA
@@ -4046,8 +4050,8 @@ contains
        end do
     end do
 
-    CoefA= 0.
-    CoefB= 0.
+    CoefA= 0._wp
+    CoefB= 0._wp
     do iqx= 1,nqx
        Qx= VQx(iqx)
        iresq= IQresx(iqx)
@@ -4076,32 +4080,33 @@ contains
        Iqp,Iqdif,nqcd,VQQ,BremL1D,BremS1D,GcollL1D,GcollS1D)
     !USE Common_Params
     !USE Common_Arrays
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Math_Constants
     use Phys_Constants
     implicit none
     integer :: nqx,nqz,ires,iresdif
     integer :: nqcd
-    real :: Qxp,Qzp,Qxdif,Qzdif,Iqp,Iqdif,ILinit,ISinit,ITinit
-    real :: Qp,Qp2
-    real :: BremL0,BremS0,GcollL0,GcollS0
-    real :: Aux
-    real, dimension(nqcd) :: BremL1D,BremS1D,GcollL1D,GcollS1D
-    real, dimension(nqcd) :: VQQ
-    real, dimension(nqx) :: VQx
-    real, dimension(nqz) :: VQz
-    real, dimension(nqx) :: Vauxqxp,Vauxqxdif
+    real(wp) :: Qxp,Qzp,Qxdif,Qzdif,Iqp,Iqdif,ILinit,ISinit,ITinit
+    real(wp) :: Qp,Qp2
+    real(wp) :: BremL0,BremS0,GcollL0,GcollS0
+    real(wp) :: Aux
+    real(wp), dimension(nqcd) :: BremL1D,BremS1D,GcollL1D,GcollS1D
+    real(wp), dimension(nqcd) :: VQQ
+    real(wp), dimension(nqx) :: VQx
+    real(wp), dimension(nqz) :: VQz
+    real(wp), dimension(nqx) :: Vauxqxp,Vauxqxdif
     character(LEN=1) :: Wavep,Wavedif
 
-    Iqp= 0.
-    Iqdif= 0.
-    if (Qxp>0.) then
+    Iqp= 0._wp
+    Iqdif= 0._wp
+    if (Qxp>0._wp) then
        if (ires>0 .and. ires<nqx) then
           call Aitp1d2(nqx,VQx,Vauxqxp,Qxp,Iqp,ires)
        else
           if (ires>=nqx) then
              Qp2= Qxp**2+Qzp**2
              Qp= sqrt(Qp2)
-             if(Qp<=5.E-3) Qp=5.E-3
+             if(Qp<=5.e-3_wp) Qp=5.e-3_wp
              call Locate(VQQ,nqcd,Qp,ires)
              call Aitp1d2(nqcd,VQQ,BremL1D,Qp,Aux,ires)
              BremL0= Aux
@@ -4132,7 +4137,7 @@ contains
              if (iresdif>=nqx) then
                 Qp2= Qxdif**2+Qzdif**2
                 Qp= sqrt(Qp2)
-                if(Qp<=5.E-3) Qp=5.E-3
+                if(Qp<=5.e-3_wp) Qp=5.e-3_wp
                 call Locate(VQQ,nqcd,Qp,ires)
                 call Aitp1d2(nqcd,VQQ,BremL1D,Qp,Aux,ires)
                 BremL0= Aux
@@ -4159,7 +4164,7 @@ contains
        else
           Qp2= Qxdif**2+Qzdif**2
           Qp= sqrt(Qp2)
-          if(Qp<=5.E-3) Qp=5.E-3
+          if(Qp<=5.e-3_wp) Qp=5.e-3_wp
           call Locate(VQQ,nqcd,Qp,ires)
           call Aitp1d2(nqcd,VQQ,BremL1D,Qp,Aux,ires)
           BremL0= Aux
@@ -4181,25 +4186,26 @@ contains
           end select
        end if
     else
-       Iqp= 0.
-       Iqdif= 0.
+       Iqp= 0._wp
+       Iqdif= 0._wp
     end if
 
     return
   end subroutine Aux_Coef_Decay_z
 
   real function ZL(Qx,Qz)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     implicit none
-    real, intent(in) :: Qx,Qz
-    real :: Q2
+    real(wp), intent(in) :: Qx,Qz
+    real(wp) :: Q2
     integer :: m
 
     m= 1
     Q2= Qx**2+Qz**2
     ZL= sqrt(VRNeNs(m))*sqrt(1._wp+1.5_wp*Q2*VRTeTs(m)/VRNeNs(m))
-    if (Qz < 0.) then
+    if (Qz < 0._wp) then
        ZL= -ZL
     else
     end if
@@ -4207,18 +4213,19 @@ contains
   end function ZL
 
   real function ZS(Qx,Qz)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     implicit none
-    real, intent(in) :: Qx,Qz
-    real :: Q,Q2
+    real(wp), intent(in) :: Qx,Qz
+    real(wp) :: Q,Q2
     integer :: m
 
     m= 1   ! Auxiliary quantity, for the spatial profile.
     Q2= Qx**2+Qz**2
     Q= sqrt(Q2)
-    ZS= Q*AA*sqrt(VRTeTs(m))/sqrt(1._wp+Q2/2.*VRTeTs(m)/VRNeNs(m))
-    if (Qz < 0.) then
+    ZS= Q*AA*sqrt(VRTeTs(m))/sqrt(1._wp+Q2/2._wp*VRTeTs(m)/VRNeNs(m))
+    if (Qz < 0._wp) then
        ZS= -ZS
     else
     end if
@@ -4226,15 +4233,16 @@ contains
   end function ZS
 
   real function ZT(Qx,Qz)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     implicit none
-    real, intent(in) :: Qx,Qz
-    real :: Q2
+    real(wp), intent(in) :: Qx,Qz
+    real(wp) :: Q2
 
     Q2= Qx**2+Qz**2
     ZT= sqrt(1._wp+Q2/Ve2C2)
-    if (Qz < 0.) then
+    if (Qz < 0._wp) then
        ZT= -ZT
     else
     end if
@@ -4242,18 +4250,19 @@ contains
   end function ZT
 
   subroutine ZBRAC2(FUNC,X1,X2,SUCCES) 
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     implicit none
-    real, intent(INOUT) :: X1,X2
-    real, parameter :: FACTOR= 1.6
-    real F1,F2 
+    real(wp), intent(INOUT) :: X1,X2
+    real(wp), parameter :: FACTOR= 1.6_wp
+    real(wp) :: F1,F2 
     integer, parameter :: NTRY= 10
-    integer J
+    integer :: J
     logical, intent(OUT) :: SUCCES 
-    !      REAL X1,X2,FUNC,FACTOR
-    !      INTEGER NTRY,J
-    !      LOGICAL SUCCES 
+    !      REAL(wp) :: X1,X2,FUNC,FACTOR
+    !      INTEGER :: NTRY,J
+    !      LOGICAL :: SUCCES 
     !      EXTERNAL FUNC
-    !      PARAMETER (FACTOR=1.6,NTRY=10)
+    !      PARAMETER (FACTOR=1.6_wp,NTRY=10)
     !        Given a function FUNC and an initial guessed range X1 to X2, the
     !        routine expands the range geometrically until a root is bracketed by
     !        the returned values X1 and X2 (in which case succes returns as .true.)
@@ -4262,8 +4271,9 @@ contains
     !        This is a version of ZBRAC. It expands only the upper limit of the 
     !        range.
     interface 
-       real function FUNC(X)
-         real, intent(in) :: X
+       real(wp) function FUNC(X)
+        use,intrinsic:: iso_fortran_env, only: wp=>real64
+        real(wp), intent(in) :: X
        end function FUNC
     end interface
     if(X1._wpeq.X2)then
@@ -4277,7 +4287,7 @@ contains
     F2=FUNC(X2) 
     SUCCES=.true. 
     do J=1,NTRY 
-       if(F1*F2.lt.0.)return 
+       if(F1*F2.lt.0._wp)return 
        X2=X2+FACTOR*(X2-X1) 
        F2=FUNC(X2) 
     end do
@@ -4286,10 +4296,11 @@ contains
   end subroutine ZBRAC2
 
   real function RTBIS(FUNC,X1,X2,XACC) 
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     implicit none
     integer JMAX,J
-    real X1,X2,XACC
-    real F,FMID,DX,XMID
+    real(wp) X1,X2,XACC
+    real(wp) F,FMID,DX,XMID
     !      REAL RTBIS,X1,X2,XACC,FUNC
     !      EXTERNAL FUNC
     parameter (JMAX=40)     ! Maximum allowed number of bisections.
@@ -4297,20 +4308,21 @@ contains
     !         between x1 and x2. The root, returned as RTBIS, will be refined
     !         until its accuracy is +-XACC.
     interface 
-       real function FUNC(X)
-         real, intent(in) :: X
+       real(wp) function FUNC(X)
+         use,intrinsic:: iso_fortran_env, only: wp=>real64
+         real(wp), intent(in) :: X
        end function FUNC
     end interface
     FMID=FUNC(X2) 
     F=FUNC(X1) 
-    if(F*FMID.ge.0.)then
+    if(F*FMID.ge.0._wp)then
        open(98,FILE='Warning_Rtbis.wt')
        write(98,*)'Root must be bracketed in rtbis.'
        close(98)
        stop
     else
     end if
-    if(F.lt.0.)then         ! Orient the search so that f>0 lies at x+dx
+    if(F.lt.0._wp)then         ! Orient the search so that f>0 lies at x+dx
        RTBIS=X1 
        DX=X2-X1 
     else 
@@ -4318,11 +4330,11 @@ contains
        DX=X1-X2 
     endif
     do J=1,JMAX           ! Bisection loop
-       DX=DX*.5 
+       DX=DX*.5_wp
        XMID=RTBIS+DX 
        FMID=FUNC(XMID) 
-       if(FMID.lt.0.)RTBIS=XMID 
-       if(abs(DX).lt.XACC .or. FMID.eq.0.) return 
+       if(FMID.lt.0._wp)RTBIS=XMID 
+       if(abs(DX).lt.XACC .or. FMID.eq.0._wp) return 
     end do
     open(98,FILE='Warning_Rtbis.wt')
     write(98,*)'Too many bisections in rtbis' 
@@ -4331,12 +4343,13 @@ contains
   end function RTBIS
 
   real function Funcx_RcdLLS(Qxp)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
-    real, intent(in) :: Qxp
-    real :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
+    real(wp), intent(in) :: Qxp
+    real(wp) :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
     integer :: Asp,Aspp,S1,S2,S3 
     integer :: m
 
@@ -4359,12 +4372,13 @@ contains
   end function Funcx_RcdLLS
 
   real function Funcx_RcdLLT(Qxp)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
-    real, intent(in) :: Qxp
-    real :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
+    real(wp), intent(in) :: Qxp
+    real(wp) :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
     integer :: Asp,Aspp,S1,S2,S3 
     integer :: m
 
@@ -4387,12 +4401,13 @@ contains
   end function Funcx_RcdLLT
 
   real function Funcx_RcdLST(Qxp)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
-    real, intent(in) :: Qxp
-    real :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
+    real(wp), intent(in) :: Qxp
+    real(wp) :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
     integer :: Asp,Aspp,S1,S2,S3 
     integer :: m
 
@@ -4415,12 +4430,13 @@ contains
   end function Funcx_RcdLST
 
   real function Funcx_RcdLTT(Qxp)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
-    real, intent(in) :: Qxp
-    real :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
+    real(wp), intent(in) :: Qxp
+    real(wp) :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
     integer :: Asp,Aspp,S1,S2,S3 
     integer :: m
 
@@ -4443,12 +4459,13 @@ contains
   end function Funcx_RcdLTT
 
   real function Funcx_RcdSLL(Qxp)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
-    real, intent(in) :: Qxp
-    real :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
+    real(wp), intent(in) :: Qxp
+    real(wp) :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
     integer :: Asp,Aspp,S1,S2,S3 
     integer :: m
 
@@ -4471,12 +4488,13 @@ contains
   end function Funcx_RcdSLL
 
   real function Funcx_RcdSLT(Qxp)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
-    real, intent(in) :: Qxp
-    real :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
+    real(wp), intent(in) :: Qxp
+    real(wp) :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
     integer :: Asp,Aspp,S1,S2,S3 
     integer :: m
 
@@ -4499,12 +4517,13 @@ contains
   end function Funcx_RcdSLT
 
   real function Funcx_RcdTLL(Qxp)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
-    real, intent(in) :: Qxp
-    real :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
+    real(wp), intent(in) :: Qxp
+    real(wp) :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
     integer :: Asp,Aspp,S1,S2,S3 
     integer :: m
 
@@ -4527,12 +4546,13 @@ contains
   end function Funcx_RcdTLL
 
   real function Funcx_RcdTLS(Qxp)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
-    real, intent(in) :: Qxp
-    real :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
+    real(wp), intent(in) :: Qxp
+    real(wp) :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
     integer :: Asp,Aspp,S1,S2,S3 
     integer :: m
 
@@ -4555,12 +4575,13 @@ contains
   end function Funcx_RcdTLS
 
   real function Funcx_RcdTTL(Qxp)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
-    real, intent(in) :: Qxp
-    real :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
+    real(wp), intent(in) :: Qxp
+    real(wp) :: Qx,Qz,Qzp,Qxdif,Qzdif,Beta
     integer :: Asp,Aspp,S1,S2,S3 
     integer :: m
 
@@ -4583,15 +4604,16 @@ contains
   end function Funcx_RcdTTL
 
   subroutine Fnorm(Anorm)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     use Phys_Constants
     implicit none
     integer :: l,m
-    real :: Anorm
-    real, dimension(nux) :: Vintux
-    real, dimension(nuz) :: Vintuz
+    real(wp) :: Anorm
+    real(wp), dimension(nux) :: Vintux
+    real(wp), dimension(nuz) :: Vintuz
 
     do l= 1,nux
        forall(m=1:nuz)
@@ -4601,7 +4623,7 @@ contains
        Vintux(l)= Anorm
     end do
     call Simpson(VUx,Vintux,nux,Anorm)
-    Anorm= 2.*Anorm  ! Symmetry in Ux.
+    Anorm= 2._wp*Anorm  ! Symmetry in Ux.
     if (RenormFe=="Yes") then 
        Fe= Fe/Anorm
     else
@@ -4610,18 +4632,19 @@ contains
   end subroutine Fnorm
 
   subroutine Energy(Epart,Ewave,EppEw)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     use Phys_Constants
     implicit none
     integer :: i,k
-    real :: Ewave,Epart,EppEw
-    real :: Qx2,Uz2,Aux
-    real, dimension(nux) :: Vintux
-    real, dimension(nuz) :: Vintuz
-    real, dimension(nqx) :: Vintqx
-    real, dimension(nqz) :: Vintqz
+    real(wp) :: Ewave,Epart,EppEw
+    real(wp) :: Qx2,Uz2,Aux
+    real(wp), dimension(nux) :: Vintux
+    real(wp), dimension(nuz) :: Vintuz
+    real(wp), dimension(nqx) :: Vintqx
+    real(wp), dimension(nqz) :: Vintqz
 
     do k= 1,nuz
        Uz2= (VUz(k))**2
@@ -4632,13 +4655,13 @@ contains
        Vintuz(k)= Aux
     end do
     call Simpson(VUz,Vintuz,nuz,Aux)
-    Epart= Aux/2.
+    Epart= Aux/2._wp
 
     do i= 1,nqx
        Qx2= (VQx(i))**2
        forall(k=1:nqz)
           Vintqz(k)= ILp(i,k)+ILm(i,k) &
-               + (sqrt(Qx2+(VQz(k))**2))**3*AA/2.*(ISp(i,k)+ISm(i,k)) &
+               + (sqrt(Qx2+(VQz(k))**2))**3*AA/2._wp*(ISp(i,k)+ISm(i,k)) &
                + ITp(i,k)+ITm(i,k)
        end forall
        call Simpson(VQz,Vintqz,nqz,Aux)
@@ -4653,18 +4676,19 @@ contains
   end subroutine Energy
 
   subroutine Energy2(EwaveL,EwaveS,EwaveT,EwaveTF,EwaveTH,EwaveT3)
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     use Phys_Constants
     implicit none
     integer :: i,k
-    real :: EwaveL,EwaveS,EwaveT,EwaveTF,EwaveTH,EwaveT3
-    real :: Qx2,Aux
-    real :: Q,Dq,Qxaux,Qzaux
-    real, dimension(nqx) :: Vintqx
-    real, dimension(nqz) :: Vintqz
-    real, dimension(nph) :: VQ,Vintq,VZtq,VintZq
+    real(wp) :: EwaveL,EwaveS,EwaveT,EwaveTF,EwaveTH,EwaveT3
+    real(wp) :: Qx2,Aux
+    real(wp) :: Q,Dq,Qxaux,Qzaux
+    real(wp), dimension(nqx) :: Vintqx
+    real(wp), dimension(nqz) :: Vintqz
+    real(wp), dimension(nph) :: VQ,Vintq,VZtq,VintZq
 
     do i= 1,nqx
        forall(k=1:nqz)
@@ -4679,7 +4703,7 @@ contains
     do i= 1,nqx
        Qx2= (VQx(i))**2
        forall(k=1:nqz)
-          Vintqz(k)= (sqrt(Qx2+(VQz(k))**2))**3*AA/2.*(ISp(i,k)+ISm(i,k))
+          Vintqz(k)= (sqrt(Qx2+(VQz(k))**2))**3*AA/2._wp*(ISp(i,k)+ISm(i,k))
        end forall
        call Simpson(VQz,Vintqz,nqz,Aux)
        Vintqx(i)= Aux
@@ -4716,18 +4740,18 @@ contains
        call Simpson(VPhip,Vintq,nph,Aux)
        VintZq(i)= Aux*VQ(i)
     end do
-    EwaveTF= 0.
-    EwaveTH= 0.
-    EwaveT3= 0.
+    EwaveTF= 0._wp
+    EwaveTH= 0._wp
+    EwaveT3= 0._wp
     do i= 1,nph-1
        if (VZtq(i)<1.5_wp) then
-          EwaveTF= EwaveTF+Dq*(VintZq(i)+VintZq(i+1))/2.   
+          EwaveTF= EwaveTF+Dq*(VintZq(i)+VintZq(i+1))/2._wp   
        else
-          if (VZtq(i)<2.5) then
-             EwaveTH= EwaveTH+Dq*(VintZq(i)+VintZq(i+1))/2.   
+          if (VZtq(i)<2.5_wp) then
+             EwaveTH= EwaveTH+Dq*(VintZq(i)+VintZq(i+1))/2._wp   
           else
-             if (VZtq(i)<3.5) then
-                EwaveT3= EwaveT3+Dq*(VintZq(i)+VintZq(i+1))/2.   
+             if (VZtq(i)<3.5_wp) then
+                EwaveT3= EwaveT3+Dq*(VintZq(i)+VintZq(i+1))/2._wp   
              else
              end if
           end if
@@ -4738,14 +4762,15 @@ contains
   end subroutine Energy2
 
   subroutine Output_Coef(CoefChoice,CoefA,CoefB)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
     integer :: i,k
     integer, parameter :: Step=1
-    real :: Qx,Qz
-    real, dimension(nqx,nqz) :: CoefA,CoefB
+    real(wp) :: Qx,Qz
+    real(wp), dimension(nqx,nqz) :: CoefA,CoefB
     character(LEN=5) :: CoefChoice
 
     select case(CoefChoice)
@@ -4788,24 +4813,25 @@ contains
   end subroutine Output_Coef
 
   subroutine Output(WriteChoice)
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
     integer :: i,k
     integer, parameter :: Step=1, np= 128 !odd
-    real :: Aux
-    real :: Qx,Qz,Q,Muq
-    real :: U,Phi,DPhi,Du
-    real :: UxAux,UzAux
-    real, dimension(nqx) :: Vintqx
-    real, dimension(nqz) :: Iqzm,Iqzp,Iqzm2,Iqzp2
-    real, dimension(nux) :: Vintux
-    real, dimension(nuz) :: Feuz
-    real, dimension(np) :: VU,VPhi
-    real, dimension(np) :: Feu1,Feu2
-    real, dimension(np) :: Feu0,Feu00
-    real, dimension(np) :: Vintu0,Vintu00,Vintu1,Vintu2
+    real(wp) :: Aux
+    real(wp) :: Qx,Qz,Q,Muq
+    real(wp) :: U,Phi,DPhi,Du
+    real(wp) :: UxAux,UzAux
+    real(wp), dimension(nqx) :: Vintqx
+    real(wp), dimension(nqz) :: Iqzm,Iqzp,Iqzm2,Iqzp2
+    real(wp), dimension(nux) :: Vintux
+    real(wp), dimension(nuz) :: Feuz
+    real(wp), dimension(np) :: VU,VPhi
+    real(wp), dimension(np) :: Feu1,Feu2
+    real(wp), dimension(np) :: Feu0,Feu00
+    real(wp), dimension(np) :: Vintu0,Vintu00,Vintu1,Vintu2
     character(LEN=3) :: WriteChoice
 
     select case(WriteChoice)
@@ -5047,13 +5073,13 @@ contains
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) -Qx,-Qz,Muq*ISm(nqx+1-i,nqz+1-k),ZS(-Qx,-Qz)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) -Qx,Qz,Muq*ISp(nqx+1-i,k),ZS(-Qx,Qz)
           end do
        end do
@@ -5063,13 +5089,13 @@ contains
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Qx,-Qz,Muq*ISm(i,nqz+1-k),ZS(Qx,-Qz)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Qx,Qz,Muq*ISp(i,k),ZS(Qx,Qz)
           end do
        end do
@@ -5078,7 +5104,7 @@ contains
        do k= 1,nqz
           Qz= VQz(k)
           Q= sqrt(VQx(1)**2+Qz**2)
-          Muq= Q**3*AA/2.
+          Muq= Q**3*AA/2._wp
           write(1,*) VQz(k),Muq*ISp(1,k)
        end do
        close(1)
@@ -5166,13 +5192,13 @@ contains
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Qx,-Qz,Muq*ISm(nqx+1-i,nqz+1-k)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Qx,Qz,Muq*ISp(nqx+1-i,k)
           end do
        end do
@@ -5182,13 +5208,13 @@ contains
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Qx,-Qz,Muq*ISm(i,nqz+1-k)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Qx,Qz,Muq*ISp(i,k)
           end do
        end do
@@ -5197,7 +5223,7 @@ contains
        do k= 1,nqz
           Qz= VQz(k)
           Q= sqrt(VQx(1)**2+Qz**2)
-          Muq= Q**3*AA/2.
+          Muq= Q**3*AA/2._wp
           write(1,*) VQz(k),Muq*ISp(1,k)
        end do
        close(1)
@@ -5212,7 +5238,7 @@ contains
           do i= 1,nqx
              Qx= VQx(i)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              Vintqx(i)= Muq*ISm(i,k)
           end do
           call Simpson(VQx,Vintqx,nqx,Aux)
@@ -5225,7 +5251,7 @@ contains
           do i= 1,nqx
              Qx= VQx(i)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              Vintqx(i)= Muq*ISp(i,k)
           end do
           call Simpson(VQx,Vintqx,nqx,Aux)
@@ -5329,7 +5355,7 @@ contains
        !   DO i= 1,nqx
        !    Qx= VQx(i)
        !    Q= SQRT(Qx**2+Qz**2)
-       !    Muq= Q**3*AA/2.
+       !    Muq= Q**3*AA/2._wp
        !    Vintqx(i)= Muq*ISm(i,k)
        !   END DO
        !   CALL Simpson(VQx,Vintqx,nqx,Aux)
@@ -5342,7 +5368,7 @@ contains
        !   DO i= 1,nqx
        !    Qx= VQx(i)
        !    Q= SQRT(Qx**2+Qz**2)
-       !    Muq= Q**3*AA/2.
+       !    Muq= Q**3*AA/2._wp
        !    Vintqx(i)= Muq*ISp(i,k)
        !   END DO
        !   CALL Simpson(VQx,Vintqx,nqx,Aux)
@@ -5606,20 +5632,21 @@ contains
   subroutine Output2(WriteChoice)
     ! Subroutine generating output in the format suitable for MatLab (Nov/2013)
     ! Nov. 28, 2013
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     implicit none
     integer :: i,k
     integer, parameter :: Step=1
-    real :: Aux
-    real :: Qx,Qz,Q,Muq
-    real :: Dq,Qxaux,Qzaux
-    real, dimension(nqx) :: Vintqx
-    real, dimension(nqz) :: Iqzm,Iqzp,Iqzm2,Iqzp2
-    real, dimension(nux) :: Vintux
-    real, dimension(nuz) :: Feuz
-    real, dimension(nph) :: VQ,Vintq
+    real(wp) :: Aux
+    real(wp) :: Qx,Qz,Q,Muq
+    real(wp) :: Dq,Qxaux,Qzaux
+    real(wp), dimension(nqx) :: Vintqx
+    real(wp), dimension(nqz) :: Iqzm,Iqzp,Iqzm2,Iqzp2
+    real(wp), dimension(nux) :: Vintux
+    real(wp), dimension(nuz) :: Feuz
+    real(wp), dimension(nph) :: VQ,Vintq
     character(LEN=3) :: WriteChoice
 
     select case(WriteChoice)
@@ -5772,13 +5799,13 @@ contains
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Muq*ISm(nqx+1-i,nqz+1-k)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Muq*ISp(nqx+1-i,k)
           end do
        end do
@@ -5788,13 +5815,13 @@ contains
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Muq*ISm(i,nqz+1-k)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Muq*ISp(i,k)
           end do
        end do
@@ -5878,13 +5905,13 @@ contains
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Muq*ISm(nqx+1-i,nqz+1-k)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Muq*ISp(nqx+1-i,k)
           end do
        end do
@@ -5894,13 +5921,13 @@ contains
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Muq*ISm(i,nqz+1-k)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              write(1,*) Muq*ISp(i,k)
           end do
        end do
@@ -5911,7 +5938,7 @@ contains
           do i= 1,nqx
              Qx= VQx(i)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              Vintqx(i)= Muq*ISm(i,k)
           end do
           call Simpson(VQx,Vintqx,nqx,Aux)
@@ -5919,7 +5946,7 @@ contains
           do i= 1,nqx
              Qx= VQx(i)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              Vintqx(i)= Muq*ISp(i,k)
           end do
           call Simpson(VQx,Vintqx,nqx,Aux)
@@ -6018,7 +6045,7 @@ contains
           do i= 1,nqx
              Qx= VQx(i)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              Vintqx(i)= Muq*ISm(i,k)
           end do
           call Simpson(VQx,Vintqx,nqx,Aux)
@@ -6026,7 +6053,7 @@ contains
           do i= 1,nqx
              Qx= VQx(i)
              Q= sqrt(Qx**2+Qz**2)
-             Muq= Q**3*AA/2.
+             Muq= Q**3*AA/2._wp
              Vintqx(i)= Muq*ISp(i,k)
           end do
           call Simpson(VQx,Vintqx,nqx,Aux)
@@ -6103,39 +6130,40 @@ contains
 
     ! See Notes D-10.
 
+    use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     use Math_Constants
     use Phys_Constants
     implicit none
-    real :: Auxx,Auxz,Auxxx,Auxzz
-    real :: DTau,Dux,Duz,U,Ux,Uz
-    real, dimension(nux) :: Alpha1,Beta1,Gamma1,Psi1
-    real, dimension(nuz) :: Alpha2,Beta2,Gamma2,Psi2
-    real, dimension(nux) :: Faux1,Faux1b
-    real, dimension(nuz) :: Faux2,Faux2b
-    real, dimension(nux) :: Baux1,Gaux1
-    real, dimension(nuz) :: Baux2,Gaux2
-    real, dimension(nux,nuz) :: Dfdux,Dfduz
-    real, dimension(nux,nuz) :: Dfduxdux,Dfduxduz
-    real, dimension(nux,nuz) :: Dfduzdux,Dfduzduz
-    real, dimension(nux,nuz) :: DAxdux
-    real, dimension(nux,nuz) :: DAzduz
-    real, dimension(nux,nuz) :: DDxxdux,DDxzdux
-    real, dimension(nux,nuz) :: DDzxduz,DDzzduz
-    real, dimension(nux,nuz) :: CAx,CAz
-    real, dimension(nux,nuz) :: CDxx,CDxz,CDzx,CDzz
-    real, dimension(nux) :: Auxi
-    real, dimension(nuz) :: Auxk
-    real, dimension(nux,nuz) :: Fex,Fez
+    real(wp) :: Auxx,Auxz,Auxxx,Auxzz
+    real(wp) :: DTau,Dux,Duz,U,Ux,Uz
+    real(wp), dimension(nux) :: Alpha1,Beta1,Gamma1,Psi1
+    real(wp), dimension(nuz) :: Alpha2,Beta2,Gamma2,Psi2
+    real(wp), dimension(nux) :: Faux1,Faux1b
+    real(wp), dimension(nuz) :: Faux2,Faux2b
+    real(wp), dimension(nux) :: Baux1,Gaux1
+    real(wp), dimension(nuz) :: Baux2,Gaux2
+    real(wp), dimension(nux,nuz) :: Dfdux,Dfduz
+    real(wp), dimension(nux,nuz) :: Dfduxdux,Dfduxduz
+    real(wp), dimension(nux,nuz) :: Dfduzdux,Dfduzduz
+    real(wp), dimension(nux,nuz) :: DAxdux
+    real(wp), dimension(nux,nuz) :: DAzduz
+    real(wp), dimension(nux,nuz) :: DDxxdux,DDxzdux
+    real(wp), dimension(nux,nuz) :: DDzxduz,DDzzduz
+    real(wp), dimension(nux,nuz) :: CAx,CAz
+    real(wp), dimension(nux,nuz) :: CDxx,CDxz,CDzx,CDzz
+    real(wp), dimension(nux) :: Auxi
+    real(wp), dimension(nuz) :: Auxk
+    real(wp), dimension(nux,nuz) :: Fex,Fez
     integer :: i,k
 
     ! CALL Coef_A
     call Coef_D
-    Auxx= DTau/4./Dux
-    Auxz= DTau/4./Duz
-    Auxxx= DTau/2./Dux/Dux
-    Auxzz= DTau/2./Duz/Duz
+    Auxx= DTau/4._wp/Dux
+    Auxz= DTau/4._wp/Duz
+    Auxxx= DTau/2._wp/Dux/Dux
+    Auxzz= DTau/2._wp/Duz/Duz
 
     CAx= Ax+ColAx
     CAz= Az+ColAz
@@ -6154,59 +6182,59 @@ contains
     select case(DerivLn)
     case("Yes")
        call Derivxy5pln2d(nux,nuz,VUx,VUz,Fe,Dfdux,Dfduz)
-        Dfdux(1,:)= 0.
+        Dfdux(1,:)= 0._wp
     case("No ")
        call Derivxy5p2d(nux,nuz,VUx,VUz,Fe,Dfdux,Dfduz)
-        Dfdux(1,:)= 0.
+        Dfdux(1,:)= 0._wp
     end select
     call Derivxy5p2d(nux,nuz,VUx,VUz,Dfdux,Dfduxdux,Dfduxduz)
     call Derivxy5p2d(nux,nuz,VUx,VUz,Dfduz,Dfduzdux,Dfduzduz)
-     Dfduxdux(1,:)= 0.
-     Dfduxduz(1,:)= 0.
-     Dfduzdux(1,:)= 0.
+     Dfduxdux(1,:)= 0._wp
+     Dfduxduz(1,:)= 0._wp
+     Dfduzdux(1,:)= 0._wp
 
     ! Operator L-ux:
     do k= 1,nuz
        forall(i=2:nux-1)
           Auxi(i)= (tanh(sqrt((VUx(i))**2+(VUz(k))**2)))**2
           Alpha1(i)= ( ( CAx(i,k)+DDxxdux(i,k) ) * Auxx - CDxx(i,k)*Auxxx ) *Auxi(i)
-          Beta1(i)= 1._wp + (- DAxdux(i,k)*DTau/2. + 2.*CDxx(i,k)*Auxxx ) *Auxi(i)
+          Beta1(i)= 1._wp + (- DAxdux(i,k)*DTau/2._wp + 2._wp*CDxx(i,k)*Auxxx ) *Auxi(i)
           Gamma1(i)= (- ( CAx(i,k)+DDxxdux(i,k) ) * Auxx - CDxx(i,k)*Auxxx ) *Auxi(i)
-          Psi1(i)= Fe(i,k) + ( DAxdux(i,k)*Fe(i,k)*(DTau/2.) &
+          Psi1(i)= Fe(i,k) + ( DAxdux(i,k)*Fe(i,k)*(DTau/2._wp) &
                + ( CDxz(i,k)*Dfduxduz(i,k) + DDxzdux(i,k)*Dfduz(i,k) ) * (DTau) &
                + ( CAx(i,k)+DDxxdux(i,k) ) * Auxx * (Fe(i+1,k)-Fe(i-1,k)) &
-               + CDxx(i,k)*Auxxx * (Fe(i+1,k)-2.*Fe(i,k)+Fe(i-1,k)) ) *Auxi(i)
+               + CDxx(i,k)*Auxxx * (Fe(i+1,k)-2._wp*Fe(i,k)+Fe(i-1,k)) ) *Auxi(i)
           Faux1b(i)= Fe(i,k)
        end forall
 
        i= 1
        Auxi(i)= (tanh(sqrt((VUx(i))**2+(VUz(k))**2)))**2
-       Alpha1(i)= 0.
-       Beta1(i)= 1._wp  + ( - DAxdux(i,k)*DTau/2. ) * Auxi(i) !&
-            ! + ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2./Dux) ) * Auxi(i)
-       Gamma1(i)= 0. ! - ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2./Dux) * Auxi(i)
-       Psi1(i)= Fe(i,k)  + ( DAxdux(i,k)*Fe(i,k)*(DTau/2.) ) * Auxi(i) !&
+       Alpha1(i)= 0._wp
+       Beta1(i)= 1._wp  + ( - DAxdux(i,k)*DTau/2._wp ) * Auxi(i) !&
+            ! + ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2._wp/Dux) ) * Auxi(i)
+       Gamma1(i)= 0._wp ! - ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2._wp/Dux) * Auxi(i)
+       Psi1(i)= Fe(i,k)  + ( DAxdux(i,k)*Fe(i,k)*(DTau/2._wp) ) * Auxi(i) !&
             ! + ( CDxz(i,k)*Dfduxduz(i,k) + DDxzdux(i,k)*Dfduz(i,k) ) &
             ! * (DTau)) * Auxi(i)       
-            ! + ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2./Dux) * (Fe(i+1,k)-Fe(i,k)) &
-            ! + CDxx(i,k)*(DTau/Dux/Dux) * (Fe(i+2,k)-2.*Fe(i+1,k)+Fe(i,k))
+            ! + ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2._wp/Dux) * (Fe(i+1,k)-Fe(i,k)) &
+            ! + CDxx(i,k)*(DTau/Dux/Dux) * (Fe(i+2,k)-2._wp*Fe(i+1,k)+Fe(i,k))
        Faux1b(i)= Fe(i,k)
 
        ! i= 2
        ! Psi1(i)= Psi1(i)-Alpha1(i)*Fe(i-1,k)
-       ! Alpha1(i)= 0.
+       ! Alpha1(i)= 0._wp
        ! Faux1b(i)= Fe(i,k)
 
        i= nux
        Auxi(i)= (tanh(sqrt((VUx(i))**2+(VUz(k))**2)))**2
-       Alpha1(i)= ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2./Dux) *Auxi(i)
-       Beta1(i)= 1._wp + (- DAxdux(i,k)*DTau/2. &
-            - ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2./Dux) ) *Auxi(i)
-       Gamma1(i)= 0.
-       Psi1(i)= Fe(i,k) + ( DAxdux(i,k)*Fe(i,k)*(DTau/2.) &
+       Alpha1(i)= ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2._wp/Dux) *Auxi(i)
+       Beta1(i)= 1._wp + (- DAxdux(i,k)*DTau/2._wp &
+            - ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2._wp/Dux) ) *Auxi(i)
+       Gamma1(i)= 0._wp
+       Psi1(i)= Fe(i,k) + ( DAxdux(i,k)*Fe(i,k)*(DTau/2._wp) &
             + ( CDxz(i,k)*Dfduxduz(i,k) + DDxzdux(i,k)*Dfduz(i,k) ) * (DTau) &
-            + ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2./Dux) * (Fe(i,k)-Fe(i-1,k)) &
-            + CDxx(i,k)*(DTau/Dux/Dux) * (Fe(i,k)-2.*Fe(i-1,k)+Fe(i-2,k)) ) *Auxi(i)
+            + ( CAx(i,k)+DDxxdux(i,k) ) * (DTau/2._wp/Dux) * (Fe(i,k)-Fe(i-1,k)) &
+            + CDxx(i,k)*(DTau/Dux/Dux) * (Fe(i,k)-2._wp*Fe(i-1,k)+Fe(i-2,k)) ) *Auxi(i)
        Faux1b(i)= Fe(i,k)
 
        call Tridag(1,nux,Alpha1,Beta1,Gamma1,Psi1,Faux1,Baux1,Gaux1)
@@ -6238,35 +6266,35 @@ contains
        forall(k=2:nuz-1)
           Auxk(k)= (tanh(sqrt((VUx(i))**2+(VUz(k))**2)))**2
           Alpha2(k)= ( ( CAz(i,k)+DDzzduz(i,k) ) * Auxz - CDzz(i,k)*Auxzz ) *Auxk(k)
-          Beta2(k)= 1._wp + (- DAzduz(i,k)*DTau/2.*Auxk(k) + 2.*CDzz(i,k)*Auxzz) *Auxk(k)
+          Beta2(k)= 1._wp + (- DAzduz(i,k)*DTau/2._wp*Auxk(k) + 2._wp*CDzz(i,k)*Auxzz) *Auxk(k)
           Gamma2(k)= (- ( CAz(i,k)+DDzzduz(i,k) ) * Auxz - CDzz(i,k)*Auxzz ) *Auxk(k)
-          Psi2(k)= Fe(i,k) + ( DAzduz(i,k)*Fe(i,k)*(DTau/2.) & 
+          Psi2(k)= Fe(i,k) + ( DAzduz(i,k)*Fe(i,k)*(DTau/2._wp) & 
                + ( CDzx(i,k)*Dfduzdux(i,k) + DDzxduz(i,k)*Dfdux(i,k) ) * (DTau) &
                + ( CAz(i,k)+DDzzduz(i,k) ) * Auxz * (Fe(i,k+1)-Fe(i,k-1)) &
-               + CDzz(i,k)*Auxzz * (Fe(i,k+1)-2.*Fe(i,k)+Fe(i,k-1)) )*Auxk(k)
+               + CDzz(i,k)*Auxzz * (Fe(i,k+1)-2._wp*Fe(i,k)+Fe(i,k-1)) )*Auxk(k)
           Faux2b(k)= Fe(i,k)
        end forall
        k= 1
        Auxk(k)= (tanh(sqrt((VUx(i))**2+(VUz(k))**2)))**2
-       Alpha2(k)= 0.
-       Beta2(k)= 1._wp + ( - DAzduz(i,k)*DTau/2. &
-            + ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2./Duz) ) *Auxk(k)
-       Gamma2(k)= - ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2./Duz)*Auxk(k)
-       Psi2(k)= Fe(i,k) + ( DAzduz(i,k)*Fe(i,k)*(DTau/2.) &
+       Alpha2(k)= 0._wp
+       Beta2(k)= 1._wp + ( - DAzduz(i,k)*DTau/2._wp &
+            + ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2._wp/Duz) ) *Auxk(k)
+       Gamma2(k)= - ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2._wp/Duz)*Auxk(k)
+       Psi2(k)= Fe(i,k) + ( DAzduz(i,k)*Fe(i,k)*(DTau/2._wp) &
             + ( CDzx(i,k)*Dfduzdux(i,k) + DDzxduz(i,k)*Dfdux(i,k) ) * (DTau) &
-            + ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2./Duz) * (Fe(i,k+1)-Fe(i,k)) &
-            + CDzz(i,k)*(DTau/Duz/Duz) * (Fe(i,k+2)-2.*Fe(i,k+1)+Fe(i,k)) ) *Auxk(k)
+            + ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2._wp/Duz) * (Fe(i,k+1)-Fe(i,k)) &
+            + CDzz(i,k)*(DTau/Duz/Duz) * (Fe(i,k+2)-2._wp*Fe(i,k+1)+Fe(i,k)) ) *Auxk(k)
        Faux2b(k)= Fe(i,k)
        k= nuz
        Auxk(k)= (tanh(sqrt((VUx(i))**2+(VUz(k))**2)))**2
-       Alpha2(k)= ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2./Duz)*Auxk(k)
-       Beta2(k)= 1._wp + (- DAzduz(i,k)*DTau/2. &
-            - ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2./Duz) ) *Auxk(k)
-       Gamma2(k)= 0.
-       Psi2(k)= Fe(i,k) + ( DAzduz(i,k)*Fe(i,k)*(DTau/2.) &
+       Alpha2(k)= ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2._wp/Duz)*Auxk(k)
+       Beta2(k)= 1._wp + (- DAzduz(i,k)*DTau/2._wp &
+            - ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2._wp/Duz) ) *Auxk(k)
+       Gamma2(k)= 0._wp
+       Psi2(k)= Fe(i,k) + ( DAzduz(i,k)*Fe(i,k)*(DTau/2._wp) &
             + ( CDzx(i,k)*Dfduzdux(i,k) + DDzxduz(i,k)*Dfdux(i,k) ) * (DTau) &
-            + ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2./Duz) * (Fe(i,k)-Fe(i,k-1)) &
-            + CDzz(i,k)*(DTau/Duz/Duz) * (Fe(i,k)-2.*Fe(i,k-1)+Fe(i,k-2)) ) *Auxk(k)
+            + ( CAz(i,k)+DDzzduz(i,k) ) * (DTau/2._wp/Duz) * (Fe(i,k)-Fe(i,k-1)) &
+            + CDzz(i,k)*(DTau/Duz/Duz) * (Fe(i,k)-2._wp*Fe(i,k-1)+Fe(i,k-2)) ) *Auxk(k)
        Faux2b(k)= Fe(i,k)
 
        call Tridag(1,nuz,Alpha2,Beta2,Gamma2,Psi2,Faux2,Baux2,Gaux2)
@@ -6285,22 +6313,21 @@ contains
   end subroutine Split
 
   subroutine Evol_Iwave(DTau,Tau,WaveType)
-
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     ! See Notes B-11.
-
     use Common_Params
     use Common_Arrays
     use Math_Constants
     use Phys_Constants
     implicit none
-    real :: DTau,Tau
+    real(wp) :: DTau,Tau
     integer :: i,k,sigma
     integer :: Nvar,ind
-    real, dimension(nux,nuz) :: Dfdux,Dfduz
-    real, dimension(nqx,nqz) :: Iwave,Iwavenew
-    real, dimension(nqx,nqz) :: CoefA,CoefB
-    !REAL, DIMENSION(nqx,nqz) :: BremssL,BremssS
-    real, dimension(nqx*nqz) :: Ft,Dfdt,Ftout
+    real(wp), dimension(nux,nuz) :: Dfdux,Dfduz
+    real(wp), dimension(nqx,nqz) :: Iwave,Iwavenew
+    real(wp), dimension(nqx,nqz) :: CoefA,CoefB
+    !REAL(WP), DIMENSION(nqx,nqz) :: BremssL,BremssS
+    real(wp), dimension(nqx*nqz) :: Ft,Dfdt,Ftout
     character(LEN=6) :: WaveType
 
     select case(DerivLn)
@@ -6309,7 +6336,7 @@ contains
     case("No ")
        call Derivxy5p2d(nux,nuz,VUx,VUz,Fe,Dfdux,Dfduz)
     end select
-    Dfdux(1,:)= 0.
+    Dfdux(1,:)= 0._wp
 
     select case(WaveType)
     case("Lwavep")
@@ -6349,7 +6376,7 @@ contains
           Ft(ind)= Iwave(i,k)
        end do
     end do
-    !IF( (Tau+H-Tau2)*(Tau+H-Tau1) > 0. ) H=Tau2-Tau
+    !IF( (Tau+H-Tau2)*(Tau+H-Tau1) > 0._wp ) H=Tau2-Tau
     call DERIVS(Tau+DTau,Ft,Dfdt,Nvar)
     call RK4(Ft,Dfdt,Nvar,Tau,DTau,Ftout)
     call Cor_Ampli_2(Ft,Ftout,Nvar)
@@ -6396,12 +6423,13 @@ contains
   !
   subroutine Tridag(if,k,A,B,C,D,V,Beta,Gamma)
     ! 	PARAMETER(K=100)
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     implicit none
     integer, intent(IN) :: if,k 
     integer :: Lim,Ifp1,Last,i,j
-    real, intent(in) :: A(k),B(k),C(k),D(k)
-    real, intent(out) :: V(k)
-    real :: Beta(k),gamma(k)
+    real(wp), intent(in) :: A(k),B(k),C(k),D(k)
+    real(wp), intent(out) :: V(k)
+    real(wp) :: Beta(k),gamma(k)
     !
     Lim= k
     !... Compute intermediate arrays Beta and Gamma ...
@@ -6424,14 +6452,15 @@ contains
   end subroutine Tridag
 
   subroutine DERIVS(Tau,Ft,Dfdt,N)
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
     implicit none
     integer, parameter :: NMAX=6561    ! NMAX= 81*81
     integer, intent(in) :: N
     integer :: i,k,ind
-    real :: Tau
-    real, dimension(N) :: Ft,DFdt
+    real(wp) :: Tau
+    real(wp), dimension(N) :: Ft,DFdt
     ind= 0
     do i= 1,nqx
        do k= 1,nqz
@@ -6439,7 +6468,7 @@ contains
           Dfdt(ind)= CoefARK(i,k)+CoefBRK(i,k)*Ft(ind)
        end do
     end do
-    Tau= 0.    ! Just to avoid compilation warning
+    Tau= 0._wp    ! Just to avoid compilation warning
     return
   end subroutine DERIVS
 
@@ -6452,17 +6481,17 @@ contains
     ! returns derivatives DYDX at X.
     ! See NUMERICAL RECIPES.
     ! Version Fortran 95, Feb. 2007.
-
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     implicit none
     integer, parameter :: NMAX=6561    ! NMAX= 81*81
     integer, intent(in) :: N
     integer :: I
-    real, dimension(N) :: Y,DYDX,YOUT
-    real, dimension(NMAX) :: YT,DYT,DYM
-    real :: X,H,HH,H6,XH
+    real(wp), dimension(N) :: Y,DYDX,YOUT
+    real(wp), dimension(NMAX) :: YT,DYT,DYM
+    real(wp) :: X,H,HH,H6,XH
 
     HH=H*0.5_wp
-    H6=H/6.
+    H6=H/6._wp
     XH=X+HH
     ! CALL  DERIVS(X,Y,DYDX)
     do I=1,N
@@ -6479,24 +6508,25 @@ contains
     end do
     call DERIVS(X+H,YT,DYT,N)
     do I=1,N
-       YOUT(I)=Y(I)+H6*(DYDX(I)+DYT(I)+2.*DYM(I))
+       YOUT(I)=Y(I)+H6*(DYDX(I)+DYT(I)+2._wp*DYM(I))
     end do
     return
   end subroutine RK4
 
   subroutine Cor_Ampli(Vf,n)
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     use Math_Constants
     implicit none
     integer :: n,i
-    real, dimension (n) :: Vf(n)
+    real(wp), dimension (n) :: Vf(n)
 
     ! Corrects negative amplitudes when they are not acceptable.
     ! For a given real vector, replaces negative values by zero.
     ! Version Fortran 95, Aug 2006.
 
     do i= 1,n
-       if ( Vf(i) < 0. ) then
-          Vf(i)= 0. 
+       if ( Vf(i) < 0._wp ) then
+          Vf(i)= 0._wp
        else
        end if
     end do
@@ -6505,11 +6535,11 @@ contains
   end subroutine Cor_Ampli
 
   subroutine Cor_Ampli_2(Vf,Vfnew,n)
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     use Math_Constants
     implicit none
     integer :: n,i
-    real, dimension (n) :: Vf(n),Vfnew(n)
-
+    real(wp), dimension (n) :: Vf(n),Vfnew(n)
     ! Corrects negative amplitudes when they are not acceptable.
     ! For a given real vector "Vfnew", replaces negative values by the previous 
     ! value ("Vf").
@@ -6519,8 +6549,8 @@ contains
        !  Vfnew(i)= Vf(i) 
        ! ELSE
        ! END IF
-       if ( Vfnew(i) < 0. ) then
-          !  Vfnew(i)= 0. 
+       if ( Vfnew(i) < 0._wp ) then
+          !  Vfnew(i)= 0._wp 
           Vfnew(i)= Vf(i) 
        else
        end if
@@ -6535,16 +6565,16 @@ contains
     ! Uses subroutine Locate (Numerical Recipes, P. 96)
     ! Version Fortran 95, Aug, 2006.
     ! Version of Aitp1d, without the call to Locate, which is called outside.
-
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     implicit none
     integer :: nx,i
-    real, dimension(nx) :: Vx,Fx
-    real :: Xp,Fp,Aux
+    real(wp), dimension(nx) :: Vx,Fx
+    real(wp) :: Xp,Fp,Aux
 
     !CALL Locate(Vx,nx,Xp,i)
 
     if ( i<=0 .or. i>=nx ) then
-       FP= 0.
+       FP= 0._wp
     else
        Aux= ( Xp-Vx(i) )/( Vx(i+1)-Vx(i) )
        Fp= Fx(i) + ( Fx(i+1)-Fx(i) )*Aux
@@ -6559,11 +6589,11 @@ contains
     ! J=0 or J=N is returned to indicate that X is out of range.
     ! See NUMERICAL RECIPES.
     ! Version Fortran 95, Aug 2006.
-
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     implicit none
     integer :: N,J,JL,JU,JM
-    real, dimension (N) :: Xx
-    real :: X
+    real(wp), dimension (N) :: Xx
+    real(wp) :: X
 
     JL= 0
     JU= N+1
@@ -6586,20 +6616,20 @@ contains
     ! The function F is given as a set of points Fxy(x,y).
     ! Uses subroutine Locate (Numerical Recipes, P. 96)
     ! Version Fortran 95, Sep., 2006.
-
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     implicit none
-    real, dimension(nx) :: Vx
-    real, dimension(ny) :: Vy
-    real, dimension(nx,ny) :: Fxy
-    real :: Xp,Yp,Fp
-    real :: F1,F2,F3,F4,T,U
+    real(wp), dimension(nx) :: Vx
+    real(wp), dimension(ny) :: Vy
+    real(wp), dimension(nx,ny) :: Fxy
+    real(wp) :: Xp,Yp,Fp
+    real(wp) :: F1,F2,F3,F4,T,U
     integer :: nx,ny,i,j
 
     call Locate(Vx,nx,Xp,i)
     call Locate(Vy,ny,Yp,j)
 
     if ( (i==0 .or. i==nx) .or. (j==0 .or. j==ny) ) then
-       FP= 0.
+       FP= 0._wp
     else
        F1= Fxy(i,j)
        F2= Fxy(i+1,j)
@@ -6622,13 +6652,13 @@ contains
     ! Uses subroutine Locate (Numerical Recipes, P. 96)
     ! Version Fortran 95, Sep., 2006.
     ! Version of Aitp2d, without the calls to Locate, which is called outside.
-
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     implicit none
-    real, dimension(nx) :: Vx
-    real, dimension(ny) :: Vy
-    real, dimension(nx,ny) :: Fxy
-    real :: Xp,Yp,Fp
-    real :: F1,F2,F3,F4,T,U
+    real(wp), dimension(nx) :: Vx
+    real(wp), dimension(ny) :: Vy
+    real(wp), dimension(nx,ny) :: Fxy
+    real(wp) :: Xp,Yp,Fp
+    real(wp) :: F1,F2,F3,F4,T,U
     integer :: nx,ny,i,j
 
     !CALL Locate(Vx,nx,Xp,i)
@@ -6658,13 +6688,13 @@ contains
     ! Corrects the interpolation at the extreme points, making the value at the
     ! points outside of the grid equal to the nearest point inside the grid.
     ! It is only for interpolation using similar grids, to avoid errors at the edge.
-
+    use,intrinsic :: iso_fortran_env, only: wp=>real64
     implicit none
-    real, dimension(nx) :: Vx
-    real, dimension(ny) :: Vy
-    real, dimension(nx,ny) :: Fxy
-    real :: Xp,Yp,Fp
-    real :: F1,F2,F3,F4,T,U
+    real(wp), dimension(nx) :: Vx
+    real(wp), dimension(ny) :: Vy
+    real(wp), dimension(nx,ny) :: Fxy
+    real(wp) :: Xp,Yp,Fp
+    real(wp) :: F1,F2,F3,F4,T,U
     integer :: nx,ny,i,j
 
     !CALL Locate(Vx,nx,Xp,i)
@@ -6779,14 +6809,14 @@ contains
   !   ! Version Fortran 95, Aug 2006.
   !   implicit none
   !   integer :: N,Nm1,Nm2,i
-  !   real, dimension(N) :: F,Vx
-  !   real :: Res,H
+  !   real(wp), dimension(N) :: F,Vx
+  !   real(wp) :: Res,H
 
   !   ! N must be odd.
   !   ! The intervals must be equal.
 
   !   H= ( Vx(N) - Vx(1) )/(N-1)
-  !   Res=0.
+  !   Res=0._wp
   !   if ( N < 5 ) then
   !      open(1,FILE='Warning_Simpson.wt')
   !      write(1,*) ' N must be larger or equal 5, and odd! '
@@ -6800,7 +6830,7 @@ contains
   !      Res= Res + 4.*F(i)
   !   end do
   !   do i= 3,Nm2,2
-  !      Res= Res + 2.*F(i)
+  !      Res= Res + 2._wp*F(i)
   !   end do
   !   Res= Res + F(1) + F(N)
   !   Res= Res*H/3.
@@ -6811,22 +6841,22 @@ contains
  !  subroutine Qsimp(func,a,b,s)
 !     implicit none
 !     ! Version 22/Aug/2015
-!     real :: a,b,s
-!     real :: EPS= 1.E-4
+!     real(wp) :: a,b,s
+!     real(wp) :: EPS= 1.E-4
 !     integer :: j
 !     integer :: jmax= 15
-!     real :: os,ost,st
+!     real(wp) :: os,ost,st
 !     !      EXTERNAL func
 !     interface 
 !        real function FUNC(X)
-!          real, intent(in) :: X
+!          real(wp), intent(in) :: X
 !        end function FUNC
 !     end interface
 !     ost=-1.E30
 !     os= -1.E30
 !     do j=1,JMAX
 !        call trapzd(func,a,b,st,j)
-!        s=(4.E0*st-ost)/3.E0
+!        s=(4.e0_wp*st-ost)/3.e0_wp
 !        if (j.gt.5) then
 !           if (abs(s-os).lt.EPS*abs(os).or. &
 !                (s.eq.0..and.os.eq.0.)) return
@@ -6846,12 +6876,12 @@ contains
 !     ! Version 22/Aug/2015
 !     integer :: n
 !     integer :: it,j
-!     real :: a,b,s
-!     real :: del,suma,tnm,x
+!     real(wp) :: a,b,s
+!     real(wp) :: del,suma,tnm,x
 !     !      EXTERNAL func
 !     interface 
 !        real function FUNC(X)
-!          real, intent(in) :: X
+!          real(wp), intent(in) :: X
 !        end function FUNC
 !     end interface
 !     if (n.eq.1) then
@@ -6861,7 +6891,7 @@ contains
 !        tnm=it
 !        del=(b-a)/tnm
 !        x=a+0.5E0*del
-!        suma=0.E0
+!        suma=0.e0_wp
 !        do j=1,it
 !           suma=suma+func(x)
 !           x=x+del
@@ -6876,25 +6906,25 @@ contains
 !     ! Version 22/Aug/2015
 !     ! To be used if "a' is finite, positive, and "b" goes to infinity, or if
 !     ! "b" is finite, negative, and "a" goes to -infinity.
-!     real :: a,b,s
-!     real :: EPS= 1.E-4
+!     real(wp) :: a,b,s
+!     real(wp) :: EPS= 1.E-4
 !     integer :: j
 !     integer :: jmax= 15
-!     real :: os,ost,st
+!     real(wp) :: os,ost,st
 !     !      EXTERNAL func
 !     interface 
 !        real function FUNC(X)
-!          real, intent(in) :: X
+!          real(wp), intent(in) :: X
 !        end function FUNC
 !     end interface
 !     ost=-1.E30
 !     os= -1.E30
 !     do j=1,JMAX
 !        call midinf(func,a,b,st,j)
-!        s=(4.E0*st-ost)/3.E0
+!        s=(4.e0_wp*st-ost)/3.e0_wp
 !        if (j.gt.5) then
 !           if (abs(s-os).lt.EPS*abs(os).or. &
-!                (s.eq.0.E0.and.os.eq.0.E0)) return
+!                (s.eq.0.e0_wp.and.os.eq.0.e0_wp)) return
 !        endif
 !        os=s
 !        ost=st
@@ -6917,36 +6947,36 @@ contains
 !     implicit none
 !     integer :: n
 !     integer :: it,j
-!     real :: aa,bb,s,a,b
-!     real :: del,sum,tnm,x,ddel,func
+!     real(wp) :: aa,bb,s,a,b
+!     real(wp) :: del,sum,tnm,x,ddel,func
 !     !      EXTERNAL func
 !     interface 
 !        real function FUNK(X)
-!          real, intent(in) :: X
+!          real(wp), intent(in) :: X
 !        end function FUNK
 !     end interface
-!     FUNC(X)=FUNK(1.E0/X)/X**2   ! This is a statement function which effects
+!     FUNC(X)=FUNK(1.e0_wp/X)/X**2   ! This is a statement function which effects
 !     ! the change of variable. 
-!     B=1.E0/AA 		! These two statements change the limits of
+!     B=1.e0_wp/AA 		! These two statements change the limits of
 !     ! integration accordingly.
-!     A=1.E0/BB 
+!     A=1.e0_wp/BB 
 !     if (N.eq.1) then 		! From this point on, the routine is exactly
 !        ! identical to MIDPNT.
 !        S=(B-A)*FUNC(0.5E0*(A+B)) 
 !        IT=1 
 !     else 
 !        TNM=IT 
-!        DEL=(B-A)/(3.E0*TNM) 
+!        DEL=(B-A)/(3.e0_wp*TNM) 
 !        DDEL=DEL+DEL 
 !        X=A+0.5E0*DEL 
-!        SUM=0.E0 
+!        SUM=0.e0_wp 
 !        do 11 J=1,IT 
 !           SUM=SUM+FUNC(X) 
 !           X=X+DDEL 
 !           SUM=SUM+FUNC(X) 
 !           X=X+DEL 
 ! 11        continue 
-!           S=(S+(B-A)*SUM/TNM)/3.E0 
+!           S=(S+(B-A)*SUM/TNM)/3.e0_wp 
 !           IT=3*IT 
 !        endif 
 !        return 
@@ -6963,14 +6993,14 @@ contains
        ! See Abramowitz & Stegun, 1970, Eq. 25.3.6, for 'p=0'
        ! Based on "deriv5p.f", College Park, 16/Feb/2001 (L. F. Ziebell)
        ! Needs equally spaced points!
-
+       use,intrinsic :: iso_fortran_env, only: wp=>real64
        implicit none
        integer :: i,j,nx,ny
        integer :: nxm1,nym1,nxm2,nym2
-       real, dimension(nx) :: Vx
-       real, dimension(ny) :: Vy
-       real, dimension(nx,ny) :: Fxy(nx,ny),Dfdx(nx,ny),Dfdy(nx,ny)
-       real :: Dx,Dy
+       real(wp), dimension(nx) :: Vx
+       real(wp), dimension(ny) :: Vy
+       real(wp), dimension(nx,ny) :: Fxy(nx,ny),Dfdx(nx,ny),Dfdy(nx,ny)
+       real(wp) :: Dx,Dy
 
        Dx= Vx(2)-Vx(1)
        Dy= Vy(2)-Vy(1)
@@ -6979,12 +7009,12 @@ contains
        nxm2= nx-2
        forall(j=1:ny)
           Dfdx(1,j)= (Fxy(2,j)-Fxy(1,j))/Dx
-          Dfdx(2,j)= (Fxy(3,j)-Fxy(1,j))/(2.*Dx)
+          Dfdx(2,j)= (Fxy(3,j)-Fxy(1,j))/(2._wp*Dx)
           Dfdx(nx,j)= (Fxy(nx,j)-Fxy(nxm1,j))/Dx
-          Dfdx(nxm1,j)= (Fxy(nx,j)-Fxy(nxm2,j))/(2.*Dx)
+          Dfdx(nxm1,j)= (Fxy(nx,j)-Fxy(nxm2,j))/(2._wp*Dx)
           forall(i=3:nxm2)
-             Dfdx(i,j)= ( (Fxy(i+1,j)-Fxy(i-1,j))*2./3. &
-                  - (Fxy(i+2,j)-Fxy(i-2,j))/12. ) / Dx
+             Dfdx(i,j)= ( (Fxy(i+1,j)-Fxy(i-1,j))*2._wp/3._wp &
+                  - (Fxy(i+2,j)-Fxy(i-2,j))/12._wp) / Dx
           end forall
        end forall
 
@@ -6992,12 +7022,12 @@ contains
        nym2= ny-2
        forall(i=1:nx)
           Dfdy(i,1)= (Fxy(i,2)-Fxy(i,1))/Dy
-          Dfdy(i,2)= (Fxy(i,3)-Fxy(i,1))/(2.*Dy)
+          Dfdy(i,2)= (Fxy(i,3)-Fxy(i,1))/(2._wp*Dy)
           Dfdy(i,ny)= (Fxy(i,ny)-Fxy(i,nym1))/Dy
-          Dfdy(i,nym1)= (Fxy(i,ny)-Fxy(i,nym2))/(2.*Dy)
+          Dfdy(i,nym1)= (Fxy(i,ny)-Fxy(i,nym2))/(2._wp*Dy)
           forall(j=3:nym2)
-             Dfdy(i,j)= ( (Fxy(i,j+1)-Fxy(i,j-1))*2./3. &
-                  - (Fxy(i,j+2)-Fxy(i,j-2))/12. ) / Dy
+             Dfdy(i,j)= ( (Fxy(i,j+1)-Fxy(i,j-1))*2._wp/3._wp &
+                  - (Fxy(i,j+2)-Fxy(i,j-2))/12._wp) / Dy
           end forall
        end forall
 
@@ -7017,23 +7047,23 @@ contains
 
        ! Evaluates the x-derivative and the y derivative of two-dimensional
        ! function Fxy(x,y), given by an array on (nx,ny) elements
-
+       use,intrinsic :: iso_fortran_env, only: wp=>real64
        implicit none
        integer :: i,j,nx,ny
        integer :: nxm1,nym1,nxm2,nym2
-       real, dimension(nx) :: Vx
-       real, dimension(ny) :: Vy
-       real, dimension(nx,ny) :: Fxy(nx,ny),Dfdx(nx,ny),Dfdy(nx,ny)
-       real, dimension(nx,ny) :: Fold(nx,ny),Faux(nx,ny)
+       real(wp), dimension(nx) :: Vx
+       real(wp), dimension(ny) :: Vy
+       real(wp), dimension(nx,ny) :: Fxy(nx,ny),Dfdx(nx,ny),Dfdy(nx,ny)
+       real(wp), dimension(nx,ny) :: Fold(nx,ny),Faux(nx,ny)
        integer, dimension(2) :: Imin
-       real :: Dx,Dy
-       real :: Fxymin
+       real(wp) :: Dx,Dy
+       real(wp) :: Fxymin
 
        Fold= Fxy
        Imin= minloc(Fxy)
        Fxymin= Fxy(Imin(1),Imin(2))
        Fxy= Fxy+abs(Fxymin)
-       Fxy= Fxy+1.0E-30
+       Fxy= Fxy+1.0E-30_wp
        Faux= Fxy
        Fxy= log(Fxy)
 
@@ -7044,12 +7074,12 @@ contains
        nxm2= nx-2
        forall(j=1:ny)
           Dfdx(1,j)= (Fxy(2,j)-Fxy(1,j))/Dx * Faux(1,j)
-          Dfdx(2,j)= (Fxy(3,j)-Fxy(1,j))/(2.*Dx) * Faux(2,j)
+          Dfdx(2,j)= (Fxy(3,j)-Fxy(1,j))/(2._wp*Dx) * Faux(2,j)
           Dfdx(nx,j)= (Fxy(nx,j)-Fxy(nxm1,j))/Dx * Faux(nx,j)
-          Dfdx(nxm1,j)= (Fxy(nx,j)-Fxy(nxm2,j))/(2.*Dx) *Faux(nxm1,j)
+          Dfdx(nxm1,j)= (Fxy(nx,j)-Fxy(nxm2,j))/(2._wp*Dx) *Faux(nxm1,j)
           forall(i=3:nxm2)
-             Dfdx(i,j)= ( (Fxy(i+1,j)-Fxy(i-1,j))*2./3. &
-                  - (Fxy(i+2,j)-Fxy(i-2,j))/12. ) / Dx * Faux(i,j)
+             Dfdx(i,j)= ( (Fxy(i+1,j)-Fxy(i-1,j))*2._wp/3._wp &
+                  - (Fxy(i+2,j)-Fxy(i-2,j))/12._wp) / Dx * Faux(i,j)
           end forall
        end forall
 
@@ -7057,12 +7087,12 @@ contains
        nym2= ny-2
        forall(i=1:nx)
           Dfdy(i,1)= (Fxy(i,2)-Fxy(i,1))/Dy * Faux(i,1)
-          Dfdy(i,2)= (Fxy(i,3)-Fxy(i,1))/(2.*Dy) * Faux(i,2)
+          Dfdy(i,2)= (Fxy(i,3)-Fxy(i,1))/(2._wp*Dy) * Faux(i,2)
           Dfdy(i,ny)= (Fxy(i,ny)-Fxy(i,nym1))/Dy * Faux(i,ny)
-          Dfdy(i,nym1)= (Fxy(i,ny)-Fxy(i,nym2))/(2.*Dy) * Faux(i,nym1)
+          Dfdy(i,nym1)= (Fxy(i,ny)-Fxy(i,nym2))/(2._wp*Dy) * Faux(i,nym1)
           forall(j=3:nym2)
-             Dfdy(i,j)= ( (Fxy(i,j+1)-Fxy(i,j-1))*2./3. &
-                  - (Fxy(i,j+2)-Fxy(i,j-2))/12. ) / Dy * Faux(i,j)
+             Dfdy(i,j)= ( (Fxy(i,j+1)-Fxy(i,j-1))*2._wp/3._wp &
+                  - (Fxy(i,j+2)-Fxy(i,j-2))/12._wp) / Dy * Faux(i,j)
           end forall
        end forall
 
@@ -7082,13 +7112,13 @@ contains
        ! See Abramowitz & Stegun, 1970, Eq. 25.3.6, for 'p=0'
        ! Based on "deriv5p.f", College Park, 16/Feb/2001 (L. F. Ziebell)
        ! Needs equally spaced points!
-
+       use,intrinsic :: iso_fortran_env, only: wp=>real64
        implicit none
        integer :: i,j,nx,ny
        integer :: nxm1,nxm2
-       real, dimension(nx) :: Vx
-       real, dimension(nx,ny) :: Fxy(nx,ny),Dfdx(nx,ny)
-       real :: Dx
+       real(wp), dimension(nx) :: Vx
+       real(wp), dimension(nx,ny) :: Fxy(nx,ny),Dfdx(nx,ny)
+       real(wp) :: Dx
 
        Dx= Vx(2)-Vx(1)
 
@@ -7096,12 +7126,12 @@ contains
        nxm2= nx-2
        forall(j=1:ny)
           Dfdx(1,j)= (Fxy(2,j)-Fxy(1,j))/Dx
-          Dfdx(2,j)= (Fxy(3,j)-Fxy(1,j))/(2.*Dx)
+          Dfdx(2,j)= (Fxy(3,j)-Fxy(1,j))/(2._wp*Dx)
           Dfdx(nx,j)= (Fxy(nx,j)-Fxy(nxm1,j))/Dx
-          Dfdx(nxm1,j)= (Fxy(nx,j)-Fxy(nxm2,j))/(2.*Dx)
+          Dfdx(nxm1,j)= (Fxy(nx,j)-Fxy(nxm2,j))/(2._wp*Dx)
           forall(i=3:nxm2)
-             Dfdx(i,j)= ( (Fxy(i+1,j)-Fxy(i-1,j))*2./3. &
-                  - (Fxy(i+2,j)-Fxy(i-2,j))/12. ) / Dx
+             Dfdx(i,j)= ( (Fxy(i+1,j)-Fxy(i-1,j))*2._wp/3._wp &
+                  - (Fxy(i+2,j)-Fxy(i-2,j))/12._wp) / Dx
           end forall
        end forall
        return
@@ -7119,13 +7149,13 @@ contains
        ! See Abramowitz & Stegun, 1970, Eq. 25.3.6, for 'p=0'
        ! Based on "deriv5p.f", College Park, 16/Feb/2001 (L. F. Ziebell)
        ! Needs equally spaced points!
-
+       use,intrinsic :: iso_fortran_env, only: wp=>real64
        implicit none
        integer :: i,j,nx,ny
        integer :: nym1,nym2
-       real, dimension(ny) :: Vy
-       real, dimension(nx,ny) :: Fxy(nx,ny),Dfdy(nx,ny)
-       real :: Dy
+       real(wp), dimension(ny) :: Vy
+       real(wp), dimension(nx,ny) :: Fxy(nx,ny),Dfdy(nx,ny)
+       real(wp) :: Dy
 
        Dy= Vy(2)-Vy(1)
 
@@ -7133,12 +7163,12 @@ contains
        nym2= ny-2
        forall(i=1:nx)
           Dfdy(i,1)= (Fxy(i,2)-Fxy(i,1))/Dy
-          Dfdy(i,2)= (Fxy(i,3)-Fxy(i,1))/(2.*Dy)
+          Dfdy(i,2)= (Fxy(i,3)-Fxy(i,1))/(2._wp*Dy)
           Dfdy(i,ny)= (Fxy(i,ny)-Fxy(i,nym1))/Dy
-          Dfdy(i,nym1)= (Fxy(i,ny)-Fxy(i,nym2))/(2.*Dy)
+          Dfdy(i,nym1)= (Fxy(i,ny)-Fxy(i,nym2))/(2._wp*Dy)
           forall(j=3:nym2)
-             Dfdy(i,j)= ( (Fxy(i,j+1)-Fxy(i,j-1))*2./3. &
-                  - (Fxy(i,j+2)-Fxy(i,j-2))/12. ) / Dy
+             Dfdy(i,j)= ( (Fxy(i,j+1)-Fxy(i,j-1))*2._wp/3._wp &
+                  - (Fxy(i,j+2)-Fxy(i,j-2))/12._wp) / Dy
           end forall
        end forall
 
@@ -7147,19 +7177,19 @@ contains
      !
      !
      real function PERF(X)
+       use,intrinsic :: iso_fortran_env, only: wp=>real64
        ! Error function of argument X, based on PERF
        ! (from R. L. Meyer, Universite de Nancy, Franca)
        ! Version Feb. 18, 2009.
-
        implicit none
-       !REAL :: PERFC
-       real :: X,X2,SNUM,SDEN
-       real, dimension(5) :: P,Q
-       data P /3.209377589138469472562E+03,3.774852376853020208137E+02,&
-            1.138641541510501556495E+02,3.161123743870565596947E+00,&
-            1.857777061846031526730E-01/
-       data Q /2.844236833439170622273E+03,1.282616526077372275645E+03,&
-            2.440246379344441733056E+02,2.360129095234412093499E+01,1./
+       !REAL(WP) :: PERFC
+       real(wp) :: X,X2,SNUM,SDEN
+       real(wp), dimension(5) :: P,Q
+       data P /3.209377589138469472562E+03_wp,3.774852376853020208137E+02_wp,&
+            1.138641541510501556495E+02_wp,3.161123743870565596947E+00_wp,&
+            1.857777061846031526730E-01_wp/
+       data Q /2.844236833439170622273E+03_wp,1.282616526077372275645E+03_wp,&
+            2.440246379344441733056E+02_wp,2.360129095234412093499E+01_wp,1._wp/
        if (X <= 0.5_wp) then
           X2=X*X
           SNUM=X*(P(1)+X2*(P(2)+X2*(P(3)+X2*(P(4)+X2*P(5)))))
@@ -7172,38 +7202,38 @@ contains
      end function PERF
 
      real function PERFC(X)
+       use,intrinsic :: iso_fortran_env, only: wp=>real64
        ! Complementary error function of argument X, based on PERF 
        ! (from R. L. Meyer, Universite de Nancy, Franca)
        ! Version Feb. 18, 2009.
-
        implicit none
-       !REAL :: PERF
-       real :: X,X2,Y2,SNUM,SDEN
-       real, dimension(9) :: P,Q
-       real, dimension(6) :: R,S
-       data P /1.23033935479799725272E+03,2.05107837782607146532E+03,&
-            1.71204761263407058314E+03,8.81952221241769090411E+02,&
-            2.98635138197400131132E+02,6.61191906371416294775E+01,&
-            8.88314979438837594118E+00,5.64188496988670089180E-01,&
-            2.15311535474403846343E-08/
-       data Q /1.23033935480374942043E+03,3.43936767414372163696E+03,&
-            4.36261909014324715820E+03,3.29079923573345962678E+03,&
-            1.62138957456669018874E+03,5.37181101862009857509E+02,&
-            1.17693950891312499305E+02,1.57449261107098347253E+01,1./
-       data R /-6.58749161529837803157E-04,-1.60837851487422766278E-02,&
-            -1.25781726111229246204E-01,-3.60344899949804439429E-01,&
-            -3.05326634961232344035E-01,-1.63153871373020978498E-02/
-       data S /2.33520497626869185443E-03,6.05183413124413191178E-02,&
-            5.27905102951428412248E-01,1.87295284992346047209E+00,&
-            2.56852019228982242072E+00,1./
-       if (X > 90.) then
-          PERFC=0.
+       !REAL(WP) :: PERF
+       real(wp) :: X,X2,Y2,SNUM,SDEN
+       real(wp), dimension(9) :: P,Q
+       real(wp), dimension(6) :: R,S
+       data P /1.23033935479799725272E+03_wp,2.05107837782607146532E+03_wp,&
+            1.71204761263407058314E+03_wp,8.81952221241769090411E+02_wp,&
+            2.98635138197400131132E+02_wp,6.61191906371416294775E+01_wp,&
+            8.88314979438837594118E+00_wp,5.64188496988670089180E-01_wp,&
+            2.15311535474403846343E-08_wp/
+       data Q /1.23033935480374942043E_wp+03_wp,3.43936767414372163696E+03_wp,&
+            4.36261909014324715820E+03_wp,3.29079923573345962678E+03_wp,&
+            1.62138957456669018874E+03_wp,5.37181101862009857509E+02_wp,&
+            1.17693950891312499305E+02_wp,1.57449261107098347253E+01_wp,1._wp/
+       data R /-6.58749161529837803157E-04_wp,-1.60837851487422766278E-02_wp,&
+            -1.25781726111229246204E-01_wp,-3.60344899949804439429E-01_wp,&
+            -3.05326634961232344035E-01_wp,-1.63153871373020978498E-02_wp/
+       data S /2.33520497626869185443E-03_wp,6.05183413124413191178E-02_wp,&
+            5.27905102951428412248E-01_wp,1.87295284992346047209E+00_wp,&
+            2.56852019228982242072E+00_wp,1._wp/
+       if (X > 90._wp) then
+          PERFC=0._wp
        else
           if (X <= 0.5_wp) then
              PERFC=1._wp-PERF(X)
           else
              X2=X*X
-             if (X <= 4.) then
+             if (X <= 4._wp) then
                 SNUM=exp(-X2)*(P(1)+X*(P(2)+X*(P(3)+X*(P(4)+X*(P(5)+X*(P(6)&
                      +X*(P(7)+X*(P(8)+X*P(9)))))))))
                 SDEN=Q(1)+X*(Q(2)+X*(Q(3)+X*(Q(4)+X*(Q(5)+X*(Q(6)+X*(Q(7)&
@@ -7213,7 +7243,7 @@ contains
                 Y2=1._wp/X2
                 SNUM= R(1)+Y2*(R(2)+Y2*(R(3)+Y2*(R(4)+Y2*(R(5)+Y2*R(6)))))
                 SDEN=S(1)+Y2*(S(2)+Y2*(S(3)+Y2*(S(4)+Y2*(S(5)+Y2*S(6)))))
-                PERFC=exp(-X2)*(0.56418958354775628694+SNUM/SDEN*Y2)/X
+                PERFC=exp(-X2)*(0.56418958354775628694_wp+SNUM/SDEN*Y2)/X
              end if
           end if
        end if
@@ -7221,15 +7251,15 @@ contains
      end function PERFC
 
      real function PERFCE(X)
+       use,intrinsic :: iso_fortran_env, only: wp=>real64
        ! Evaluates EXP(X**2)*ERFC(X
        ! Based on DERFCE(X)
        ! (from R. L. Meyer, Universite de Nancy, Franca)
        ! Version Oct. 09, 2015
-
        implicit none
-       real :: X,X2,SNUM,SDEN,Y2
-       real, dimension(9) :: P,Q
-       real, dimension(6) :: R,S
+       real(wp) :: X,X2,SNUM,SDEN,Y2
+       real(wp), dimension(9) :: P,Q
+       real(wp), dimension(6) :: R,S
        data P/1.23033935479799725272D+03,2.05107837782607146532D+03,&
             1.71204761263407058314D+03,8.81952221241769090411D+02,&
             2.98635138197400131132D+02,6.61191906371416294775D+01,&
@@ -7250,9 +7280,9 @@ contains
           PERFCE=(1._wp-PERF(X))*exp(X*X)
        else
           X2=X*X
-          if (X <=4.) then
-             SNUM= (P(1)+X*(P(2)+X*(P(3)+X*(P(4)+X*(P(5)+X*(P(6)+X*(P( &
-                  7)+X*(P(8)+X*P(9)))))))))
+          if (X <=4._wp) then
+             SNUM= (P(1)+X*(P(2)+X*(P(3)+X*(P(4)+X*(P(5)+X*(P(6)+X*(P(7) &
+                  +X*(P(8)+X*P(9)))))))))
              SDEN= Q(1)+X*(Q(2)+X*(Q(3)+X*(Q(4)+X*(Q(5)+X*(Q(6)+X*(Q(7)+X*(Q(8)+ &
                   X*Q(9))))))))
              PERFCE=SNUM/SDEN
@@ -7260,29 +7290,30 @@ contains
              Y2=1._wp/X2
              SNUM= R(1)+Y2*(R(2)+Y2*(R(3)+Y2*(R(4)+Y2*(R(5)+Y2*R(6)))))
              SDEN=S(1)+Y2*(S(2)+Y2*(S(3)+Y2*(S(4)+Y2*(S(5)+Y2*S(6)))))
-             PERFCE= (0.56418958354775628694+SNUM/SDEN*Y2)/X
+             PERFCE= (0.56418958354775628694_wp+SNUM/SDEN*Y2)/X
           end if
        end if
        return
      end function PERFCE
 
      subroutine Coef_Coll
+       use,intrinsic :: iso_fortran_env, only: wp=>real64
        use Common_Params
        use Common_Arrays
        use Math_Constants
        use Phys_Constants
        implicit none
-       real :: Ux,Uz,U,U2,U3,U5
-       real :: Cee,Cei,RMeMe,RVeVi,RVeVe,RViVe
-       real :: PsiArg,PhiArg,PhipArg,Arg,Arg2
-       real :: ColAxe,ColAze,ColAxi,ColAzi
-       real :: ColDxxe,ColDxze,ColDzze,ColDxxi,ColDxzi,ColDzzi
-       !REAL :: PERF
-       real :: Aux,ZZ
+       real(wp) :: Ux,Uz,U,U2,U3,U5
+       real(wp) :: Cee,Cei,RMeMe,RVeVi,RVeVe,RViVe
+       real(wp) :: PsiArg,PhiArg,PhipArg,Arg,Arg2
+       real(wp) :: ColAxe,ColAze,ColAxi,ColAzi
+       real(wp) :: ColDxxe,ColDxze,ColDzze,ColDxxi,ColDxzi,ColDzzi
+       !REAL(WP) :: PERF
+       real(wp) :: Aux,ZZ
        integer :: l,m
 
        ZZ= 1  ! Version which works only for ions with unit charge.
-       Cee= (2.*Pi)*Geff * log(3./(8*Pi)/sqrt(2.)/Geff)
+       Cee= (2._wp*Pi)*Geff * log(3._wp/(8._wp*Pi)/sqrt(2._wp)/Geff)
        Cei= Cee*ZZ**2
        RMeMe= 1._wp
        RVeVi= sqrt(RTeTi*RMiMe)
@@ -7310,29 +7341,29 @@ contains
                    Arg= U*RVeVe
                    Arg2= Arg**2
                    PhiArg= PERF(Arg)
-                   PhipArg= 2.*exp(-Arg2)/sqrt(Pi)
+                   PhipArg= 2._wp*exp(-Arg2)/sqrt(Pi)
                    PsiArg= PhiArg-Arg*PhipArg
-                   ColAxe= Cee*(2./RMeMe*PsiArg*Ux/U3)
-                   ColAze= Cee*(2./RMeMe*PsiArg*Uz/U3)
-                   ColDxxe= Cee*((U2*PhiArg-RVeVe**2*PsiArg/2.)*Uz*Uz/U5 &
+                   ColAxe= Cee*(2._wp/RMeMe*PsiArg*Ux/U3)
+                   ColAze= Cee*(2._wp/RMeMe*PsiArg*Uz/U3)
+                   ColDxxe= Cee*((U2*PhiArg-RVeVe**2*PsiArg/2._wp)*Uz*Uz/U5 &
                         + RVeVe**2*PsiArg*Ux*Ux/U5)
-                   ColDxze= - Cee*((U2*PhiArg-RVeVe**2*PsiArg/2.)*Ux*Uz/U5 &
+                   ColDxze= - Cee*((U2*PhiArg-RVeVe**2*PsiArg/2._wp)*Ux*Uz/U5 &
                         - RVeVe**2*PsiArg*Ux*Uz/U5)
-                   ColDzze= Cee*((U2*PhiArg-RVeVe**2*PsiArg/2.)*Ux*Ux/U5 &
+                   ColDzze= Cee*((U2*PhiArg-RVeVe**2*PsiArg/2._wp)*Ux*Ux/U5 &
                         + RVeVe**2*PsiArg*Uz*Uz/U5)
 
                    Arg= U*RVeVi
                    Arg2= Arg**2
                    PhiArg= PERF(Arg)
-                   PhipArg= 2.*exp(-Arg2)/sqrt(Pi)
+                   PhipArg= 2._wp*exp(-Arg2)/sqrt(Pi)
                    PsiArg= PhiArg-Arg*PhipArg
-                   ColAxi= Cei*(2./RMiMe*PsiArg*Ux/U3)
-                   ColAzi= Cei*(2./RMiMe*PsiArg*Uz/U3)
-                   ColDxxi= Cei*((U2*PhiArg-RViVe**2*PsiArg/2.)*Uz*Uz/U5 &
+                   ColAxi= Cei*(2._wp/RMiMe*PsiArg*Ux/U3)
+                   ColAzi= Cei*(2._wp/RMiMe*PsiArg*Uz/U3)
+                   ColDxxi= Cei*((U2*PhiArg-RViVe**2*PsiArg/2._wp)*Uz*Uz/U5 &
                         + RViVe**2*PsiArg*Ux*Ux/U5)
-                   ColDxzi= - Cei*((U2*PhiArg-RViVe**2*PsiArg/2.)*Ux*Uz/U5 &
+                   ColDxzi= - Cei*((U2*PhiArg-RViVe**2*PsiArg/2._wp)*Ux*Uz/U5 &
                         - RViVe**2*PsiArg*Ux*Uz/U5)
-                   ColDzzi= Cei*((U2*PhiArg-RViVe**2*PsiArg/2.)*Ux*Ux/U5 &
+                   ColDzzi= Cei*((U2*PhiArg-RViVe**2*PsiArg/2._wp)*Ux*Ux/U5 &
                         + RViVe**2*PsiArg*Uz*Uz/U5)
 
                    ColAx(l,m)= Aux*(ColAxe+ColAxi)
@@ -7360,26 +7391,26 @@ contains
                    Arg2= Arg**2
                    PhiArg= 1._wp
                    PsiArg= 1._wp
-                   ColAxe= Cee*(2./RMeMe*PsiArg*Ux/U3)
-                   ColAze= Cee*(2./RMeMe*PsiArg*Uz/U3)
-                   ColDxxe= Cee*((U2*PhiArg-RVeVe**2*PsiArg/2.)*Uz*Uz/U5 &
+                   ColAxe= Cee*(2._wp/RMeMe*PsiArg*Ux/U3)
+                   ColAze= Cee*(2._wp/RMeMe*PsiArg*Uz/U3)
+                   ColDxxe= Cee*((U2*PhiArg-RVeVe**2*PsiArg/2._wp)*Uz*Uz/U5 &
                         + RVeVe**2*PsiArg*Ux*Ux/U5)
-                   ColDxze= - Cee*((U2*PhiArg-RVeVe**2*PsiArg/2.)*Ux*Uz/U5 &
+                   ColDxze= - Cee*((U2*PhiArg-RVeVe**2*PsiArg/2._wp)*Ux*Uz/U5 &
                         - RVeVe**2*PsiArg*Ux*Uz/U5)
-                   ColDzze= Cee*((U2*PhiArg-RVeVe**2*PsiArg/2.)*Ux*Ux/U5 &
+                   ColDzze= Cee*((U2*PhiArg-RVeVe**2*PsiArg/2._wp)*Ux*Ux/U5 &
                         + RVeVe**2*PsiArg*Uz*Uz/U5)
 
                    Arg= U*RVeVi
                    Arg2= Arg**2
                    PhiArg= 1._wp
                    PsiArg= 1._wp
-                   ColAxi= Cei*(2./RMiMe*PsiArg*Ux/U3)
-                   ColAzi= Cei*(2./RMiMe*PsiArg*Uz/U3)
-                   ColDxxi= Cei*((U2*PhiArg-RViVe**2*PsiArg/2.)*Uz*Uz/U5 &
+                   ColAxi= Cei*(2._wp/RMiMe*PsiArg*Ux/U3)
+                   ColAzi= Cei*(2._wp/RMiMe*PsiArg*Uz/U3)
+                   ColDxxi= Cei*((U2*PhiArg-RViVe**2*PsiArg/2._wp)*Uz*Uz/U5 &
                         + RViVe**2*PsiArg*Ux*Ux/U5)
-                   ColDxzi= - Cei*((U2*PhiArg-RViVe**2*PsiArg/2.)*Ux*Uz/U5 &
+                   ColDxzi= - Cei*((U2*PhiArg-RViVe**2*PsiArg/2._wp)*Ux*Uz/U5 &
                         - RViVe**2*PsiArg*Ux*Uz/U5)
-                   ColDzzi= Cei*((U2*PhiArg-RViVe**2*PsiArg/2.)*Ux*Ux/U5 &
+                   ColDzzi= Cei*((U2*PhiArg-RViVe**2*PsiArg/2._wp)*Ux*Ux/U5 &
                         + RViVe**2*PsiArg*Uz*Uz/U5)
 
                    ColAx(l,m)= Aux*(ColAxe+ColAxi)
@@ -7402,11 +7433,11 @@ contains
        case("No ")
           do m= 1,nuz
              do l= 1,nux
-                ColAx(l,m)= 0.
-                ColAz(l,m)= 0.
-                ColDxx(l,m)= 0.
-                ColDxz(l,m)= 0.
-                ColDzz(l,m)= 0.
+                ColAx(l,m)= 0._wp
+                ColAz(l,m)= 0._wp
+                ColDxx(l,m)= 0._wp
+                ColDxz(l,m)= 0._wp
+                ColDzz(l,m)= 0._wp
              end do
           end do
 
@@ -7424,26 +7455,27 @@ contains
 
 
      subroutine Coll_Damping
+       use,intrinsic :: iso_fortran_env, only: wp=>real64
        use Common_Params
        use Common_Arrays
        use Math_Constants
        use Phys_Constants
-       use Qsimp_m
+       use DQsimp_m
        use zetaFunc_m
        implicit none
-       real :: Qx,Qz,Q2,Q
-       real :: Zlq,Zsq,Mu
-       real :: RTemp0,Res
-       real :: Res1L,Res2L,Res1S,Res2S
-       real :: DQ,Dmu
-       real :: Aux
-       real :: RTempf
+       real(wp) :: Qx,Qz,Q2,Q
+       real(wp) :: Zlq,Zsq,Mu
+       real(wp) :: RTemp0,Res
+       real(wp) :: Res1L,Res2L,Res1S,Res2S
+       real(wp) :: DQ,Dmu
+       real(wp) :: Aux
+       real(wp) :: RTempf
        integer :: ires,m,sigma
        integer :: i,j,it,sigpm
        integer, parameter :: nqp= 1024,nmu=64 !64 !odd
-       real, dimension(nmu) :: Vmu,VintGcL,VintGcS
-       real :: AuxSig
-       real, parameter :: Qi= 1.E-4, Qf= 10.E0
+       real(wp), dimension(nmu) :: Vmu,VintGcL,VintGcS
+       real(wp) :: AuxSig
+       real(wp), parameter :: Qi= 1.E-4_wp, Qf= 10.E0_wp
 
        m= 1   ! Auxiliary to the space profiles (just one point, for the moment)
        RTemp0= VRTeTs(m)
@@ -7469,7 +7501,7 @@ contains
              Q= VQQ(i)
              Q2= Q**2
              Zlq= sqrt(VRNeNs(m))*sqrt(1._wp+1.5_wp*Q2*VRTeTs(m)/VRNeNs(m))
-             Zsq= Q*AA*sqrt(VRTeTs(m))/sqrt(1._wp+Q2/2.*VRTeTs(m)/VRNeNs(m))
+             Zsq= Q*AA*sqrt(VRTeTs(m))/sqrt(1._wp+Q2/2._wp*VRTeTs(m)/VRNeNs(m))
              sigma= 1   ! Evaluated only for sigma=1, due to the symmetry
              ! ! Contribution of the background distribution (aproximated, U0= 0)
              Aux2_Gcoll(1)=i
@@ -7483,43 +7515,43 @@ contains
              !    Aux2_Gcoll(3)= it
              !    Mu= Vmu(it)
              !    Aux1_Gcoll(6)= Mu
-             !    call Qsimp(Aux_GcollL,1.E-4,0.28E0,Res1L)
-             !    call Qsimpb(Aux_GcollL,0.28E0,1.E30,Res2L)
+             !    call DQsimp(Aux_GcollL,1.E-4_wp,0.28E0_wp,Res1L)
+             !    call DQsimpb(Aux_GcollL,0.28E0_wp,1.E30_wp,Res2L)
              !    VintGcL(it)= Res1L+Res2L
              ! end do
              ! call Simpson(Vmu,VintGcL,nmu,Res)
-             ! call Qsimp(Aux_GcollL,1.E-4,0.4,Res1L)
-             ! call Qsimpb(Aux_GcollL,0.4,1.E30,Res2L)
+             ! call DQsimp(Aux_GcollL,1.E-4_wp,0.4_wp,Res1L)
+             ! call DQsimpb(Aux_GcollL,0.4_wp,1.E30_wp,Res2L)
              ! Res= Res1L+Res2L
-             ! GcollL1D(i)=-2.0*Pi**(2.5)*VRNeNs(m)**4/VRTeTs(m)**3 &
+             ! GcollL1D(i)=-2.0_wp*Pi**(2.5)*VRNeNs(m)**4/VRTeTs(m)**3 &
              !      * Geff/Q2/Q*Res*(1._wp-RatioNf)/Zlq**3
              read(1,*) GcollL1D(i)
-             AuxSig=0.
+             AuxSig=0._wp
              do sigpm= -1,1,2
                 AuxSig=(sigpm*Zlq)**3
-                ! GcollL1D(i)=-2.0*Pi**(2.5)*VRNeNs(m)**4/VRTeTs(m)**3 &
+                ! GcollL1D(i)=-2.0_wp*Pi**(2.5)*VRNeNs(m)**4/VRTeTs(m)**3 &
                 !      * Geff/Q2/Q*Res*(1._wp-RatioNf)/AuxSig
-                if (AuxSig > 0.) then
+                if (AuxSig > 0._wp) then
                    GcollLp1D(i)= GcollL1D(i)
                 else
                    GcollLm1D(i)= -GcollL1D(i)
                 end if
              end do ! sigma
              !! For S waves !!
-             call Qsimp(Aux_GcollS,1.E-4,1._wp,Res1S)
-             call Qsimpb(Aux_GcollS,1._wp,1.E30_wp,Res2S)
+             call DQsimp(Aux_GcollS,1.E-4_wp,1._wp,Res1S)
+             call DQsimpb(Aux_GcollS,1._wp,1.E30_wp,Res2S)
              Res= Res1S+Res2S
-             GcollS1D(i)= -Zlq*Zsq*(16.*sqrt(Pi))/Q2 * (Q**3*AA/2.) &
+             GcollS1D(i)= -Zlq*Zsq*(16._wp*sqrt(Pi))/Q2 * (Q**3*AA/2._wp) &
                   * (VRNeNs(m)/VRTeTs(m))**(5./2.)*Geff * Res * (1._wp-RatioNf)
-             !! GcollL1D(i)= -Zlq**2*(16.*sqrt(Pi))/(sqrt(VRTeTs(m)))**3/Q2 &
+             !! GcollL1D(i)= -Zlq**2*(16._wp*sqrt(Pi))/(sqrt(VRTeTs(m)))**3/Q2 &
              !!      * (VRNeNs(m)/VRTeTs(m))**2*Geff * Res * (1._wp-RatioNf)            
-             !! call Qsimp(Aux_GcollL,1.E-4,4.,Res1L)
-             !! call Qsimpb(Aux_GcollL,4.,1.E30,Res2L)
+             !! call DQsimp(Aux_GcollL,1.E-4_wp,4._wp,Res1L)
+             !! call DQsimpb(Aux_GcollL,4._wp,1.E30_wp,Res2L)
              !! Res= Res1L+Res2L
              ! Evaluates the quasilinear damping:
              GqlL1D(i)= -sqrt(Pi)/(sqrt(VRTeTs(m)))**3*Zlq**2/Q**3 &
                   * exp(-Zlq**2/Q2/VRTeTs(m)) * (1._wp-RatioNf)
-             GqlS1D(i)= -sqrt(Pi)*(Q**3*AA/2.)*Zlq*Zsq/Q**3 &
+             GqlS1D(i)= -sqrt(Pi)*(Q**3*AA/2._wp)*Zlq*Zsq/Q**3 &
                   * (exp(-Zsq**2/Q2/VRTeTs(m))/(sqrt(VRTeTs(m)))**3 &
                   + exp(-Zsq**2/Q2/VRTeTs(m)*RTeTi*RMiMe)*sqrt(RMiMe*RTeTi/VRTeTs(m)) &
                   * RTeTi/VRTeTs(m) ) * (1._wp-RatioNf)
@@ -7528,10 +7560,10 @@ contains
           
        case("No ")
           do i= 1,nuz
-             GcollL1D(i)= 0.
-             GcollS1D(i)= 0.
-             GqlL1D(i)= 0.
-             GqlS1D(i)= 0.
+             GcollL1D(i)= 0._wp
+             GcollS1D(i)= 0._wp
+             GqlL1D(i)= 0._wp
+             GqlS1D(i)= 0._wp
           end do
        end select
 
@@ -7542,7 +7574,7 @@ contains
              Qz= VQz(j)
              Q2= Qx**2+Qz**2
              Q= sqrt(Q2)
-             if(Q<=5.E-3) Q=5.E-3
+             if(Q<=5.e-3_wp) Q=5.e-3_wp
              call Locate(VQQ,nqcd,Q,ires)
              call Aitp1d2(nqcd,VQQ,GcollLp1D,Q,Aux,ires)
              GcollLp(i,j)= Aux
@@ -7568,7 +7600,7 @@ contains
        use Common_Params
        use Common_Arrays
        use Math_Constants
-       use Qsimp_m
+       use DQsimp_m
        use zetaFunc_m
        implicit none
        real(wp), intent(in) :: Qp
@@ -7620,7 +7652,7 @@ contains
        use Common_Params
        use Common_Arrays
        use Math_Constants
-       use Qsimp_m
+       use DQsimp_m
        use zetaFunc_m
        implicit none
        real(wp), intent(in) :: Qp
@@ -7651,7 +7683,7 @@ contains
              EpsQp2= (CDABS(EpsQp))**2
 
              AuxA= -2._wp*Q*Qp
-             AuxB= 2._wp*(1.E0+RTeTi)*VRNeNs(m)/VRTeTs(m)+Q2+Qp2
+             AuxB= 2._wp*(1.e0_wp+RTeTi)*VRNeNs(m)/VRTeTs(m)+Q2+Qp2
              AuxA2= AuxA**2
              AuxB2= AuxB**2
              Aux= (4._wp/(AuxB2-AuxA2)+RTeTi*Qp/Q/Q2/Qp2*(-2._wp*AuxA*AuxB/(AuxB2-AuxA2) &
@@ -7686,7 +7718,7 @@ contains
        use Math_Constants
        use Phys_Constants
        !use zetaFunc_m
-       use Qsimp_m
+       use DQsimp_m
        implicit none
        real(wp) :: Qx,Qz,Q2,Q
        real(wp) :: DQ,Dmu
@@ -7721,14 +7753,14 @@ contains
 
        select case(Bremss)
        case("Yes")
-          open(1,file="BremL1D")  !! one column file
+          ! open(1,file="BremL1D")  !! one column file
           ! Evaluation of the 1D expression:
           sigma=1
           do i= 1,nqcd
              Q= VQQ(i)
              Q2= Q**2
-             Zlq= sqrt(VRNeNs(m))*sqrt(1.+1.5_wp*Q2*VRTeTs(m)/VRNeNs(m))
-             Zsq= Q*AA*sqrt(VRTeTs(m))/sqrt(1.+Q2/2.*VRTeTs(m)/VRNeNs(m))
+             Zlq= sqrt(VRNeNs(m))*sqrt(1._wp+1.5_wp*Q2*VRTeTs(m)/VRNeNs(m))
+             Zsq= Q*AA*sqrt(VRTeTs(m))/sqrt(1._wp+Q2/2._wp*VRTeTs(m)/VRNeNs(m))
              Aux1_Bremss(1)= Rtemp0
              Aux1_Bremss(2)= Q
              Aux1_Bremss(3)= Q2
@@ -7737,21 +7769,21 @@ contains
              do it= 1,nmu
                 Mu= Vmu(it)               
                 Aux1_Bremss(6)= Mu
-                ! call Qsimp(Aux_BremL,1.E-4_wp,4._wp,Res1L)
-                ! call Qsimpb(Aux_BremL,4._wp,Infinity,Res2L)
-                ! VintL(it)= Res1L+Res2L
-                call Qsimp(Aux_BremS,1.E-4_wp,4._wp,Res1s)
-                call Qsimpb(Aux_BremS,4._wp,Infinity,Res2S)
+                call DQsimp(Aux_BremL,1.E-4_wp,4._wp,Res1L)
+                call DQsimpb(Aux_BremL,4._wp,Infinity,Res2L)
+                VintL(it)= Res1L+Res2L
+                call DQsimp(Aux_BremS,1.E-4_wp,4._wp,Res1s)
+                call DQsimpb(Aux_BremS,4._wp,Infinity,Res2S)
                 VintS(it)= Res1S+Res2S
              end do
-             ! call Simpson(Vmu,VintL,nmu,ResL)
+             call Simpson(Vmu,VintL,nmu,ResL)
              call Simpson(Vmu,VintS,nmu,ResS)
-             ! call Qsimp(Aux_BremL,1.E-4_wp,4._wp,Res1L)
-             ! call Qsimpb(Aux_BremL,4._wp,Infinity,Res2L)
-             ! ResL=Res1L+Res2L
+             ! call DQsimp(Aux_BremL,1.E-4_wp,4._wp,Res1L)
+             ! call DQsimpb(Aux_BremL,4._wp,Infinity,Res2L)
+             ResL=Res1L+Res2L
              ! BremL1D(i)= 6.0_wp*Pi**1.5_wp/Zlq**2*VRNeNs(m)**4/VRTeTs(m)**2.5*Geff**2/Q2/Q2*ResL
-             ! BremL1D(i)=384._wp*sqrt(pi)/Zlq**2*(1._wp-1._wp/RMiMe/VRTiTs(m))**2 &
-             !      * VRNeNs(m)**4/VRTeTs(m)*Geff**2/Q2*ResL
+             BremL1D(i)=384._wp*sqrt(pi)/Zlq**2*(1._wp-1._wp/RMiMe/VRTiTs(m))**2 &
+                  * VRNeNs(m)**4/VRTeTs(m)*Geff**2/Q2*ResL
              ! BremL1D(i)= 96._wp*SQRT(pi)*VRNeNs(m)**5/Rtemp0**4 &
              !      * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResL           
              read(1,*) VQQread(i),BremL1D(i)
@@ -7810,7 +7842,7 @@ contains
        use Common_Params
        use Common_Arrays
        use Math_Constants
-       use Qsimp_m
+       use DQsimp_m
        use zetaFunc_m
        implicit none
        real(wp), intent(in) :: Qp
@@ -7830,57 +7862,57 @@ contains
        Q2= Aux1_Bremss(3)
        Zlq= Aux1_Bremss(4)
        Zsq= Aux1_Bremss(5)
-       ! Mu= Aux1_Bremss(6)
+       Mu= Aux1_Bremss(6)
        Aux_BremL= 0._wp
 
-       if(Q > 2.e-4_wp) then
-          if(Qp > 2.e-4_wp) then
-             Qp2= Qp**2
-             Zeta= sigma*Zlq/Q/Qp/sqrt(VRTeTs(m))
-             Qp2EpsQp= 1._wp+2._wp*VRNeNs(m)/VRTeTs(m)/Q2/Qp2*(1._wp+Zeta*Zfn(Zeta))
-             ! EpsQp2= ((Zlq**2-VRNeNs(m)-1.5_wp*VRTeTs(m)*Qp2)**2+4._wp*Pi*(VRNeNs(m))**5 &
-             !   /(VRTeTs(m))**3/Qp**6*EXP(-2._wp*Zlq**2/Qp2))/(Zlq)**4
-             Qp2EpsQpSq= (ABS(Qp2EpsQp))**2
-             ! AuxA= -2._wp*Q*Qp
-             ! ! AuxB= 2._wp*(1._wp+RTeTi)*VRNeNs(m)/VRTeTs(m)+Q2+Qp2
-             ! AuxB= Q2+Qp2
-             ! AuxA2= AuxA**2
-             ! AuxB2= AuxB**2
-             ! ! Aux0= AuxB-AuxA
-             ! Aux= (Qp*(-AuxA2+2._wp*AuxB2)/(AuxB2-AuxA2)+(AuxB/2._wp/Q) &
-             !      * log((AuxB+AuxA)/(AuxB-AuxA)))/Qp2
-             ! ! Aux= (Qp*(-AuxA2+2._wp*AuxB2)/(AuxB2-AuxA2)+(AuxB/2._wp/Q) &
-             ! !      * log(1._wp+2._wp*AuxA/(AuxB-AuxA)))
-             Aux= ((1._wp+Qp2*Qp2)/(1._wp-Qp2)**2+(1._wp+Qp2)/4._wp/Qp &
-                  * log((1._wp-Qp)**2/(1._wp+Qp)**2))/Qp2/Qp
-             Aux_BremL= exp(-Zlq**2/Qp2/Q2/VRTeTs(m))*Aux/Qp2EpsQpSq
-          else
-             Aux_BremL= 0.E0_wp
-          end if
-       else
-          Aux_BremL= 0.E0_wp
-       end if
+       ! if(Q > 2.e-4_wp) then
+       !    if(Qp > 2.e-4_wp) then
+       !       Qp2= Qp**2
+       !       Zeta= sigma*Zlq/Q/Qp/sqrt(VRTeTs(m))
+       !       Qp2EpsQp= 1._wp+2._wp*VRNeNs(m)/VRTeTs(m)/Q2/Qp2*(1._wp+Zeta*Zfn(Zeta))
+       !       ! EpsQp2= ((Zlq**2-VRNeNs(m)-1.5_wp*VRTeTs(m)*Qp2)**2+4._wp*Pi*(VRNeNs(m))**5 &
+       !       !   /(VRTeTs(m))**3/Qp**6*EXP(-2._wp*Zlq**2/Qp2))/(Zlq)**4
+       !       Qp2EpsQpSq= (ABS(Qp2EpsQp))**2
+       !       ! AuxA= -2._wp*Q*Qp
+       !       ! ! AuxB= 2._wp*(1._wp+RTeTi)*VRNeNs(m)/VRTeTs(m)+Q2+Qp2
+       !       ! AuxB= Q2+Qp2
+       !       ! AuxA2= AuxA**2
+       !       ! AuxB2= AuxB**2
+       !       ! ! Aux0= AuxB-AuxA
+       !       ! Aux= (Qp*(-AuxA2+2._wp*AuxB2)/(AuxB2-AuxA2)+(AuxB/2._wp/Q) &
+       !       !      * log((AuxB+AuxA)/(AuxB-AuxA)))/Qp2
+       !       ! ! Aux= (Qp*(-AuxA2+2._wp*AuxB2)/(AuxB2-AuxA2)+(AuxB/2._wp/Q) &
+       !       ! !      * log(1._wp+2._wp*AuxA/(AuxB-AuxA)))
+       !       Aux= ((1._wp+Qp2*Qp2)/(1._wp-Qp2)**2+(1._wp+Qp2)/4._wp/Qp &
+       !            * log((1._wp-Qp)**2/(1._wp+Qp)**2))/Qp2/Qp
+       !       Aux_BremL= exp(-Zlq**2/Qp2/Q2/VRTeTs(m))*Aux/Qp2EpsQpSq
+       !    else
+       !       Aux_BremL= 0.E0_wp
+       !    end if
+       ! else
+       !    Aux_BremL= 0.E0_wp
+       ! end if
        
-       ! Aux0= 0._wp
-       ! Aux0= Qp**4*(Q**2+Qp**2-2._wp*Q*Qp*Mu) &
-       !      / (2._wp/Rtemp0*VRNeNs(m)*(1._wp+1._wp/VRTiTs(m))+Qp**2)**2 &
-       !      / (2._wp/Rtemp0*VRNeNs(m)*(1._wp+1._wp/VRTiTs(m))+Q**2+Qp**2-2._wp*Q*Qp*Mu)**2
-       ! Aux_BremL= Aux0*(sqrt(1._wp/(Rtemp0*(1._wp*Qp**2 &   ! b=e e a=e
-       !      + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &    
-       !      * exp(-Zlq**2/(Rtemp0*(1._wp*Qp**2 &
-       !      + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-       !      + sqrt(1._wp/(Rtemp0*(1._wp*Qp**2 &   ! b=e e a=i
-       !      + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-       !      * exp(-Zlq**2/(Rtemp0*(1._wp*Qp**2 &
-       !      + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-       !      + sqrt(1._wp/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &  !b=i e a=e
-       !      + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-       !      * exp(-Zlq**2/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &
-       !      + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-       !      + sqrt(1._wp/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &  !b=i e a=i
-       !      + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-       !      * exp(-Zlq**2/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &
-       !      + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))))
+       Aux0= 0._wp
+       Aux0= Qp**4*(Q**2+Qp**2-2._wp*Q*Qp*Mu) &
+            / (2._wp/Rtemp0*VRNeNs(m)*(1._wp+1._wp/VRTiTs(m))+Qp**2)**2 &
+            / (2._wp/Rtemp0*VRNeNs(m)*(1._wp+1._wp/VRTiTs(m))+Q**2+Qp**2-2._wp*Q*Qp*Mu)**2
+       Aux_BremL= Aux0*(sqrt(1._wp/(Rtemp0*(1._wp*Qp**2 &   ! b=e e a=e
+            + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &    
+            * exp(-Zlq**2/(Rtemp0*(1._wp*Qp**2 &
+            + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+            + sqrt(1._wp/(Rtemp0*(1._wp*Qp**2 &   ! b=e e a=i
+            + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+            * exp(-Zlq**2/(Rtemp0*(1._wp*Qp**2 &
+            + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+            + sqrt(1._wp/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &  !b=i e a=e
+            + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+            * exp(-Zlq**2/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &
+            + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+            + sqrt(1._wp/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &  !b=i e a=i
+            + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+            * exp(-Zlq**2/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &
+            + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))))
 
        return
      end function Aux_BremL
@@ -7950,8 +7982,8 @@ contains
      !   use Math_Constants
      !   use Phys_Constants
      !   implicit none
-     !   real :: P0,P1,P2,P3,t
-     !   real, dimension(nqx,nqz) :: ILp1,ILm1
+     !   real(wp) :: P0,P1,P2,P3,t
+     !   real(wp), dimension(nqx,nqz) :: ILp1,ILm1
      !   integer :: i,k,j,nuz2,isqr,ksqr
 
      !   call Locate(VQx,nqx,QxSqr,isqr)
@@ -8069,14 +8101,14 @@ contains
      !   ! ILp1=ILp
      !   ! DO i=isqr,nqx
      !   ! DO k=ksqr+1,1,-1
-     !   ! ILp1(i,k)=(0.5*ILp1(i-1,k)+1.5_wp*ILp1(i,k+1))/2.
+     !   ! ILp1(i,k)=(0.5*ILp1(i-1,k)+1.5_wp*ILp1(i,k+1))/2._wp
      !   ! END DO
      !   ! END DO
      !   ! !
      !   ! ILm1=ILm
      !   ! DO i=isqr,nqx
      !   ! DO k=ksqr+1,1,-1
-     !   ! ILm1(i,k)=(0.5*ILm1(i-1,k)+1.5_wp*ILm1(i,k+1))/2.
+     !   ! ILm1(i,k)=(0.5*ILm1(i-1,k)+1.5_wp*ILm1(i,k+1))/2._wp
      !   ! END DO
      !   ! END DO
      !   ! !
@@ -8154,7 +8186,7 @@ contains
      ! complex*16 function zfn(z)
      !   !c
      !   !c     Evaluates the plasma dispersion function (Fried and Conte 
-     !   !c     function) of complex argument with a relative error of 1.e-6.
+     !   !c     function) of complex argument with a relative error of 1.e-6_wp.
      !   !c
      !   !c     Algorithm: based closely on that described in Piero Barberio-
      !   !c                Corsetti 'Calculation of the Plasma Dispersion 
@@ -8303,19 +8335,20 @@ contains
    !---------------------------------------------------------------------
 
    program WT_LST
+     use,intrinsic :: iso_fortran_env, only: wp=>real64
      use Common_Params
      use Common_Arrays
      use Math_Constants
      use Phys_Constants
      use Sub_Prog
      implicit none
-     real :: DTau,Tau,Tau1,Tau2,TauAdd
-     real :: Dqx,Dqz,Dux,Duz
-     real :: Ewave0,Ewave,Epart0,Epart,EppEw0,EppEw
-     real :: EwaveL,EwaveS,EwaveT,EwaveTF,EwaveTH,EwaveT3
-     real :: Rn,Rp,Rw,Rs
-     real :: Qx,Qz
-     real :: Anorm0,Anorm
+     real(wp) :: DTau,Tau,Tau1,Tau2,TauAdd
+     real(wp) :: Dqx,Dqz,Dux,Duz
+     real(wp) :: Ewave0,Ewave,Epart0,Epart,EppEw0,EppEw
+     real(wp) :: EwaveL,EwaveS,EwaveT,EwaveTF,EwaveTH,EwaveT3
+     real(wp) :: Rn,Rp,Rw,Rs
+     real(wp) :: Qx,Qz
+     real(wp) :: Anorm0,Anorm
      integer :: Iflag,i,j
      integer :: it,Nitera 
      character(LEN=6) :: WaveType
