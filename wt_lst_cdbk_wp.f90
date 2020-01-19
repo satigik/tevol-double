@@ -4193,7 +4193,7 @@ contains
     return
   end subroutine Aux_Coef_Decay_z
 
-  real function ZL(Qx,Qz)
+  real(wp) function ZL(Qx,Qz)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4212,7 +4212,7 @@ contains
     return
   end function ZL
 
-  real function ZS(Qx,Qz)
+  real(wp) function ZS(Qx,Qz)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4232,7 +4232,7 @@ contains
     return
   end function ZS
 
-  real function ZT(Qx,Qz)
+  real(wp) function ZT(Qx,Qz)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4276,7 +4276,7 @@ contains
         real(wp), intent(in) :: X
        end function FUNC
     end interface
-    if(X1._wpeq.X2)then
+    if(X1.eq.X2)then
        open(98,FILE='Warning_Zbrac2.wt')
        write(98,*) 'You have to guess an initial range in zbrac'
        close(98)
@@ -4295,7 +4295,7 @@ contains
     return 
   end subroutine ZBRAC2
 
-  real function RTBIS(FUNC,X1,X2,XACC) 
+  real(wp) function RTBIS(FUNC,X1,X2,XACC) 
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     implicit none
     integer JMAX,J
@@ -4342,7 +4342,7 @@ contains
     stop
   end function RTBIS
 
-  real function Funcx_RcdLLS(Qxp)
+  real(wp) function Funcx_RcdLLS(Qxp)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4371,7 +4371,7 @@ contains
     return
   end function Funcx_RcdLLS
 
-  real function Funcx_RcdLLT(Qxp)
+  real(wp) function Funcx_RcdLLT(Qxp)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4400,7 +4400,7 @@ contains
     return
   end function Funcx_RcdLLT
 
-  real function Funcx_RcdLST(Qxp)
+  real(wp) function Funcx_RcdLST(Qxp)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4429,7 +4429,7 @@ contains
     return
   end function Funcx_RcdLST
 
-  real function Funcx_RcdLTT(Qxp)
+  real(wp) function Funcx_RcdLTT(Qxp)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4458,7 +4458,7 @@ contains
     return
   end function Funcx_RcdLTT
 
-  real function Funcx_RcdSLL(Qxp)
+  real(wp) function Funcx_RcdSLL(Qxp)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4487,7 +4487,7 @@ contains
     return
   end function Funcx_RcdSLL
 
-  real function Funcx_RcdSLT(Qxp)
+  real(wp) function Funcx_RcdSLT(Qxp)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4516,7 +4516,7 @@ contains
     return
   end function Funcx_RcdSLT
 
-  real function Funcx_RcdTLL(Qxp)
+  real(wp) function Funcx_RcdTLL(Qxp)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4545,7 +4545,7 @@ contains
     return
   end function Funcx_RcdTLL
 
-  real function Funcx_RcdTLS(Qxp)
+  real(wp) function Funcx_RcdTLS(Qxp)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -4574,7 +4574,7 @@ contains
     return
   end function Funcx_RcdTLS
 
-  real function Funcx_RcdTTL(Qxp)
+  real(wp) function Funcx_RcdTTL(Qxp)
     use,intrinsic:: iso_fortran_env, only: wp=>real64
     use Common_Params
     use Common_Arrays
@@ -6848,7 +6848,7 @@ contains
 !     real(wp) :: os,ost,st
 !     !      EXTERNAL func
 !     interface 
-!        real function FUNC(X)
+!        real(wp) function FUNC(X)
 !          real(wp), intent(in) :: X
 !        end function FUNC
 !     end interface
@@ -6880,7 +6880,7 @@ contains
 !     real(wp) :: del,suma,tnm,x
 !     !      EXTERNAL func
 !     interface 
-!        real function FUNC(X)
+!        real(wp) function FUNC(X)
 !          real(wp), intent(in) :: X
 !        end function FUNC
 !     end interface
@@ -6913,7 +6913,7 @@ contains
 !     real(wp) :: os,ost,st
 !     !      EXTERNAL func
 !     interface 
-!        real function FUNC(X)
+!        real(wp) function FUNC(X)
 !          real(wp), intent(in) :: X
 !        end function FUNC
 !     end interface
@@ -6951,7 +6951,7 @@ contains
 !     real(wp) :: del,sum,tnm,x,ddel,func
 !     !      EXTERNAL func
 !     interface 
-!        real function FUNK(X)
+!        real(wp) function FUNK(X)
 !          real(wp), intent(in) :: X
 !        end function FUNK
 !     end interface
@@ -7176,7 +7176,7 @@ contains
      end subroutine Derivy5p2d
      !
      !
-     real function PERF(X)
+     real(wp) function PERF(X)
        use,intrinsic :: iso_fortran_env, only: wp=>real64
        ! Error function of argument X, based on PERF
        ! (from R. L. Meyer, Universite de Nancy, Franca)
@@ -7201,7 +7201,7 @@ contains
        return
      end function PERF
 
-     real function PERFC(X)
+     real(wp) function PERFC(X)
        use,intrinsic :: iso_fortran_env, only: wp=>real64
        ! Complementary error function of argument X, based on PERF 
        ! (from R. L. Meyer, Universite de Nancy, Franca)
@@ -7216,10 +7216,11 @@ contains
             2.98635138197400131132E+02_wp,6.61191906371416294775E+01_wp,&
             8.88314979438837594118E+00_wp,5.64188496988670089180E-01_wp,&
             2.15311535474403846343E-08_wp/
-       data Q /1.23033935480374942043E_wp+03_wp,3.43936767414372163696E+03_wp,&
+       data Q /1.23033935480374942043E+03_wp,3.43936767414372163696E+03_wp,&
             4.36261909014324715820E+03_wp,3.29079923573345962678E+03_wp,&
             1.62138957456669018874E+03_wp,5.37181101862009857509E+02_wp,&
-            1.17693950891312499305E+02_wp,1.57449261107098347253E+01_wp,1._wp/
+            1.17693950891312499305E+02_wp,1.57449261107098347253E+01_wp,&
+            1._wp/
        data R /-6.58749161529837803157E-04_wp,-1.60837851487422766278E-02_wp,&
             -1.25781726111229246204E-01_wp,-3.60344899949804439429E-01_wp,&
             -3.05326634961232344035E-01_wp,-1.63153871373020978498E-02_wp/
@@ -7250,7 +7251,7 @@ contains
        return
      end function PERFC
 
-     real function PERFCE(X)
+     real(wp) function PERFCE(X)
        use,intrinsic :: iso_fortran_env, only: wp=>real64
        ! Evaluates EXP(X**2)*ERFC(X
        ! Based on DERFCE(X)
@@ -7495,7 +7496,7 @@ contains
 
        select case(Gcoll)
        case("Yes")
-          open(1,file="GcollL1D") !! one column file
+          open(1,file="GcollL") !! one column file
           ! Evaluation of the 1D expression:
           do i= 1,nqcd
              Q= VQQ(i)
@@ -7526,17 +7527,17 @@ contains
              ! GcollL1D(i)=-2.0_wp*Pi**(2.5)*VRNeNs(m)**4/VRTeTs(m)**3 &
              !      * Geff/Q2/Q*Res*(1._wp-RatioNf)/Zlq**3
              read(1,*) GcollL1D(i)
-             AuxSig=0._wp
-             do sigpm= -1,1,2
-                AuxSig=(sigpm*Zlq)**3
-                ! GcollL1D(i)=-2.0_wp*Pi**(2.5)*VRNeNs(m)**4/VRTeTs(m)**3 &
-                !      * Geff/Q2/Q*Res*(1._wp-RatioNf)/AuxSig
-                if (AuxSig > 0._wp) then
-                   GcollLp1D(i)= GcollL1D(i)
-                else
-                   GcollLm1D(i)= -GcollL1D(i)
-                end if
-             end do ! sigma
+             ! AuxSig=0._wp
+             ! do sigpm= -1,1,2
+             !    AuxSig=(sigpm*Zlq)**3
+             !    ! GcollL1D(i)=-2.0_wp*Pi**(2.5)*VRNeNs(m)**4/VRTeTs(m)**3 &
+             !    !      * Geff/Q2/Q*Res*(1._wp-RatioNf)/AuxSig
+             !    if (AuxSig > 0._wp) then
+             !       GcollLp1D(i)= GcollL1D(i)
+             !    else
+             !       GcollLm1D(i)= -GcollL1D(i)
+             !    end if
+             ! end do ! sigma
              !! For S waves !!
              call DQsimp(Aux_GcollS,1.E-4_wp,1._wp,Res1S)
              call DQsimpb(Aux_GcollS,1._wp,1.E30_wp,Res2S)
@@ -7595,7 +7596,7 @@ contains
        return
      end subroutine Coll_Damping
 
-     real function Aux_GcollL(Qp)
+     real(wp) function Aux_GcollL(Qp)
        use,intrinsic :: iso_fortran_env, only: wp=>real64
        use Common_Params
        use Common_Arrays
@@ -7647,7 +7648,7 @@ contains
        return
      end function Aux_GcollL
 
-     real function Aux_GcollS(Qp)
+     real(wp) function Aux_GcollS(Qp)
        use,intrinsic :: iso_fortran_env, only: wp=>real64
        use Common_Params
        use Common_Arrays
@@ -7786,7 +7787,7 @@ contains
                   * VRNeNs(m)**4/VRTeTs(m)*Geff**2/Q2*ResL
              ! BremL1D(i)= 96._wp*SQRT(pi)*VRNeNs(m)**5/Rtemp0**4 &
              !      * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResL           
-             read(1,*) VQQread(i),BremL1D(i)
+             ! read(1,*) BremL1D(i)
              BremS1D(i)= 96._wp*sqrt(pi)*(AA/2._wp*Q2*Q)*VRNeNs(m)**5/Rtemp0**4 &
                   * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResS
           end do
@@ -7799,16 +7800,6 @@ contains
        end select
 
        ! Evaluation of the 2D expression:
-      
-       
-       open(1,File="GcollL.wt")
-       do i= 1,nqx
-          read(1,*) ' '
-          do k= 1,nqz
-             read(1,*) VQxread(i),VQzread(k),GcollLp(i,k)
-          end do
-       end do
-       close(1)
        
        BremLm= 0._wp
        BremLp= 0._wp
@@ -7837,7 +7828,7 @@ contains
        return
      end subroutine Bremsstrahlung
 
-     real function Aux_BremL(Qp)
+     real(wp) function Aux_BremL(Qp)
        use,intrinsic :: iso_fortran_env, only: wp=>real64
        use Common_Params
        use Common_Arrays
@@ -7917,12 +7908,12 @@ contains
        return
      end function Aux_BremL
 
-     real function Aux_BremS(Qp)
+     real(wp) function Aux_BremS(Qp)
        use,intrinsic :: iso_fortran_env, only: wp=>real64
        use Common_Params
        use Common_Arrays
        use Math_Constants
-       use Qsimp_m
+       use DQsimp_m
        implicit none
        real(wp), intent(in) :: Qp
        real(wp) :: Zsq,Zlq,Rtemp0
