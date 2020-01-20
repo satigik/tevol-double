@@ -7704,7 +7704,7 @@ contains
        use Common_Arrays
        use Math_Constants
        use Phys_Constants
-       !use zetaFunc_m
+       use zetaFunc_m
        use DQsimp_m
        implicit none
        real(wp) :: Qx,Qz,Q2,Q
@@ -7770,7 +7770,7 @@ contains
                   * VRNeNs(m)**4/VRTeTs(m)*Geff**2/Q2*ResL
              ! BremL1D(i)= 96._wp*SQRT(pi)*VRNeNs(m)**5/Rtemp0**4 &
              !      * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResL           
-             read(1,*) BremL1D(i)
+             ! read(1,*) BremL1D(i)
              BremS1D(i)= 96._wp*sqrt(pi)*(AA/2._wp*Q2*Q)*VRNeNs(m)**5/Rtemp0**4 &
                   * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResS
           end do
@@ -7827,8 +7827,8 @@ contains
        real(wp) :: Aux,Aux0,Aux02
        real(wp) :: AuxA,AuxB,AuxA2,AuxB2
        integer :: m
-       complex(wp) :: Qp2EpsQp
-       complex(wp) :: Zeta
+       ! complex(wp) :: Qp2EpsQp
+       ! complex(wp) :: Zeta
 
        m= 1
        Rtemp0= Aux1_Bremss(1)
@@ -7866,28 +7866,32 @@ contains
        ! else
        !    Aux_BremL= 0.E0_wp
        ! end if
-       
-       Aux0= 0._wp
-       Aux0= Qp**4*(Q**2+Qp**2-2._wp*Q*Qp*Mu) &
-            / (2._wp/Rtemp0*VRNeNs(m)*(1._wp+1._wp/VRTiTs(m))+Qp**2)**2 &
-            / (2._wp/Rtemp0*VRNeNs(m)*(1._wp+1._wp/VRTiTs(m))+Q**2+Qp**2-2._wp*Q*Qp*Mu)**2
-       Aux_BremL= Aux0*(sqrt(1._wp/(Rtemp0*(1._wp*Qp**2 &   ! b=e e a=e
-            + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &    
-            * exp(-Zlq**2/(Rtemp0*(1._wp*Qp**2 &
-            + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-            + sqrt(1._wp/(Rtemp0*(1._wp*Qp**2 &   ! b=e e a=i
-            + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-            * exp(-Zlq**2/(Rtemp0*(1._wp*Qp**2 &
-            + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-            + sqrt(1._wp/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &  !b=i e a=e
-            + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-            * exp(-Zlq**2/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &
-            + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-            + sqrt(1._wp/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &  !b=i e a=i
-            + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
-            * exp(-Zlq**2/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &
-            + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))))
 
+       Aux0= 0._wp
+       if(Qp > 2.e-4_wp) then       
+          Aux0= Qp**4*(Q**2+Qp**2-2._wp*Q*Qp*Mu) &
+               / (2._wp/Rtemp0*VRNeNs(m)*(1._wp+1._wp/VRTiTs(m))+Qp**2)**2 &
+               / (2._wp/Rtemp0*VRNeNs(m)*(1._wp+1._wp/VRTiTs(m))+Q**2+Qp**2-2._wp*Q*Qp*Mu)**2
+          Aux_BremL= Aux0*(sqrt(1._wp/(Rtemp0*(1._wp*Qp**2 &   ! b=e e a=e
+               + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &    
+               * exp(-Zlq**2/(Rtemp0*(1._wp*Qp**2 &
+               + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+               + sqrt(1._wp/(Rtemp0*(1._wp*Qp**2 &   ! b=e e a=i
+               + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+               * exp(-Zlq**2/(Rtemp0*(1._wp*Qp**2 &
+               + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+               + sqrt(1._wp/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &  !b=i e a=e
+               + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+               * exp(-Zlq**2/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &
+               + 1._wp*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+               + sqrt(1._wp/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &  !b=i e a=i
+               + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))) &
+               * exp(-Zlq**2/(Rtemp0*(VRTiTs(m)/RMiMe*Qp**2 &
+               + VRTiTs(m)/RMiMe*(Q**2+Qp**2-2._wp*Q*Qp*Mu)))))
+       else
+          Aux_BremL= 0.E0_wp
+       end if
+       
        return
      end function Aux_BremL
 
