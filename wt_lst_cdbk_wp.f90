@@ -5411,15 +5411,15 @@ contains
           write(1,*)' '
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
-             write(1,*) -Qx,-Qz,-GcollLm(nqx+1-i,nqz+1-k),&
-                  BremLm(nqx+1-i,nqz+1-k)/GcollLm(nqx+1-i,nqz+1-k),&
-                  GcollLm(nqx+1-i,nqz+1-k)/GqlLm(nqx+1-i,nqz+1-k)
+             write(1,*) -Qx,-Qz,GcollLm(nqx+1-i,nqz+1-k)! ,&
+                  ! BremLm(nqx+1-i,nqz+1-k)/GcollLm(nqx+1-i,nqz+1-k),&
+                  ! GcollLm(nqx+1-i,nqz+1-k)/GqlLm(nqx+1-i,nqz+1-k)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
-             write(1,*) -Qx,Qz,GcollLp(nqx+1-i,k),&
-                  -BremLp(nqx+1-i,k)/GcollLp(nqx+1-i,k),&
-                  GcollLp(nqx+1-i,k)/GqlLp(nqx+1-i,k)
+             write(1,*) -Qx,Qz,GcollLp(nqx+1-i,k)! ,&
+                  ! -BremLp(nqx+1-i,k)/GcollLp(nqx+1-i,k),&
+                  ! GcollLp(nqx+1-i,k)/GqlLp(nqx+1-i,k)
           end do
        end do
        do i= 1,nqx,Step
@@ -5427,15 +5427,15 @@ contains
           write(1,*)' '
           do k= 1,nqz,Step
              Qz= VQz(nqz+1-k)
-             write(1,*) Qx,-Qz,-GcollLm(i,nqz+1-k),&
-                  BremLm(i,nqz+1-k)/GcollLm(i,nqz+1-k),&
-                  GcollLm(i,nqz+1-k)/GqlLm(i,nqz+1-k)
+             write(1,*) Qx,-Qz,GcollLm(i,nqz+1-k)! ,&
+                  ! BremLm(i,nqz+1-k)/GcollLm(i,nqz+1-k),&
+                  ! GcollLm(i,nqz+1-k)/GqlLm(i,nqz+1-k)
           end do
           do k= 1,nqz,Step
              Qz= VQz(k)
-             write(1,*) Qx,Qz,GcollLp(i,k), &
-                  -BremLp(i,k)/GcollLp(i,k), &
-                  GcollLp(i,k)/GqlLp(i,k)
+             write(1,*) Qx,Qz,GcollLp(i,k)! , &
+                  ! -BremLp(i,k)/GcollLp(i,k), &
+                  ! GcollLp(i,k)/GqlLp(i,k)
           end do
        end do
        close(1)
@@ -7521,23 +7521,9 @@ contains
              !    VintGcL(it)= Res1L+Res2L
              ! end do
              ! call Simpson(Vmu,VintGcL,nmu,Res)
-             ! call DQsimp(Aux_GcollL,1.E-4_wp,0.4_wp,Res1L)
-             ! call DQsimpb(Aux_GcollL,0.4_wp,1.E30_wp,Res2L)
-             ! Res= Res1L+Res2L
              ! GcollL1D(i)=-2.0_wp*Pi**(2.5)*VRNeNs(m)**4/VRTeTs(m)**3 &
              !      * Geff/Q2/Q*Res*(1._wp-RatioNf)/Zlq**3
              read(1,*) GcollL1D(i)
-             ! AuxSig=0._wp
-             ! do sigpm= -1,1,2
-             !    AuxSig=(sigpm*Zlq)**3
-             !    ! GcollL1D(i)=-2.0_wp*Pi**(2.5)*VRNeNs(m)**4/VRTeTs(m)**3 &
-             !    !      * Geff/Q2/Q*Res*(1._wp-RatioNf)/AuxSig
-             !    if (AuxSig > 0._wp) then
-             !       GcollLp1D(i)= GcollL1D(i)
-             !    else
-             !       GcollLm1D(i)= -GcollL1D(i)
-             !    end if
-             ! end do ! sigma
              !! For S waves !!
              call DQsimp(Aux_GcollS,1.E-4_wp,1._wp,Res1S)
              call DQsimpb(Aux_GcollS,1._wp,1.E30_wp,Res2S)
@@ -7577,9 +7563,9 @@ contains
              Q= sqrt(Q2)
              if(Q<=5.e-3_wp) Q=5.e-3_wp
              call Locate(VQQ,nqcd,Q,ires)
-             call Aitp1d2(nqcd,VQQ,GcollLp1D,Q,Aux,ires)
+             call Aitp1d2(nqcd,VQQ,GcollL1D,Q,Aux,ires)
              GcollLp(i,j)= Aux
-             call Aitp1d2(nqcd,VQQ,GcollLm1D,Q,Aux,ires)
+             call Aitp1d2(nqcd,VQQ,GcollL1D,Q,Aux,ires)
              GcollLm(i,j)= Aux
              call Aitp1d2(nqcd,VQQ,GqlL1D,Q,Aux,ires)
              GqlLp(i,j)= Aux
@@ -7754,7 +7740,7 @@ contains
 
        select case(Bremss)
        case("Yes")
-          ! open(1,file="BremL1D")  !! one column file
+          open(1,file="BremL")  !! one column file
           ! Evaluation of the 1D expression:
           sigma=1
           do i= 1,nqcd
@@ -7770,24 +7756,21 @@ contains
              do it= 1,nmu
                 Mu= Vmu(it)               
                 Aux1_Bremss(6)= Mu
-                call DQsimp(Aux_BremL,1.E-4_wp,4._wp,Res1L)
-                call DQsimpb(Aux_BremL,4._wp,Infinity,Res2L)
-                VintL(it)= Res1L+Res2L
+                ! call DQsimp(Aux_BremL,1.E-4_wp,4._wp,Res1L)
+                ! call DQsimpb(Aux_BremL,4._wp,Infinity,Res2L)
+                ! VintL(it)= Res1L+Res2L
                 call DQsimp(Aux_BremS,1.E-4_wp,4._wp,Res1s)
                 call DQsimpb(Aux_BremS,4._wp,Infinity,Res2S)
                 VintS(it)= Res1S+Res2S
              end do
-             call Simpson(Vmu,VintL,nmu,ResL)
+             ! call Simpson(Vmu,VintL,nmu,ResL)
              call Simpson(Vmu,VintS,nmu,ResS)
-             ! call DQsimp(Aux_BremL,1.E-4_wp,4._wp,Res1L)
-             ! call DQsimpb(Aux_BremL,4._wp,Infinity,Res2L)
-             ResL=Res1L+Res2L
              ! BremL1D(i)= 6.0_wp*Pi**1.5_wp/Zlq**2*VRNeNs(m)**4/VRTeTs(m)**2.5*Geff**2/Q2/Q2*ResL
-             BremL1D(i)=384._wp*sqrt(pi)/Zlq**2*(1._wp-1._wp/RMiMe/VRTiTs(m))**2 &
-                  * VRNeNs(m)**4/VRTeTs(m)*Geff**2/Q2*ResL
+             ! BremL1D(i)=384._wp*sqrt(pi)/Zlq**2*(1._wp-1._wp/RMiMe/VRTiTs(m))**2 &
+             !      * VRNeNs(m)**4/VRTeTs(m)*Geff**2/Q2*ResL
              ! BremL1D(i)= 96._wp*SQRT(pi)*VRNeNs(m)**5/Rtemp0**4 &
              !      * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResL           
-             ! read(1,*) BremL1D(i)
+             read(1,*) BremL1D(i)
              BremS1D(i)= 96._wp*sqrt(pi)*(AA/2._wp*Q2*Q)*VRNeNs(m)**5/Rtemp0**4 &
                   * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResS
           end do
