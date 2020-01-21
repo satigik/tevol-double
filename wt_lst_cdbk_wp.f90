@@ -7476,7 +7476,8 @@ contains
        integer, parameter :: nqp= 1024,nmu=64 !64 !odd
        real(wp), dimension(nmu) :: Vmu,VintGcL,VintGcS
        real(wp) :: AuxSig
-       real(wp), parameter :: Qi= 1.E-4_wp, Qf= 10.E0_wp
+       real(wp), parameter :: Qi= 1.E-4_wp, Qf= 6.E0_wp
+       !real(wp), parameter :: Qi= 1.E-4_wp, Qf= 1.E0_wp
 
        m= 1   ! Auxiliary to the space profiles (just one point, for the moment)
        RTemp0= VRTeTs(m)
@@ -7717,11 +7718,10 @@ contains
        integer :: i,j,it
        integer :: m,sigma,ires
        integer, parameter :: nqp= 1024,nmu= 64 !odd
-       real(wp), parameter :: Qi= 1.E-4_wp, Qf= 10.E0_wp
-       !real(wp), parameter :: Qi= 1.E0_wp, Qf= 1.E2_wp
+       real(wp), parameter :: Qi= 1.E-4_wp, Qf= 6.E0_wp
+       !real(wp), parameter :: Qi= 1.E-4_wp, Qf= 1.E0_wp
        real(wp), dimension(nmu) :: Vmu,VintL,VintS
        real(wp), dimension(nqx,nqz) :: BremssL,BremssS
-
 
        m= 1   ! Auxiliary to the space profiles (just one point, for the moment)
        RTemp0= VRTeTs(m)
@@ -7740,7 +7740,7 @@ contains
 
        select case(Bremss)
        case("Yes")
-          ! open(1,file="BremL")  !! one column file
+          open(1,file="BremL")  !! one column file
           ! Evaluation of the 1D expression:
           sigma=1
           do i= 1,nqcd
@@ -7756,25 +7756,25 @@ contains
              do it= 1,nmu
                 Mu= Vmu(it)               
                 Aux1_Bremss(6)= Mu
-                call DQsimp(Aux_BremL,1.E-4_wp,4._wp,Res1L)
-                call DQsimpb(Aux_BremL,4._wp,Infinity,Res2L)
-                VintL(it)= Res1L+Res2L
+                ! call DQsimp(Aux_BremL,1.E-4_wp,4._wp,Res1L)
+                ! call DQsimpb(Aux_BremL,4._wp,Infinity,Res2L)
+                ! VintL(it)= Res1L+Res2L
                 call DQsimp(Aux_BremS,1.E-4_wp,4._wp,Res1s)
                 call DQsimpb(Aux_BremS,4._wp,Infinity,Res2S)
                 VintS(it)= Res1S+Res2S
              end do
-             call Simpson(Vmu,VintL,nmu,ResL)
+             ! call Simpson(Vmu,VintL,nmu,ResL)
              call Simpson(Vmu,VintS,nmu,ResS)
-             ! BremL1D(i)= 6.0_wp*Pi**1.5_wp/Zlq**2*VRNeNs(m)**4/VRTeTs(m)**2.5*Geff**2/Q2/Q2*ResL
-             BremL1D(i)=384._wp*sqrt(pi)/Zlq**2*(1._wp-1._wp/RMiMe/VRTiTs(m))**2 &
-                  * VRNeNs(m)**4/VRTeTs(m)*Geff**2/Q2*ResL
-             ! BremL1D(i)= 96._wp*SQRT(pi)*VRNeNs(m)**5/Rtemp0**4 &
-             !      * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResL           
-             ! read(1,*) BremL1D(i)
+             ! ! BremL1D(i)= 6.0_wp*Pi**1.5_wp/Zlq**2*VRNeNs(m)**4/VRTeTs(m)**2.5*Geff**2/Q2/Q2*ResL
+             ! BremL1D(i)=384._wp*sqrt(pi)/Zlq**2*(1._wp-1._wp/RMiMe/VRTiTs(m))**2 &
+             !      * VRNeNs(m)**4/VRTeTs(m)*Geff**2/Q2*ResL
+             ! ! BremL1D(i)= 96._wp*SQRT(pi)*VRNeNs(m)**5/Rtemp0**4 &
+             ! !      * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResL           
+             read(1,*) BremL1D(i)
              BremS1D(i)= 96._wp*sqrt(pi)*(AA/2._wp*Q2*Q)*VRNeNs(m)**5/Rtemp0**4 &
                   * (1._wp-1._wp/VRTiTs(m)**2)**2*Geff**2/Q2*ResS
           end do
-          ! close(1)
+          close(1)
        case("No ")
           do i= 1,nuz
              BremL1D(i)= 0._wp
