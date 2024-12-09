@@ -1,3 +1,10 @@
+! This code was originally developed by Professor Luiz Fernando Ziebell
+! as part of his research at the Universidade Federal do Rio Grande do Sul,
+! Porto Alegre, Brazil (see https://www.if.ufrgs.br/~ziebell/).
+! Sabrina F. Tigik (https://orcid.org/0000-0002-5968-9637) contributed by
+! introducing collisional effects as part of her Masters and PhD researches;
+! both under Professor Ziebell's supervision.
+!
 ! Comments:
 ! 110205: Program to solve the time evolution of the equations for
 !       electrons, Langmuir waves, ion-sound waves, and transverse waves, in
