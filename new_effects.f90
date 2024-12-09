@@ -1,4 +1,9 @@
-  
+! Calculate the steady-state of Langmuir waves considering the
+! effects of electrostatic bremsstrahlung and collisional damping
+! for Maxwellian electron velocity distribution function
+! (see https://doi.org/10.1088/1361-6587/ab4aad).
+! Written by Sabrina F. Tigik.
+
 module common_params
   use,intrinsic:: iso_fortran_env, only: wp=>real64
   implicit none
